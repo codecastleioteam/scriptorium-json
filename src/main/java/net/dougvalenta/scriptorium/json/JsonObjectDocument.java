@@ -12,7 +12,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  *
  * @author Doug Valenta
  */
-public class JsonObjectDocument extends AbstractJsonObject<JsonObjectDocument> implements Closeable {
+public final class JsonObjectDocument extends AbstractJsonObject<JsonObjectDocument> implements Closeable {
 	
 	public JsonObjectDocument(final JsonScribe scribe) {
 		super(scribe);

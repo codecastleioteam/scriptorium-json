@@ -16,7 +16,7 @@ import net.dougvalenta.scriptorium.function.IOConsumer;
  */
 class AbstractJsonAppendable<THIS extends AbstractJsonAppendable<THIS>> implements JsonAppendable<THIS> {
 	
-	protected final JsonScribe scribe;
+	final JsonScribe scribe;
 	
 	AbstractJsonAppendable(final JsonScribe scribe) {
 		this.scribe = scribe;

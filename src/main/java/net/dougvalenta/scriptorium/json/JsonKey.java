@@ -13,7 +13,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  *
  * @author Doug Valenta
  */
-public class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
+public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 
 	private final P parent;
 	

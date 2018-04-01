@@ -12,7 +12,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  *
  * @author Doug Valenta
  */
-public class JsonArrayNode<P> extends CloseableJsonArray<JsonArrayNode<P>> implements FluentNode<P> {
+public final class JsonArrayNode<P> extends CloseableJsonArray<JsonArrayNode<P>> implements FluentNode<P> {
 
 	private final P parent;
 	

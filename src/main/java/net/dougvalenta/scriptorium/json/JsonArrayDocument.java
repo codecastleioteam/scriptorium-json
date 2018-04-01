@@ -10,7 +10,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  *
  * @author Doug Valenta
  */
-public class JsonArrayDocument extends CloseableJsonArray<JsonArrayDocument> {
+public final class JsonArrayDocument extends CloseableJsonArray<JsonArrayDocument> {
 	
 	
 	public JsonArrayDocument(final JsonScribe scribe) {

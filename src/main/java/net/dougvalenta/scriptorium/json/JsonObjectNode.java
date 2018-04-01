@@ -12,7 +12,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  *
  * @author Doug Valenta
  */
-public class JsonObjectNode<P> extends AbstractJsonObject<JsonObjectNode<P>> implements FluentNode<P> {
+public final class JsonObjectNode<P> extends AbstractJsonObject<JsonObjectNode<P>> implements FluentNode<P> {
 
 	private final P parent;
 	private int cursor;

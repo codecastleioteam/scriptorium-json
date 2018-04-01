@@ -17,8 +17,8 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  */
 class AbstractJsonObject<THIS extends AbstractJsonObject<THIS>> implements JsonObject<THIS> {
 	
-	protected final JsonScribe scribe;
-	protected final int cursor;
+	final JsonScribe scribe;
+	final int cursor;
 	
 	AbstractJsonObject(final JsonScribe scribe) {
 		this.scribe = scribe;
