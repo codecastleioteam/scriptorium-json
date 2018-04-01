@@ -36,6 +36,9 @@
 				<version>${javadoc.plugin.version}</version>
 				<configuration>
 					<reportOutputDirectory>${basedir}/docs</reportOutputDirectory>
+					<links>
+						<link>https://dougvalenta.github.io/scriptorium-core/apidocs</link>
+					</links>
 				</configuration>
 			</plugin>
 		</plugins>
