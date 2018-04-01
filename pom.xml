@@ -36,9 +36,12 @@
 				<version>${javadoc.plugin.version}</version>
 				<configuration>
 					<reportOutputDirectory>${basedir}/docs</reportOutputDirectory>
+					<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
+					<subpackages>net.dougvalenta.scriptorium.json</subpackages>
 					<links>
 						<link>https://dougvalenta.github.io/scriptorium-core/apidocs</link>
 					</links>
+					<notimestamp>true</notimestamp>
 				</configuration>
 			</plugin>
 		</plugins>
