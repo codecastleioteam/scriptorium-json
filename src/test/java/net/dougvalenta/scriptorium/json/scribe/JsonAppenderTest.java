@@ -26,12 +26,6 @@ public class JsonAppenderTest {
 		Assert.assertEquals(",", builder.toString());
 	}
 	
-	@Test(expected=IOException.class)
-	public void testAppendCommaWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendComma();
-	}
-	
 	@Test
 	public void testAppendCommaWithTrue() throws IOException {
 		final StringBuilder builder = new StringBuilder();
@@ -48,24 +42,12 @@ public class JsonAppenderTest {
 		Assert.assertEquals("", builder.toString());
 	}
 	
-	@Test(expected=IOException.class)
-	public void testAppendCommaWithTrueWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendComma(true);
-	}
-	
 	@Test
 	public void testAppendOpenBrace() throws IOException {
 		final StringBuilder builder = new StringBuilder();
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
 		appender.appendOpenBrace();
 		Assert.assertEquals("{", builder.toString());
-	}
-	
-	@Test(expected=IOException.class)
-	public void testAppendOpenBraceWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendOpenBrace();
 	}
 	
 	@Test
@@ -76,24 +58,12 @@ public class JsonAppenderTest {
 		Assert.assertEquals("}", builder.toString());
 	}
 	
-	@Test(expected=IOException.class)
-	public void testAppendCloseBraceWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendCloseBrace();
-	}
-	
 	@Test
 	public void testAppendOpenBracket() throws IOException {
 		final StringBuilder builder = new StringBuilder();
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
 		appender.appendOpenBracket();
 		Assert.assertEquals("[", builder.toString());
-	}
-	
-	@Test(expected=IOException.class)
-	public void testAppendOpenBracketWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendOpenBracket();
 	}
 	
 	@Test
@@ -104,24 +74,12 @@ public class JsonAppenderTest {
 		Assert.assertEquals("]", builder.toString());
 	}
 	
-	@Test(expected=IOException.class)
-	public void testAppendCloseBracketWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendCloseBracket();
-	}
-	
 	@Test
 	public void testAppendEmptyObject() throws IOException {
 		final StringBuilder builder = new StringBuilder();
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
 		appender.appendEmptyObject();
 		Assert.assertEquals("{}", builder.toString());
-	}
-	
-	@Test(expected=IOException.class)
-	public void testAppendEmptyObjectWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendEmptyObject();
 	}
 	
 	@Test
@@ -132,24 +90,12 @@ public class JsonAppenderTest {
 		Assert.assertEquals("[]", builder.toString());
 	}
 	
-	@Test(expected=IOException.class)
-	public void testAppendEmptyArrayWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendEmptyArray();
-	}
-	
 	@Test
 	public void testAppendQuote() throws IOException {
 		final StringBuilder builder = new StringBuilder();
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
 		appender.appendQuote();
 		Assert.assertEquals("\"", builder.toString());
-	}
-	
-	@Test(expected=IOException.class)
-	public void testAppendQuoteWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendQuote();
 	}
 	
 	@Test
@@ -160,24 +106,12 @@ public class JsonAppenderTest {
 		Assert.assertEquals("\":", builder.toString());
 	}
 	
-	@Test(expected=IOException.class)
-	public void testAppendCloseKeyWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendCloseKey();
-	}
-	
 	@Test
 	public void testAppendNull() throws IOException {
 		final StringBuilder builder = new StringBuilder();
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
 		appender.appendNull();
 		Assert.assertEquals("null", builder.toString());
-	}
-	
-	@Test(expected=IOException.class)
-	public void testAppendNullWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendNull();
 	}
 	
 	@Test
@@ -188,24 +122,12 @@ public class JsonAppenderTest {
 		Assert.assertEquals("true", builder.toString());
 	}
 	
-	@Test(expected=IOException.class)
-	public void testAppendTrueWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendTrue();
-	}
-	
 	@Test
 	public void testAppendFalse() throws IOException {
 		final StringBuilder builder = new StringBuilder();
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
 		appender.appendFalse();
 		Assert.assertEquals("false", builder.toString());
-	}
-	
-	@Test(expected=IOException.class)
-	public void testAppendFalseWithException() throws IOException {
-		final JsonAppender appender = new JsonAppender(new ThrowingAppendable(), new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendFalse();
 	}
 	
 	@Test
