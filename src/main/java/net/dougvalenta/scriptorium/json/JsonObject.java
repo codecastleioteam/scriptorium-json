@@ -26,8 +26,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the key to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 */
 	public THIS withNull(CharSequence key) throws IOException;
 	
@@ -42,11 +41,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the key to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see withFalse(CharSequence)
-	 * @see with(CharSequence, boolean)
-	 * @see with(CharSequence, Boolean)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withFalse(CharSequence)
+	 * @see #with(CharSequence, boolean)
+	 * @see #with(CharSequence, Boolean)
 	 */
 	public THIS withTrue(CharSequence key) throws IOException;
 	
@@ -61,11 +59,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the key to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see withTrue(CharSequence)
-	 * @see with(CharSequence, boolean)
-	 * @see with(CharSequence, Boolean)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withTrue(CharSequence)
+	 * @see #with(CharSequence, boolean)
+	 * @see #with(CharSequence, Boolean)
 	 */
 	public THIS withFalse(CharSequence key) throws IOException;
 	
@@ -84,12 +81,11 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see withNull(CharSequence)
-	 * @see withIfNotNull(CharSequence, CharSequence)
-	 * @see with(CharSequence, Character)
-	 * @see with(CharSequence, char)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, CharSequence)
+	 * @see #with(CharSequence, Character)
+	 * @see #with(CharSequence, char)
 	 * @see JsonKey#value(CharSequence)
 	 */
 	public THIS with(CharSequence key, CharSequence value) throws IOException;
@@ -107,10 +103,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, CharSequence)
-	 * @see with(CharSequence, Character)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, CharSequence)
+	 * @see #with(CharSequence, Character)
 	 * @see JsonKey#value(char)
 	 */
 	public THIS with(CharSequence key, char value) throws IOException;
@@ -131,12 +126,11 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see withNull(CharSequence)
-	 * @see withIfNotNull(CharSequence, Character)
-	 * @see with(CharSequence, CharSequence)
-	 * @see with(CharSequence, char)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Character)
+	 * @see #with(CharSequence, CharSequence)
+	 * @see #with(CharSequence, char)
 	 * @see JsonKey#value(Character)
 	 */
 	public default THIS with(final CharSequence key, final Character value) throws IOException {
@@ -160,10 +154,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull(CharSequence)
-	 * @see withIfNotNull(CharSequence, BigInteger)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, BigInteger)
 	 */
 	public THIS with(CharSequence key, BigInteger value) throws IOException;
 	
@@ -183,10 +176,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull(CharSequence)
-	 * @see withIfNotNull(CharSequence, BigDecimal)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, BigDecimal)
 	 */
 	public THIS with(CharSequence key, BigDecimal value) throws IOException;
 	
@@ -206,11 +198,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see withIfNotNull(CharSequence, Byte)
-	 * @see with(CharSequence, int)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Byte)
+	 * @see #with(CharSequence, int)
 	 */
 	public default THIS with(final CharSequence key, final Byte value) throws IOException {
 		if (value == null) return withNull(key);
@@ -233,11 +224,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see withIfNotNull(CharSequence, Short)
-	 * @see with(CharSequence, int)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Short)
+	 * @see #with(CharSequence, int)
 	 */
 	public default THIS with(final CharSequence key, final Short value) throws IOException {
 		if (value == null) return withNull(key);
@@ -260,11 +250,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see withIfNotNull(CharSequence, Integer)
-	 * @see with(CharSequence, int)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Integer)
+	 * @see #with(CharSequence, int)
 	 */
 	public default THIS with(final CharSequence key, final Integer value) throws IOException {
 		if (value == null) return withNull(key);
@@ -287,11 +276,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see withIfNotNull(CharSequence, Float)
-	 * @see with(CharSequence, float)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Float)
+	 * @see #with(CharSequence, float)
 	 */
 	public default THIS with(final CharSequence key, final Float value) throws IOException {
 		if (value == null) return withNull(key);
@@ -314,11 +302,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see withIfNotNull(CharSequence, Long)
-	 * @see with(CharSequence, long)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Long)
+	 * @see #with(CharSequence, long)
 	 */
 	public default THIS with(final CharSequence key, final Long value) throws IOException {
 		if (value == null) return withNull(key);
@@ -341,11 +328,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see withIfNotNull(CharSequence, Double)
-	 * @see with(CharSequence, double)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Double)
+	 * @see #with(CharSequence, double)
 	 */
 	public default THIS with(final CharSequence key, final Double value) throws IOException {
 		if (value == null) return withNull(key);
@@ -365,11 +351,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(CharSequence, Byte)
-	 * @see with(CharSequence, Short)
-	 * @see with(CharSequence, Integer)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Byte)
+	 * @see #with(CharSequence, Short)
+	 * @see #with(CharSequence, Integer)
 	 */
 	public THIS with(CharSequence key, int value) throws IOException;
 	
@@ -389,10 +374,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(CharSequence, Float)
-	 * @see withIfFinite(CharSequence, float)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Float)
+	 * @see #withIfFinite(CharSequence, float)
 	 */
 	public THIS with(CharSequence key, float value) throws IOException;
 	
@@ -409,9 +393,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(CharSequence, Long)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Long)
 	 */
 	public THIS with(CharSequence key, long value) throws IOException;
 	
@@ -431,10 +414,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(CharSequence, Double)
-	 * @see withIfFinite(CharSequence, double)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Double)
+	 * @see #withIfFinite(CharSequence, double)
 	 */
 	public THIS with(CharSequence key, double value) throws IOException;
 	
@@ -454,13 +436,12 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull(CharSequence)
-	 * @see withIfNotNull(CharSequence, Boolean)
-	 * @see with(CharSequence, boolean)
-	 * @see withTrue(CharSequence)
-	 * @see withFalse(CharSequence)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull(CharSequence)
+	 * @see #withIfNotNull(CharSequence, Boolean)
+	 * @see #with(CharSequence, boolean)
+	 * @see #withTrue(CharSequence)
+	 * @see #withFalse(CharSequence)
 	 */
 	public default THIS with(final CharSequence key, final Boolean value) throws IOException {
 		if (value == null) return withNull(key);
@@ -480,11 +461,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(CharSequence, Boolean)
-	 * @see withTrue(CharSequence)
-	 * @see withFalse(CharSequence)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Boolean)
+	 * @see #withTrue(CharSequence)
+	 * @see #withFalse(CharSequence)
 	 */
 	public THIS with(CharSequence key, boolean value) throws IOException;
 	
@@ -501,10 +481,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, CharSequence)
-	 * @see withIfNotNull(CharSequence, Character)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, CharSequence)
+	 * @see #withIfNotNull(CharSequence, Character)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final CharSequence value) throws IOException {
 		if (value != null) return with(key, value);
@@ -524,10 +503,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Character)
-	 * @see withIfNotNull(CharSequence, CharSequence)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Character)
+	 * @see #withIfNotNull(CharSequence, CharSequence)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Character value) throws IOException {
 		if (value != null) return with(key, (char) value);
@@ -547,9 +525,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, BigInteger)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, BigInteger)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final BigInteger value) throws IOException {
 		if (value != null) return with(key, value);
@@ -569,9 +546,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, BigDecimal)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, BigDecimal)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final BigDecimal value) throws IOException {
 		if (value != null) return with(key, value);
@@ -591,9 +567,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Byte)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Byte)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Byte value) throws IOException {
 		if (value != null) return with(key, (int) value);
@@ -613,9 +588,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Short)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Short)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Short value) throws IOException {
 		if (value != null) return with(key, (int) value);
@@ -635,9 +609,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Integer)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Integer)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Integer value) throws IOException {
 		if (value != null) return with(key, (int) value);
@@ -658,10 +631,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Float)
-	 * @see withIfFinite(CharSequence, float)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Float)
+	 * @see #withIfFinite(CharSequence, float)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Float value) throws IOException {
 		if (value != null) return withIfFinite(key, (float) value);
@@ -681,9 +653,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Long)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Long)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Long value) throws IOException {
 		if (value != null) return with(key, (long) value);
@@ -704,10 +675,9 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Double)
-	 * @see withIfFinite(CharSequence, float)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Double)
+	 * @see #withIfFinite(CharSequence, float)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Double value) throws IOException {
 		if (value != null) return withIfFinite(key, (double) value);
@@ -727,9 +697,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @param key the key to append
 	 * @param value the value to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see with(CharSequence, Boolean)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, Boolean)
 	 */
 	public default THIS withIfNotNull(final CharSequence key, final Boolean value) throws IOException {
 		if (value != null) return with(key, (boolean) value);
@@ -754,8 +723,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the key to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 */
 	public THIS withEmptyObject(CharSequence key) throws IOException;
 	
@@ -767,8 +735,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the key to append
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 */
 	public THIS withEmptyArray(CharSequence key) throws IOException;
 	
@@ -795,11 +762,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * will have already been appended to the underlying {@link Appendable}.
 	 * 
 	 * @return a JsonKey representing a new key of this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see key(char)
-	 * @see key(Character)
-	 * @see key(CharSequence)
+	 * @throws IOException if an I/O error occurs
+	 * @see #key(char)
+	 * @see #key(Character)
+	 * @see #key(CharSequence)
 	 */
 	public JsonKey<THIS> key() throws IOException;
 	
@@ -829,11 +795,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the first character of the new key
 	 * @return a JsonKey representing a new key of this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see key()
-	 * @see key(Character)
-	 * @see key(CharSequence)
+	 * @throws IOException if an I/O error occurs
+	 * @see #key()
+	 * @see #key(Character)
+	 * @see #key(CharSequence)
 	 */
 	public JsonKey<THIS> key(char key) throws IOException;
 	
@@ -866,11 +831,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the first character of the new key
 	 * @return a JsonKey representing a new key of this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see key()
-	 * @see key(Character)
-	 * @see key(CharSequence)
+	 * @throws IOException if an I/O error occurs
+	 * @see #key()
+	 * @see #key(Character)
+	 * @see #key(CharSequence)
 	 */
 	public default JsonKey<THIS> key(final Character key) throws IOException {
 		if (key == null) return key();
@@ -906,11 +870,10 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * 
 	 * @param key the first character of the new key
 	 * @return a JsonKey representing a new key of this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
-	 * {@link Appendable}
-	 * @see key()
-	 * @see key(Character)
-	 * @see key(CharSequence)
+	 * @throws IOException if an I/O error occurs
+	 * @see #key()
+	 * @see #key(Character)
+	 * @see #key(CharSequence)
 	 */
 	public JsonKey<THIS> key(CharSequence key) throws IOException;
 	

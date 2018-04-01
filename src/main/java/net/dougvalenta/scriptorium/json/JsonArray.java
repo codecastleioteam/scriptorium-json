@@ -20,7 +20,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * Appends a {@code null} literal element to the array and returns this object.
 	 * 
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying 
+	 * @throws IOException if an I/O error occurs
 	 * {@link Appendable}
 	 */
 	public THIS withNull() throws IOException;
@@ -29,11 +29,10 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * Appends a {@code true} literal element to the array and returns this object.
 	 * 
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withFalse()
-	 * @see with(boolean)
-	 * @see with(Boolean)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withFalse()
+	 * @see #with(boolean)
+	 * @see #with(Boolean)
 	 */
 	public THIS withTrue() throws IOException;
 	
@@ -41,11 +40,10 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * Appends a {@code false} literal element to the array and returns this object.
 	 * 
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withTrue()
-	 * @see with(boolean)
-	 * @see with(Boolean)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withTrue()
+	 * @see #with(boolean)
+	 * @see #with(Boolean)
 	 */
 	public THIS withFalse() throws IOException;
 	
@@ -53,19 +51,18 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * Appends a string literal element to the array and returns this object.
 	 * 
 	 * <p>
-	 * The contents of the provided {@link CharSequence} will be double-quoted and escaped.
+	 * The contents of the provided element will be double-quoted and escaped.
 	 * 
 	 * <p>
-	 * If the provided CharSequence is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the string to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(char)
-	 * @see element(CharSequence)
-	 * @see element()
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(char)
+	 * @see #element(CharSequence)
+	 * @see #element()
 	 */
 	public THIS with(CharSequence element) throws IOException;
 	
@@ -78,12 +75,11 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the character to append to the array as a string
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(Character)
-	 * @see with(CharSequence)
-	 * @see element(char)
-	 * @see element()
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(Character)
+	 * @see #with(CharSequence)
+	 * @see #element(char)
+	 * @see #element()
 	 */
 	public THIS with(char element) throws IOException;
 	
@@ -92,20 +88,19 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * returns this object.
 	 * 
 	 * <p>
-	 * The provided {@link Character} will be double-quoted and escaped.
+	 * The provided character will be double-quoted and escaped.
 	 * 
 	 * <p>
-	 * If the provided CharSequence is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the character to append to the array as a string
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(char)
-	 * @see with(CharSequence)
-	 * @see element(char)
-	 * @see element()
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(char)
+	 * @see #with(CharSequence)
+	 * @see #element(char)
+	 * @see #element()
 	 */
 	public default THIS with(final Character element) throws IOException {
 		if (element == null) return withNull();
@@ -117,13 +112,12 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link java.math.BigInteger} is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
 	 */
 	public THIS with(BigInteger element) throws IOException;
 	
@@ -132,13 +126,12 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link java.math.BigDecimal} is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
 	 */
 	public THIS with(BigDecimal element) throws IOException;
 	
@@ -147,14 +140,13 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link Byte} is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(byte)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(int)
 	 */
 	public default THIS with(final Byte element) throws IOException {
 		if (element == null) return withNull();
@@ -166,14 +158,13 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link Short} is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(short)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(int)
 	 */
 	public default THIS with(final Short element) throws IOException {
 		if (element == null) return withNull();
@@ -185,9 +176,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(Integer)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(Integer)
 	 */
 	public THIS with(int element) throws IOException;
 	
@@ -196,14 +186,13 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link Integer} is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(int)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(int)
 	 */
 	public default THIS with(final Integer element) throws IOException {
 		if (element == null) return withNull();
@@ -218,9 +207,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(Float)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(Float)
 	 */
 	public THIS with(float element) throws IOException;
 	
@@ -229,14 +217,13 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link Float} is null or not finite, a {@code null} literal element will be appended.
+	 * If the provided element is null or not finite, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(float)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(float)
 	 */
 	public default THIS with(final Float element) throws IOException {
 		if (element == null) return withNull();
@@ -248,9 +235,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(Long)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(Long)
 	 */
 	public THIS with(long element) throws IOException;
 	
@@ -259,14 +245,13 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link Long} is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(long)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(long)
 	 */
 	public default THIS with(final Long element) throws IOException {
 		if (element == null) return withNull();
@@ -281,9 +266,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(Double)
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(Double)
 	 */
 	public THIS with(double element) throws IOException;
 	
@@ -292,14 +276,13 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * this object.
 	 * 
 	 * <p>
-	 * If the provided {@link Double} is null or not finite, a {@code null} literal element will be appended.
+	 * If the provided element is null or not finite, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the number to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(double)
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(double)
 	 */
 	public default THIS with(final Double element) throws IOException {
 		if (element == null) return withNull();
@@ -311,11 +294,10 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the Boolean value to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see with(Boolean)
-	 * @see withTrue()
-	 * @see withFalse()
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(Boolean)
+	 * @see #withTrue()
+	 * @see #withFalse()
 	 */
 	public THIS with(boolean element) throws IOException;
 	
@@ -323,16 +305,15 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * Appends a Boolean literal element to the array and returns this object.
 	 * 
 	 * <p>
-	 * If the provided {@link Boolean} is null, a {@code null} literal element will be appended.
+	 * If the provided element is null, a {@code null} literal element will be appended.
 	 * 
 	 * @param element the Boolean value to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withNull()
-	 * @see with(boolean)
-	 * @see withTrue()
-	 * @see withFalse() 
+	 * @throws IOException if an I/O error occurs
+	 * @see #withNull()
+	 * @see #with(boolean)
+	 * @see #withTrue()
+	 * @see #withFalse() 
 	 */
 	public default THIS with(final Boolean element) throws IOException {
 		if (element == null) return withNull();
@@ -342,50 +323,66 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	/**
 	 * Appends the provided elements to the array and returns this object.
 	 * 
+	 * <p>
 	 * Any null elements will be appended as {@code null} literals.
 	 * 
+	 * <p>
 	 * Any non-null {@link CharSequence} or {@link Character} elements will be appended
 	 * as double-quoted and escaped string literals.
 	 * 
+	 * <p>
 	 * Any non-null {@link Byte}, {@link Short}, {@link Integer}, {@link Float},
-	 * {@link Long}, {@link Double}, {@link BigInteger}, {@link BigDecimal},
-	 * {@link AtomicInteger}, or {@link AtomicLong} elements will be appended as
-	 * numeric literals.
+	 * {@link Long}, {@link Double}, {@link BigInteger}, or {@link BigDecimal}
+	 * elements will be appended as numeric literals.
 	 * 
+	 * <p>
 	 * Any non-null {@link Boolean} elements will be appended as Boolean value literals.
 	 * 
+	 * <p>
+	 * Non-null elements of any other type will result in an {@link IllegalArgumentException}.
+	 * 
+	 * <p>
 	 * If {@code elements} is null or empty, this method has no effect.
 	 * 
 	 * @param elements to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withAll(Iterable)
+	 * @throws IOException if an I/O error occurs
+	 * @throws IllegalArgumentException if a non-null element of an unsupported type is
+	 * provided
+	 * @see #withAll(Iterable)
 	 */
 	public THIS withAll(Object... elements) throws IOException;
 	
 	/**
 	 * Appends the provided elements to the array and returns this object.
 	 * 
+	 * <p>
 	 * Any null elements will be appended as {@code null} literals.
 	 * 
+	 * <p>
 	 * Any non-null {@link CharSequence} or {@link Character} elements will be appended
 	 * as double-quoted and escaped string literals.
 	 * 
+	 * <p>
 	 * Any non-null {@link Byte}, {@link Short}, {@link Integer}, {@link Float},
-	 * {@link Long}, {@link Double}, {@link BigInteger}, {@link BigDecimal},
-	 * {@link AtomicInteger}, or {@link AtomicLong} elements will be appended as
-	 * numeric literals.
+	 * {@link Long}, {@link Double}, {@link BigInteger}, or {@link BigDecimal}
+	 * elements will be appended as numeric literals.
 	 * 
+	 * <p>
 	 * Any non-null {@link Boolean} elements will be appended as Boolean value literals.
 	 * 
+	 * <p>
+	 * Non-null elements of any other type will result in an {@link IllegalArgumentException}.
+	 * 
+	 * <p>
 	 * If {@code elements} is null or empty, this method has no effect.
 	 * 
 	 * @param elements to append to the array
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 * @see withAll(Object...)
+	 * @throws IOException if an I/O error occurs
+	 * @throws IllegalArgumentException if a non-null element of an unsupported type is
+	 * provided
+	 * @see #withAll(Object...) 
 	 */
 	public THIS withAll(Iterable<?> elements) throws IOException;
 	
@@ -393,8 +390,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * Appends an empty JSON array as an element of this array and returns this object.
 	 * 
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 */
 	public THIS withEmptyArray() throws IOException;
 	
@@ -402,8 +398,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * Appends an empty JSON object as an element of this array and returns this object.
 	 * 
 	 * @return this object
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 */
 	public THIS withEmptyObject() throws IOException;
 	
@@ -425,14 +420,13 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * will have already been appended to the underlying {@link Appendable}.
 	 * 
 	 * @return a JsonValue representing a new string literal element of this array
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 * @see JsonValue
-	 * @see element(CharSequence)
-	 * @see element(char)
-	 * @see with(CharSequence)
-	 * @see with(Character)
-	 * @see with(char)
+	 * @see #element(CharSequence)
+	 * @see #element(char)
+	 * @see #with(CharSequence)
+	 * @see #with(Character)
+	 * @see #with(char)
 	 */
 	public JsonValue<THIS> element() throws IOException;
 	
@@ -460,13 +454,12 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the beginning characters of the new string literal element
 	 * @return a JsonValue representing a new string literal element of this array
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 * @see JsonValue
-	 * @see element()
-	 * @see element(Character)
-	 * @see element(char)
-	 * @see with(CharSequence)
+	 * @see #element()
+	 * @see #element(Character)
+	 * @see #element(char)
+	 * @see #with(CharSequence)
 	 */
 	public JsonValue<THIS> element(CharSequence element) throws IOException;
 	
@@ -491,12 +484,11 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the first character of the new string literal element
 	 * @return a JsonValue representing a new string literal element of this array
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 * @see JsonValue
-	 * @see element()
-	 * @see element(CharSequence)
-	 * @see with(char)
+	 * @see #element()
+	 * @see #element(CharSequence)
+	 * @see #with(char)
 	 */
 	public JsonValue<THIS> element(char element) throws IOException;
 	
@@ -524,12 +516,11 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * 
 	 * @param element the first character of the new string literal element
 	 * @return a JsonValue representing a new string literal element of this array
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
 	 * @see JsonValue
-	 * @see element()
-	 * @see element(CharSequence)
-	 * @see with(char)
+	 * @see #element()
+	 * @see #element(CharSequence)
+	 * @see #with(char)
 	 */
 	public default JsonValue<THIS> element(final Character element) throws IOException {
 		if (element == null) return element();
@@ -554,8 +545,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * will have already been appended to the underlying {@link Appendable}
 	 * 
 	 * @return a {@link JsonArrayNode} representing the new JSON array element 
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
+	 * @see #withEmptyArray()
 	 */
 	public JsonArrayNode<THIS> array() throws IOException;
 	
@@ -577,8 +568,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * will have already been appended to the underlying {@link Appendable}
 	 * 
 	 * @return a {@link JsonObjectNode} representing the new JSON object element
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
+	 * @throws IOException if an I/O error occurs
+	 * @see #withEmptyObject()
 	 */
 	public JsonObjectNode<THIS> object() throws IOException;
 	
