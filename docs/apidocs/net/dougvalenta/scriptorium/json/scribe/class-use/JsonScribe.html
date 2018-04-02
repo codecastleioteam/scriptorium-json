@@ -144,99 +144,175 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyArray--">emptyArray</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-char-">append</a></span>(char&nbsp;character)</code>
+<div class="block">Outputs the provided character as a JSON string and returns this object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyObject--">emptyObject</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-">append</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;sequence)</code>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#falseValue--">falseValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-int-int-">append</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;sequence,
+      int&nbsp;start,
+      int&nbsp;end)</code>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#key-java.lang.CharSequence-">key</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyArray--">emptyArray</a></span>()</code>
+<div class="block">Outputs an empty JSON array, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#nullValue--">nullValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyObject--">emptyObject</a></span>()</code>
+<div class="block">Outputs an empty JSON object, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--">pop</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#falseValue--">falseValue</a></span>()</code>
+<div class="block">Outputs a Boolean <code>false</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop-int-">pop</a></span>(int&nbsp;cursor)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#key-java.lang.CharSequence-">key</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key)</code>
+<div class="block">Outputs a JSON key containing the contents of the provided key, preceded
+ by a comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushArray--">pushArray</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#nullValue--">nullValue</a></span>()</code>
+<div class="block">Outputs a <code>null</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--">pushKey</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--">pop</a></span>()</code>
+<div class="block">Returns to the previous scribe state and returns this object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushObject--">pushObject</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop-int-">pop</a></span>(int&nbsp;cursor)</code>
+<div class="block">Returns the scribe to the state represented by the cursor and returns this object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--">pushValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushArray--">pushArray</a></span>()</code>
+<div class="block">Outputs the opening bracket of a JSON array, preceded by a comma if necessary,
+ and returns this object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#trueValue--">trueValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--">pushKey</a></span>()</code>
+<div class="block">Outputs the opening quotation mark of a JSON key, preceded by a
+ comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigDecimal-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html?is-external=true" title="class or interface in java.math">BigDecimal</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushObject--">pushObject</a></span>()</code>
+<div class="block">Outputs the opening brace of a JSON object, preceded by a comma if necessary,
+ and returns this object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigInteger-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html?is-external=true" title="class or interface in java.math">BigInteger</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--">pushValue</a></span>()</code>
+<div class="block">Outputs the opening quotation mark of a JSON string literal, preceded by a
+ comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-boolean-">value</a></span>(boolean&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#trueValue--">trueValue</a></span>()</code>
+<div class="block">Outputs a Boolean <code>true</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-byte-">value</a></span>(byte&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigDecimal-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html?is-external=true" title="class or interface in java.math">BigDecimal</a>&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-char-">value</a></span>(char&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigInteger-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html?is-external=true" title="class or interface in java.math">BigInteger</a>&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.CharSequence-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-boolean-">value</a></span>(boolean&nbsp;value)</code>
+<div class="block">Outputs a Boolean literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-double-">value</a></span>(double&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-char-">value</a></span>(char&nbsp;value)</code>
+<div class="block">Outputs a single-character string literal containing the provided value, preceded
+ by a comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-float-">value</a></span>(float&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.CharSequence-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;value)</code>
+<div class="block">Outputs a string literal containing the contents of the provided value, preceded
+ by a comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-int-">value</a></span>(int&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-double-">value</a></span>(double&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-long-">value</a></span>(long&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-float-">value</a></span>(float&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.Object-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-int-">value</a></span>(int&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-short-">value</a></span>(short&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-long-">value</a></span>(long&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
+<td class="colLast"><span class="typeNameLabel">JsonScribe.</span><code><span class="memberNameLink"><a href="../../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.Object-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Outputs a value literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 </tbody>
 </table>
