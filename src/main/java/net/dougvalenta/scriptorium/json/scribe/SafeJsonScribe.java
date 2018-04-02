@@ -54,6 +54,7 @@ public class SafeJsonScribe implements JsonScribe {
 	public SafeJsonScribe emptyObject() throws IOException {
 		beforeNode();
 		appender.appendEmptyObject();
+		comma=true;
 		return this;
 	}
 	
@@ -109,7 +110,7 @@ public class SafeJsonScribe implements JsonScribe {
 	public SafeJsonScribe value(final Object value) throws IOException {
 		if (value == null) return nullValue();
 		if (value instanceof CharSequence) return value((CharSequence) value);
-		if (value instanceof Character) return value((Character) value);
+		if (value instanceof Character) return value((char) value);
 		if (value instanceof BigInteger) return value((BigInteger) value);
 		if (value instanceof BigDecimal) return value((BigDecimal) value);
 		if (value instanceof Byte) return value((int) value);
@@ -155,22 +156,6 @@ public class SafeJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public SafeJsonScribe value(final byte value) throws IOException {
-		beforeNode();
-		appender.appendNumber(value);
-		comma = true;
-		return this;
-	}
-	
-	@Override
-	public SafeJsonScribe value(final short value) throws IOException {
-		beforeNode();
-		appender.appendNumber(value);
-		comma = true;
-		return this;
-	}
-	
-	@Override
 	public SafeJsonScribe value(final int value) throws IOException {
 		beforeNode();
 		appender.appendNumber(value);
@@ -182,6 +167,7 @@ public class SafeJsonScribe implements JsonScribe {
 	public SafeJsonScribe value(final float value) throws IOException {
 		if (!Float.isFinite(value)) return nullValue();
 		beforeNode();
+		appender.appendNumber(value);
 		comma = true;
 		return this;
 	}
@@ -198,6 +184,7 @@ public class SafeJsonScribe implements JsonScribe {
 	public SafeJsonScribe value(final double value) throws IOException {
 		if (!Double.isFinite(value)) return nullValue();
 		beforeNode();
+		appender.appendNumber(value);
 		comma = true;
 		return this;
 	}
@@ -288,7 +275,7 @@ public class SafeJsonScribe implements JsonScribe {
 			default:
 				throw new IllegalStateException("Not a key or value");
 		}
-		appender.escape(sequence);
+		appender.escape(sequence, start, end);
 		return this;
 	}
 	
