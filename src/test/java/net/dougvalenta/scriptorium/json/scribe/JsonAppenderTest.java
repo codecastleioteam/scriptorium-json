@@ -168,7 +168,7 @@ public class JsonAppenderTest {
 	public void testAppendNumberWithFloat() throws IOException {
 		final StringBuilder builder = new StringBuilder();
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendNumber(0.12345);
+		appender.appendNumber(0.12345f);
 		Assert.assertEquals("0.12345", builder.toString());
 	}
 	
@@ -178,6 +178,22 @@ public class JsonAppenderTest {
 		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
 		appender.appendNumber(0.123456789);
 		Assert.assertEquals("0.123456789", builder.toString());
+	}
+	
+	@Test
+	public void testAppendBooleanWithTrue() throws IOException {
+		final StringBuilder builder = new StringBuilder();
+		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
+		appender.appendBoolean(true);
+		Assert.assertEquals("true", builder.toString());
+	}
+	
+	@Test
+	public void testAppendBooleanWithFalse() throws IOException {
+		final StringBuilder builder = new StringBuilder();
+		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
+		appender.appendBoolean(false);
+		Assert.assertEquals("false", builder.toString());
 	}
 	
 	@Test

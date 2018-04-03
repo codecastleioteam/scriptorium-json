@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -135,119 +135,189 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyArray--">emptyArray</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-char-">append</a></span>(char&nbsp;character)</code>
+<div class="block">Outputs the provided character as a JSON string and returns this object.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyObject--">emptyObject</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-">append</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;sequence)</code>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#falseValue--">falseValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-int-int-">append</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;sequence,
+      int&nbsp;start,
+      int&nbsp;end)</code>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#getCursor--">getCursor</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#close--">close</a></span>()</code>
+<div class="block">Returns the scribe to its initial state.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#key-java.lang.CharSequence-">key</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyArray--">emptyArray</a></span>()</code>
+<div class="block">Outputs an empty JSON array, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#nullValue--">nullValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyObject--">emptyObject</a></span>()</code>
+<div class="block">Outputs an empty JSON object, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--">pop</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#falseValue--">falseValue</a></span>()</code>
+<div class="block">Outputs a Boolean <code>false</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop-int-">pop</a></span>(int&nbsp;cursor)</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#getCursor--">getCursor</a></span>()</code>
+<div class="block">Returns a cursor representing the current state of the scribe.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushArray--">pushArray</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#key-java.lang.CharSequence-">key</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key)</code>
+<div class="block">Outputs a JSON key containing the contents of the provided key, preceded
+ by a comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--">pushKey</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#nullValue--">nullValue</a></span>()</code>
+<div class="block">Outputs a <code>null</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushObject--">pushObject</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--">pop</a></span>()</code>
+<div class="block">Returns to the previous scribe state and returns this object.</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--">pushValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop-int-">pop</a></span>(int&nbsp;cursor)</code>
+<div class="block">Returns the scribe to the state represented by the cursor and returns this object.</div>
+</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#trueValue--">trueValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushArray--">pushArray</a></span>()</code>
+<div class="block">Outputs the opening bracket of a JSON array, preceded by a comma if necessary,
+ and returns this object.</div>
+</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigDecimal-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html?is-external=true" title="class or interface in java.math">BigDecimal</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--">pushKey</a></span>()</code>
+<div class="block">Outputs the opening quotation mark of a JSON key, preceded by a
+ comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigInteger-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html?is-external=true" title="class or interface in java.math">BigInteger</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushObject--">pushObject</a></span>()</code>
+<div class="block">Outputs the opening brace of a JSON object, preceded by a comma if necessary,
+ and returns this object.</div>
+</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-boolean-">value</a></span>(boolean&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--">pushValue</a></span>()</code>
+<div class="block">Outputs the opening quotation mark of a JSON string literal, preceded by a
+ comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-byte-">value</a></span>(byte&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#trueValue--">trueValue</a></span>()</code>
+<div class="block">Outputs a Boolean <code>true</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-char-">value</a></span>(char&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigDecimal-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html?is-external=true" title="class or interface in java.math">BigDecimal</a>&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.CharSequence-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigInteger-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html?is-external=true" title="class or interface in java.math">BigInteger</a>&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-double-">value</a></span>(double&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-boolean-">value</a></span>(boolean&nbsp;value)</code>
+<div class="block">Outputs a Boolean literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-float-">value</a></span>(float&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-char-">value</a></span>(char&nbsp;value)</code>
+<div class="block">Outputs a single-character string literal containing the provided value, preceded
+ by a comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-int-">value</a></span>(int&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.CharSequence-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;value)</code>
+<div class="block">Outputs a string literal containing the contents of the provided value, preceded
+ by a comma if necessary, and returns this object.</div>
+</td>
 </tr>
 <tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-long-">value</a></span>(long&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-double-">value</a></span>(double&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.Object-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-float-">value</a></span>(float&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-short-">value</a></span>(short&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-int-">value</a></span>(int&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-long-">value</a></span>(long&nbsp;value)</code>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
+<td class="colFirst"><code><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.Object-">value</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Outputs a value literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.net.dougvalenta.scriptorium.FluentAppendable">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;net.dougvalenta.scriptorium.<a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentAppendable</a></h3>
-<code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true#append-char-" title="class or interface in net.dougvalenta.scriptorium">append</a>, <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true#append-java.lang.CharSequence-" title="class or interface in net.dougvalenta.scriptorium">append</a>, <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true#append-java.lang.CharSequence-int-int-" title="class or interface in net.dougvalenta.scriptorium">append</a></code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.java.io.Closeable">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;java.io.<a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></h3>
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true#close--" title="class or interface in java.io">close</a></code></li>
-</ul>
 </li>
 </ul>
 </li>
@@ -270,9 +340,21 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>emptyArray</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;emptyArray()
                throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs an empty JSON array, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushArray--"><code>pushArray()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -284,9 +366,24 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>pushArray</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;pushArray()
               throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs the opening bracket of a JSON array, preceded by a comma if necessary,
+ and returns this object.
+ 
+ <p>
+ After a call to this method, a call to <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--"><code>pop()</code></a> will output the closing
+ bracket of the array and return the scribe to its previous state.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ A JSON array fragment may be formed by calling this method on a new scribe.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -298,9 +395,23 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>pushValue</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;pushValue()
               throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs the opening quotation mark of a JSON string literal, preceded by a
+ comma if necessary, and returns this object.
+ 
+ <p>
+ After a call to this method, a call to <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--"><code>pop()</code></a> will output the closing
+ quotation mark of the string and return the scribe to its previous state.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -312,9 +423,24 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a string literal containing the contents of the provided value, preceded
+ by a comma if necessary, and returns this object.
+ 
+ <p>
+ The contents of the provided value will be quoted and escaped.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the value to append. The contents will be quoted and escaped.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -326,9 +452,24 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(char&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a single-character string literal containing the provided value, preceded
+ by a comma if necessary, and returns this object.
+ 
+ <p>
+ The provided value will be quoted and escaped.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the value to append. The character will be quoted and escaped.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -340,9 +481,21 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html?is-external=true" title="class or interface in java.math">BigInteger</a>&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the numeric value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -354,37 +507,21 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html?is-external=true" title="class or interface in java.math">BigDecimal</a>&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the numeric value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="value-byte-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>value</h4>
-<pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(byte&nbsp;value)
-          throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="value-short-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>value</h4>
-<pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(short&nbsp;value)
-          throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -396,9 +533,21 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(int&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the numeric value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -410,9 +559,26 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(float&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ If the provided value is not finite, a <code>null</code> literal will be appended instead.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the numeric value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#nullValue--"><code>nullValue()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -424,9 +590,21 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(long&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the numeric value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -438,9 +616,26 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(double&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ If the provided value is not finite, a <code>null</code> literal will be appended instead.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the numeric value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#nullValue--"><code>nullValue()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -452,9 +647,24 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(boolean&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a Boolean literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - the Boolean value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#trueValue--"><code>trueValue()</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#falseValue--"><code>falseValue()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -466,9 +676,30 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>value</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;value(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)
           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a value literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ Implementations should dispatch to type-specific overloads based on the runtime
+ type of the provided argument. <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html?is-external=true" title="class or interface in java.lang"><code>Byte</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html?is-external=true" title="class or interface in java.lang"><code>Short</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang"><code>Integer</code></a>, 
+ <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html?is-external=true" title="class or interface in java.lang"><code>Float</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html?is-external=true" title="class or interface in java.lang"><code>Double</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html?is-external=true" title="class or interface in java.lang"><code>Character</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang"><code>Boolean</code></a>
+ arguments should be auto-unboxed.
+ 
+ <p>
+ Null arguments of any type should output <code>null</code> literals.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the runtime type of a non-null argument is
+ not supported</dd>
 </dl>
 </li>
 </ul>
@@ -480,9 +711,19 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>nullValue</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;nullValue()
               throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a <code>null</code> literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -494,9 +735,22 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>trueValue</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;trueValue()
               throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a Boolean <code>true</code> literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#falseValue--"><code>falseValue()</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-boolean-"><code>value(boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -508,9 +762,22 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>falseValue</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;falseValue()
                throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a Boolean <code>false</code> literal, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#trueValue--"><code>trueValue()</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-boolean-"><code>value(boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -522,9 +789,21 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>emptyObject</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;emptyObject()
                 throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs an empty JSON object, preceded by a comma if necessary, and returns this
+ object.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushObject--"><code>pushObject()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -536,9 +815,24 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>pushObject</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;pushObject()
                throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs the opening brace of a JSON object, preceded by a comma if necessary,
+ and returns this object.
+ 
+ <p>
+ After a call to this method, a call to <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--"><code>pop()</code></a> will output the closing
+ brace of the object and return the scribe to its previous state.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the array state, or when in the object state immediately following a key.
+ A JSON object document may be formed by calling this method on a new scribe.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -550,9 +844,23 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>pushKey</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;pushKey()
             throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs the opening quotation mark of a JSON key, preceded by a
+ comma if necessary, and returns this object.
+ 
+ <p>
+ After a call to this method, a call to <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--"><code>pop()</code></a> will output the closing
+ quotation mark of the key followed by a colon, and return the scribe to its previous state.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the object state.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -564,9 +872,24 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>key</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;key(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key)
         throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs a JSON key containing the contents of the provided key, preceded
+ by a comma if necessary, and returns this object.
+ 
+ <p>
+ The contents of the provided key will be quoted and escaped, and followed by a colon.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called when
+ in the object state.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - the key to append. The contents will be quoted and escaped, and followed by a colon.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -578,9 +901,29 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <h4>pop</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;pop()
         throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Returns to the previous scribe state and returns this object.
+ 
+ <p>
+ When the scribe is in the array state, a call to this method outputs a closing bracket.
+ 
+ <p>
+ When the scribe is in the object state, a call to this method outputs a closing brace.
+ 
+ <p>
+ When the scribe is in the value state, a call to this method outputs a quotation mark.
+ 
+ <p>
+ When the scribe is in the key state, a call to this method outputs a quotation mark
+ followed by a colon.
+ 
+ <p>
+ If this method is called without being preceded by a corresponding call to a
+ <code>push*()</code> method, implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a></div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -591,19 +934,178 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <li class="blockList">
 <h4>getCursor</h4>
 <pre>int&nbsp;getCursor()</pre>
+<div class="block">Returns a cursor representing the current state of the scribe.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a cursor</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop-int-"><code>pop(int)</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="pop-int-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>pop</h4>
 <pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;pop(int&nbsp;cursor)
         throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Returns the scribe to the state represented by the cursor and returns this object.
+ 
+ <p>
+ Characters will be output as though <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--"><code>pop()</code></a> were called in succession until
+ the desired state was reached.
+ 
+ <p>
+ Implementations <b>may</b> throw <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if the provided
+ cursor represents an invalid state, or a state that has already been popped.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cursor</code> - a cursor previously returned by <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#getCursor--"><code>getCursor()</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#getCursor--"><code>getCursor()</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--"><code>pop()</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#close--"><code>close()</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="close--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>close</h4>
+<pre>void&nbsp;close()
+    throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Returns the scribe to its initial state.
+ 
+ <p>
+ Characters will be output as though <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--"><code>pop()</code></a> were called in succession until
+ the initial state was reached.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true#close--" title="class or interface in java.lang">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true#close--" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+</dl>
+</li>
+</ul>
+<a name="append-java.lang.CharSequence-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>append</h4>
+<pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;append(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;sequence)
+           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object. 
+ 
+ <p>
+ The contents of the sequence will be escaped.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called after
+ a call to <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--"><code>pushValue()</code></a> or <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--"><code>pushKey()</code></a>.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true#append-java.lang.CharSequence-" title="class or interface in java.lang">append</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true#append-java.lang.CharSequence-" title="class or interface in net.dougvalenta.scriptorium">append</a></code>&nbsp;in interface&nbsp;<code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentAppendable</a>&lt;<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sequence</code> - the sequence to append. The contents of the sequence will be escaped.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-int-int-"><code>append(CharSequence, int, int)</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-char-"><code>append(char)</code></a>, 
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true#append-java.lang.CharSequence-" title="class or interface in java.lang"><code>Appendable.append(CharSequence)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="append-java.lang.CharSequence-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>append</h4>
+<pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;append(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;sequence,
+                  int&nbsp;start,
+                  int&nbsp;end)
+           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object. 
+ 
+ <p>
+ The contents of the sequence will be escaped.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called after
+ a call to <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--"><code>pushValue()</code></a> or <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--"><code>pushKey()</code></a>.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true#append-java.lang.CharSequence-int-int-" title="class or interface in java.lang">append</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true#append-java.lang.CharSequence-int-int-" title="class or interface in net.dougvalenta.scriptorium">append</a></code>&nbsp;in interface&nbsp;<code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentAppendable</a>&lt;<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sequence</code> - the sequence to append. The contents of the sequence will be escaped.</dd>
+<dd><code>start</code> - the index of the first character of the sequence to append</dd>
+<dd><code>end</code> - the first index after the last character of the sequence to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-"><code>append(CharSequence)</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-char-"><code>append(char)</code></a>, 
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true#append-java.lang.CharSequence-int-int-" title="class or interface in java.lang"><code>Appendable.append(CharSequence, int, int)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="append-char-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>append</h4>
+<pre><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&nbsp;append(char&nbsp;character)
+           throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Outputs the provided character as a JSON string and returns this object. 
+ 
+ <p>
+ The character will be escaped.
+ 
+ <p>
+ To produce a well-formed JSON document, this method should only be called after
+ a call to <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--"><code>pushValue()</code></a> or <a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--"><code>pushKey()</code></a>.
+ Implementations <b>may</b> throw an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> if this
+ method is called at another time.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true#append-char-" title="class or interface in java.lang">append</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true#append-char-" title="class or interface in net.dougvalenta.scriptorium">append</a></code>&nbsp;in interface&nbsp;<code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentAppendable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentAppendable</a>&lt;<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>character</code> - the character to append. The character will be escaped.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-"><code>append(CharSequence)</code></a>, 
+<a href="../../../../../net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-int-int-"><code>append(CharSequence, int, int)</code></a>, 
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true#append-char-" title="class or interface in java.lang"><code>Appendable.append(char)</code></a></dd>
 </dl>
 </li>
 </ul>

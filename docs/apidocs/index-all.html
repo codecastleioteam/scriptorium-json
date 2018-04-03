@@ -74,6 +74,18 @@
 </a>
 <h2 class="title">A</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-">append(CharSequence)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
+<dd>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-java.lang.CharSequence-int-int-">append(CharSequence, int, int)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
+<dd>
+<div class="block">Outputs the provided sequence as a JSON string and returns this object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#append-char-">append(char)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
+<dd>
+<div class="block">Outputs the provided character as a JSON string and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#append-java.lang.CharSequence-">append(CharSequence)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#append-java.lang.CharSequence-int-int-">append(CharSequence, int, int)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
@@ -191,6 +203,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonValue.html#close--">close()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json">JsonValue</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#close--">close()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
+<dd>
+<div class="block">Returns the scribe to its initial state.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#close--">close()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -223,11 +239,17 @@
  characters to it.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyArray--">emptyArray()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs an empty JSON array, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#emptyArray--">emptyArray()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#emptyObject--">emptyObject()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs an empty JSON object, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#emptyObject--">emptyObject()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonAppender.html#escape-char-">escape(char)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonAppender.html" title="class in net.dougvalenta.scriptorium.json.scribe">JsonAppender</a></dt>
@@ -259,7 +281,10 @@
 <h2 class="title">F</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#falseValue--">falseValue()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a Boolean <code>false</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#falseValue--">falseValue()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -269,7 +294,9 @@
 <h2 class="title">G</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#getCursor--">getCursor()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns a cursor representing the current state of the scribe.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#getCursor--">getCursor()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -342,7 +369,10 @@
  can be used to append characters to it and assign it a value.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#key-java.lang.CharSequence-">key(CharSequence)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a JSON key containing the contents of the provided key, preceded
+ by a comma if necessary, and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#key-java.lang.CharSequence-">key(CharSequence)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -356,7 +386,10 @@
 <dt><a href="net/dougvalenta/scriptorium/json/scribe/package-summary.html">net.dougvalenta.scriptorium.json.scribe</a> - package net.dougvalenta.scriptorium.json.scribe</dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#nullValue--">nullValue()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a <code>null</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#nullValue--">nullValue()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -379,27 +412,43 @@
 <h2 class="title">P</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop--">pop()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns to the previous scribe state and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pop-int-">pop(int)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns the scribe to the state represented by the cursor and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#pop--">pop()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#pop-int-">pop(int)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushArray--">pushArray()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs the opening bracket of a JSON array, preceded by a comma if necessary,
+ and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#pushArray--">pushArray()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushKey--">pushKey()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs the opening quotation mark of a JSON key, preceded by a
+ comma if necessary, and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#pushKey--">pushKey()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushObject--">pushObject()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs the opening brace of a JSON object, preceded by a comma if necessary,
+ and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#pushObject--">pushObject()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#pushValue--">pushValue()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs the opening quotation mark of a JSON string literal, preceded by a
+ comma if necessary, and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#pushValue--">pushValue()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -465,7 +514,10 @@
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonKey.html#thenTrue--">thenTrue()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonKey.html" title="class in net.dougvalenta.scriptorium.json">JsonKey</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#trueValue--">trueValue()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a Boolean <code>true</code> literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#trueValue--">trueValue()</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -483,29 +535,55 @@
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonKey.html#value-java.lang.CharSequence-">value(CharSequence)</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonKey.html" title="class in net.dougvalenta.scriptorium.json">JsonKey</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.CharSequence-">value(CharSequence)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a string literal containing the contents of the provided value, preceded
+ by a comma if necessary, and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-char-">value(char)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a single-character string literal containing the provided value, preceded
+ by a comma if necessary, and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigInteger-">value(BigInteger)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.math.BigDecimal-">value(BigDecimal)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-byte-">value(byte)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-short-">value(short)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-int-">value(int)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-float-">value(float)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-long-">value(long)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-double-">value(double)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a numeric literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-boolean-">value(boolean)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a Boolean literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#value-java.lang.Object-">value(Object)</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Outputs a value literal, preceded by a comma if necessary, and returns this
+ object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#value-java.lang.Object-">value(Object)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#value-java.lang.CharSequence-">value(CharSequence)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
@@ -515,10 +593,6 @@
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#value-java.math.BigInteger-">value(BigInteger)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#value-java.math.BigDecimal-">value(BigDecimal)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#value-byte-">value(byte)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#value-short-">value(short)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html#value-int-">value(int)</a></span> - Method in class net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/SafeJsonScribe.html" title="class in net.dougvalenta.scriptorium.json.scribe">SafeJsonScribe</a></dt>
 <dd>&nbsp;</dd>

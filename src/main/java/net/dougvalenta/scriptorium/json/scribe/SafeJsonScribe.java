@@ -50,10 +50,26 @@ public class SafeJsonScribe implements JsonScribe {
 		return this;
 	}
 	
+	private SafeJsonScribe beforeValue() throws IOException {
+		if (state.isEmpty()) throw new IllegalStateException("Not an array or key-value");
+		switch (state.peek()) {
+			case ARRAY:
+				if (comma) appender.appendComma();
+				break;
+			case KEYVALUE:
+				state.pop();
+				break;
+			default:
+				throw new IllegalStateException("Not an array or key-value");
+		}
+		return this;
+	}
+	
 	@Override
 	public SafeJsonScribe emptyObject() throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendEmptyObject();
+		comma=true;
 		return this;
 	}
 	
@@ -90,7 +106,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe emptyArray() throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendEmptyArray();
 		comma = true;
 		return this;
@@ -109,7 +125,7 @@ public class SafeJsonScribe implements JsonScribe {
 	public SafeJsonScribe value(final Object value) throws IOException {
 		if (value == null) return nullValue();
 		if (value instanceof CharSequence) return value((CharSequence) value);
-		if (value instanceof Character) return value((Character) value);
+		if (value instanceof Character) return value((char) value);
 		if (value instanceof BigInteger) return value((BigInteger) value);
 		if (value instanceof BigDecimal) return value((BigDecimal) value);
 		if (value instanceof Byte) return value((int) value);
@@ -124,7 +140,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe value(final CharSequence value) throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendQuote().escape(value).appendQuote();
 		comma = true;
 		return this;
@@ -132,7 +148,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe value(final char value) throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendQuote().escape(value).appendQuote();
 		comma = true;
 		return this;
@@ -140,7 +156,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe value(final BigInteger value) throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendNumber(value);
 		comma = true;
 		return this;
@@ -148,23 +164,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe value(final BigDecimal value) throws IOException {
-		beforeNode();
-		appender.appendNumber(value);
-		comma = true;
-		return this;
-	}
-	
-	@Override
-	public SafeJsonScribe value(final byte value) throws IOException {
-		beforeNode();
-		appender.appendNumber(value);
-		comma = true;
-		return this;
-	}
-	
-	@Override
-	public SafeJsonScribe value(final short value) throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendNumber(value);
 		comma = true;
 		return this;
@@ -172,7 +172,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe value(final int value) throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendNumber(value);
 		comma = true;
 		return this;
@@ -181,14 +181,15 @@ public class SafeJsonScribe implements JsonScribe {
 	@Override
 	public SafeJsonScribe value(final float value) throws IOException {
 		if (!Float.isFinite(value)) return nullValue();
-		beforeNode();
+		beforeValue();
+		appender.appendNumber(value);
 		comma = true;
 		return this;
 	}
 	
 	@Override
 	public SafeJsonScribe value(final long value) throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendNumber(value);
 		comma = true;
 		return this;
@@ -197,14 +198,15 @@ public class SafeJsonScribe implements JsonScribe {
 	@Override
 	public SafeJsonScribe value(final double value) throws IOException {
 		if (!Double.isFinite(value)) return nullValue();
-		beforeNode();
+		beforeValue();
+		appender.appendNumber(value);
 		comma = true;
 		return this;
 	}
 	
 	@Override
 	public SafeJsonScribe value(final boolean value) throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendBoolean(value);
 		comma = true;
 		return this;
@@ -212,7 +214,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe nullValue() throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendNull();
 		comma = true;
 		return this;
@@ -220,7 +222,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe trueValue() throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendTrue();
 		comma = true;
 		return this;
@@ -228,7 +230,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe falseValue() throws IOException {
-		beforeNode();
+		beforeValue();
 		appender.appendFalse();
 		comma = true;
 		return this;
@@ -236,7 +238,7 @@ public class SafeJsonScribe implements JsonScribe {
 	
 	@Override
 	public SafeJsonScribe pushValue() throws IOException {
-		beforeNode();
+		beforeValue();
 		state.push(State.VALUE);
 		appender.appendQuote();
 		return this;
@@ -288,7 +290,7 @@ public class SafeJsonScribe implements JsonScribe {
 			default:
 				throw new IllegalStateException("Not a key or value");
 		}
-		appender.escape(sequence);
+		appender.escape(sequence, start, end);
 		return this;
 	}
 	
