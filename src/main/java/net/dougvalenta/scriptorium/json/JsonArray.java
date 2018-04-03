@@ -10,7 +10,17 @@ import java.math.BigInteger;
 import net.dougvalenta.scriptorium.Inscribable;
 
 /**
- *
+ * Represents a JSON array currently being output.
+ * 
+ * <p>
+ * Methods named or beginning with the word {@code with} return the same object they are
+ * called on after outputting any necessary characters.
+ * 
+ * <p>
+ * Methods named for an output element ({@code element}, {@code array}, {@code object})
+ * return a new object representing a nested structure or context. Calling the returned object's
+ * {@link net.dougvalenta.scriptorium.FluentNode#then()} method will return this object.
+ * 
  * @author Doug Valenta
  * @param <THIS> this type
  */
@@ -411,9 +421,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * return this object.
 	 * 
 	 * <p>
-	 * Calling any method of this object before the {@link JsonValue#then()} method
-	 * of the returned JsonValue may result in invalid output and/or an unchecked
-	 * exception.
+	 * Calling any method of this object before closing the returned JsonValue may result in 
+	 * invalid output and/or an unchecked exception.
 	 * 
 	 * <p>
 	 * When this method returns, an opening double-quote (preceded by a comma, if appropriate)
@@ -440,9 +449,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * return this object.
 	 * 
 	 * <p>
-	 * Calling any method of this object before the {@link JsonValue#then()} method
-	 * of the returned JsonValue may result in invalid output and/or an unchecked
-	 * exception.
+	 * Calling any method of this object before closing the returned JsonValue may result in 
+	 * invalid output and/or an unchecked exception.
 	 * 
 	 * <p>
 	 * The contents of the provided CharSequence will be escaped.
@@ -473,9 +481,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * return this object.
 	 * 
 	 * <p>
-	 * Calling any method of this object before the {@link JsonValue#then()} method
-	 * of the returned JsonValue may result in invalid output and/or an unchecked
-	 * exception.
+	 * Calling any method of this object before closing the returned JsonValue may result in 
+	 * invalid output and/or an unchecked exception.
 	 * 
 	 * <p>
 	 * When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -502,9 +509,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * return this object.
 	 * 
 	 * <p>
-	 * Calling any method of this object before the {@link JsonValue#then()} method
-	 * of the returned JsonValue may result in invalid output and/or an unchecked
-	 * exception.
+	 * Calling any method of this object before closing the returned JsonValue may result in 
+	 * invalid output and/or an unchecked exception.
 	 * 
 	 * <p>
 	 * The provided character will be escaped.
@@ -536,9 +542,8 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * return this object.
 	 * 
 	 * <p>
-	 * Calling any method of this object before the {@link JsonArrayNode#then()} method
-	 * of the returned JsonArrayNode may result in invalid output and/or an unchecked
-	 * exception.
+	 * Calling any method of this object before closing the returned JsonArrayNode may result in 
+	 * invalid output and/or an unchecked exception.
 	 * 
 	 * <p>
 	 * When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -559,9 +564,9 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * return this object.
 	 * 
 	 * <p>
-	 * Calling any method of this object before the {@link JsonObjectNode#then()} method
-	 * of the returned JsonObjectNode may result in invalid output and/or an unchecked
-	 * exception.
+	 * <p>
+	 * Calling any method of this object before closing the returned JsonObjectNode may result in 
+	 * invalid output and/or an unchecked exception.
 	 * 
 	 * <p>
 	 * When this method returns, and opening brace (preceded by a comma, if appropriate)

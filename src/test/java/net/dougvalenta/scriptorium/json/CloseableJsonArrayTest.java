@@ -22,7 +22,7 @@ public abstract class CloseableJsonArrayTest<A extends CloseableJsonArray<A>> ex
 		final JsonScribe scribe = Mockito.spy(new MockJsonScribe());
 		final int startingState = scribe.getCursor();
 		Mockito.clearInvocations(scribe);
-		final CloseableJsonArray array = getJsonArray(scribe);
+		final A array = getJsonArray(scribe);
 		array.close();
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop();
