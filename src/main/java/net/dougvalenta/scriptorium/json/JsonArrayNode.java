@@ -27,11 +27,11 @@ public final class JsonArrayNode<P> extends CloseableJsonArray<JsonArrayNode<P>>
 	 * Closes this array and any nested arrays or values that remain open and returns
 	 * the parent object, typically a containing {@link JsonArray} or {@link JsonObject}.
 	 * 
-	 * @returns the parent object, typically a containing JsonArray or JsonObject
+	 * @return the parent object, typically a containing JsonArray or JsonObject
 	 * @throws IOException if an I/O error occurs
 	 * @see #close()
 	 * @see JsonArray#array()
-	 * @see JsonObject#array()
+	 * @see JsonKey#array()
 	 */
 	@Override
 	public P then() throws IOException {
