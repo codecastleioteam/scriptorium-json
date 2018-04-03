@@ -116,6 +116,8 @@ var activeTableTab = "activeTableTab";
 <pre>public final class <span class="typeNameLabel">JsonArrayNode&lt;P&gt;</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentNode.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentNode</a>&lt;P&gt;</pre>
+<div class="block">Represents a JSON array currently being output within a parent context, typically a
+ containing array or object.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Doug Valenta</dd>
@@ -147,7 +149,9 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#close--">close</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#close--">close</a></span>()</code>
+<div class="block">Closes this array and any nested arrays or values that remain open.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json">JsonValue</a>&lt;<a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/json.AbstractJsonArray.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">THIS</a>&gt;</code></td>
@@ -182,7 +186,8 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="type parameter in JsonArrayNode">P</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#then--">then</a></span>()</code>
-<div class="block">Returns this nodes parent.</div>
+<div class="block">Closes this array and any nested arrays or values that remain open and returns
+ the parent object, typically a containing <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -344,19 +349,19 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <h4>then</h4>
 <pre>public&nbsp;<a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="type parameter in JsonArrayNode">P</a>&nbsp;then()
        throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentNode.html?is-external=true#then--" title="class or interface in net.dougvalenta.scriptorium">net.dougvalenta.scriptorium.FluentNode</a></code></span></div>
-<div class="block">Returns this nodes parent.
- 
- <p>
- Implementers may output the closure of a nested structure before returning.</div>
+<div class="block">Closes this array and any nested arrays or values that remain open and returns
+ the parent object, typically a containing <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentNode.html?is-external=true#then--" title="class or interface in net.dougvalenta.scriptorium">then</a></code>&nbsp;in interface&nbsp;<code><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentNode.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentNode</a>&lt;<a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="type parameter in JsonArrayNode">P</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>this node's parent</dd>
+<dd>the parent object, typically a containing JsonArray or JsonObject</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if there is an exception while outputting the closure of a
- nested structure</dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#close--"><code>close()</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#array--"><code>JsonArray.array()</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonKey.html#array--"><code>JsonKey.array()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -368,13 +373,14 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
            throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Closes this array and any nested arrays or values that remain open.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true#close--" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true#close--" title="class or interface in java.lang">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -842,9 +848,8 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening double-quote (preceded by a comma, if appropriate)
@@ -884,9 +889,8 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  The contents of the provided CharSequence will be escaped.
@@ -931,9 +935,8 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -973,9 +976,8 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#then--"><code>then()</code></a> method
- of the returned JsonArrayNode may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonArrayNode may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -1009,9 +1011,9 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonObjectNode.html#then--"><code>JsonObjectNode.then()</code></a> method
- of the returned JsonObjectNode may result in invalid output and/or an unchecked
- exception.
+ <p>
+ Calling any method of this object before closing the returned JsonObjectNode may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, and opening brace (preceded by a comma, if appropriate)

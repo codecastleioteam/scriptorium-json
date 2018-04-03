@@ -115,6 +115,16 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">JsonArray&lt;THIS extends JsonArray&lt;THIS&gt;&gt;</span>
 extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/Inscribable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">Inscribable</a>&lt;<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json">JsonArray</a>&lt;?&gt;,THIS&gt;</pre>
+<div class="block">Represents a JSON array currently being output.
+ 
+ <p>
+ Methods named or beginning with the word <code>with</code> return the same object they are
+ called on after outputting any necessary characters.
+ 
+ <p>
+ Methods named for an output element (<code>element</code>, <code>array</code>, <code>object</code>)
+ return a new object representing a nested structure or context. Calling the returned object's
+ <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentNode.html?is-external=true#then--" title="class or interface in net.dougvalenta.scriptorium"><code>FluentNode.then()</code></a> method will return this object.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Doug Valenta</dd>
@@ -992,9 +1002,8 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening double-quote (preceded by a comma, if appropriate)
@@ -1031,9 +1040,8 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  The contents of the provided CharSequence will be escaped.
@@ -1075,9 +1083,8 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -1115,9 +1122,8 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  The provided character will be escaped.
@@ -1157,9 +1163,8 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#then--"><code>JsonArrayNode.then()</code></a> method
- of the returned JsonArrayNode may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonArrayNode may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -1190,9 +1195,9 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonObjectNode.html#then--"><code>JsonObjectNode.then()</code></a> method
- of the returned JsonObjectNode may result in invalid output and/or an unchecked
- exception.
+ <p>
+ Calling any method of this object before closing the returned JsonObjectNode may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, and opening brace (preceded by a comma, if appropriate)
