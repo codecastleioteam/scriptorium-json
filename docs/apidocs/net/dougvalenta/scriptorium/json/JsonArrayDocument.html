@@ -115,6 +115,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">JsonArrayDocument</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<div class="block">Represents a JSON array currently being output as a JSON document fragment.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Doug Valenta</dd>
@@ -163,7 +164,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayDocument.html#close--">close</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayDocument.html#close--">close</a></span>()</code>
+<div class="block">Closes this array and any nested arrays or values that remain open.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json">JsonValue</a>&lt;<a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/json.AbstractJsonArray.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">THIS</a>&gt;</code></td>
@@ -364,13 +367,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
            throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Closes this array and any nested arrays or values that remain open.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true#close--" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true#close--" title="class or interface in java.lang">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
 </dl>
 </li>
 </ul>
@@ -838,9 +842,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening double-quote (preceded by a comma, if appropriate)
@@ -880,9 +883,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  The contents of the provided CharSequence will be escaped.
@@ -927,9 +929,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html#then--"><code>JsonValue.then()</code></a> method
- of the returned JsonValue may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonValue may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -969,9 +970,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#then--"><code>JsonArrayNode.then()</code></a> method
- of the returned JsonArrayNode may result in invalid output and/or an unchecked
- exception.
+ Calling any method of this object before closing the returned JsonArrayNode may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, an opening bracket (preceded by a comma, if appropriate)
@@ -1005,9 +1005,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  return this object.
  
  <p>
- Calling any method of this object before the <a href="../../../../net/dougvalenta/scriptorium/json/JsonObjectNode.html#then--"><code>JsonObjectNode.then()</code></a> method
- of the returned JsonObjectNode may result in invalid output and/or an unchecked
- exception.
+ <p>
+ Calling any method of this object before closing the returned JsonObjectNode may result in 
+ invalid output and/or an unchecked exception.
  
  <p>
  When this method returns, and opening brace (preceded by a comma, if appropriate)
