@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentNode.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentNode</a>&lt;P&gt;</pre>
 <div class="block">Represents a JSON array currently being output within a parent context, typically a
- containing array or object.</div>
+ containing <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Doug Valenta</dd>
@@ -150,7 +150,7 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#close--">close</a></span>()</code>
-<div class="block">Closes this array and any nested arrays or values that remain open.</div>
+<div class="block">Closes this array and any nested arrays, objects, or values that remain open.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -186,7 +186,7 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="type parameter in JsonArrayNode">P</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#then--">then</a></span>()</code>
-<div class="block">Closes this array and any nested arrays or values that remain open and returns
+<div class="block">Closes this JSON array and any nested arrays, objects, or values that remain open and returns
  the parent object, typically a containing <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
 </td>
 </tr>
@@ -349,7 +349,7 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <h4>then</h4>
 <pre>public&nbsp;<a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="type parameter in JsonArrayNode">P</a>&nbsp;then()
        throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Closes this array and any nested arrays or values that remain open and returns
+<div class="block">Closes this JSON array and any nested arrays, objects, or values that remain open and returns
  the parent object, typically a containing <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -373,7 +373,7 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
            throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Closes this array and any nested arrays or values that remain open.</div>
+<div class="block">Closes this array and any nested arrays, objects, or values that remain open.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true#close--" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>

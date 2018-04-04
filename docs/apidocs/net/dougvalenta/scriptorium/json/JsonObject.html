@@ -100,6 +100,10 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>THIS</code> - this type</dd>
+</dl>
+<dl>
 <dt>All Superinterfaces:</dt>
 <dd><a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/Inscribable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">Inscribable</a>&lt;<a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json">JsonObject</a>&lt;?&gt;,THIS&gt;</dd>
 </dl>
@@ -111,6 +115,15 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">JsonObject&lt;THIS extends JsonObject&lt;THIS&gt;&gt;</span>
 extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/Inscribable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">Inscribable</a>&lt;<a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json">JsonObject</a>&lt;?&gt;,THIS&gt;</pre>
+<div class="block">Represents a JSON object currently being output.
+ 
+ <p>
+ Methods named or beginning with the word <code>with</code> return the same object they are
+ called on after outputting any necessary characters.
+ 
+ <p>
+ <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html#key--"><code>key()</code></a> and its overloads return an object representing a JSON object key that can
+ be appended to and assigned a value.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Doug Valenta</dd>
@@ -320,12 +333,18 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>default <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="type parameter in JsonObject">THIS</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html#withIfFinite-java.lang.CharSequence-double-">withIfFinite</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key,
-            double&nbsp;value)</code>&nbsp;</td>
+            double&nbsp;value)</code>
+<div class="block">Appends a key to the JSON object with a numeric literal value only if the provided
+ value is finite, and returns this object.</div>
+</td>
 </tr>
 <tr id="i25" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="type parameter in JsonObject">THIS</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html#withIfFinite-java.lang.CharSequence-float-">withIfFinite</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key,
-            float&nbsp;value)</code>&nbsp;</td>
+            float&nbsp;value)</code>
+<div class="block">Appends a key to the JSON object with a numeric literal value only if the provided
+ value is finite, and returns this object.</div>
+</td>
 </tr>
 <tr id="i26" class="altColor">
 <td class="colFirst"><code>default <a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="type parameter in JsonObject">THIS</a></code></td>
@@ -1459,9 +1478,26 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <pre>default&nbsp;<a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="type parameter in JsonObject">THIS</a>&nbsp;withIfFinite(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key,
                           float&nbsp;value)
                    throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Appends a key to the JSON object with a numeric literal value only if the provided
+ value is finite, and returns this object.
+ 
+ <p>
+ The contents of the provided key will be double-quoted and escaped.
+ 
+ <p>
+ If the provided key is null, or if the provided value is not finite,
+ this method has no effect.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - the key to append</dd>
+<dd><code>value</code> - the value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html#with-java.lang.CharSequence-float-"><code>with(CharSequence, float)</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html#withIfNotNull-java.lang.CharSequence-java.lang.Float-"><code>withIfNotNull(CharSequence, Float)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -1474,9 +1510,26 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <pre>default&nbsp;<a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html" title="type parameter in JsonObject">THIS</a>&nbsp;withIfFinite(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true" title="class or interface in java.lang">CharSequence</a>&nbsp;key,
                           double&nbsp;value)
                    throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Appends a key to the JSON object with a numeric literal value only if the provided
+ value is finite, and returns this object.
+ 
+ <p>
+ The contents of the provided key will be double-quoted and escaped.
+ 
+ <p>
+ If the provided key is null, or if the provided value is not finite,
+ this method has no effect.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - the key to append</dd>
+<dd><code>value</code> - the value to append</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html#with-java.lang.CharSequence-double-"><code>with(CharSequence, double)</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonObject.html#withIfNotNull-java.lang.CharSequence-java.lang.Double-"><code>withIfNotNull(CharSequence, Double)</code></a></dd>
 </dl>
 </li>
 </ul>
