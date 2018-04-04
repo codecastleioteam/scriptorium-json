@@ -19,7 +19,7 @@ abstract class CloseableJsonArray<THIS extends CloseableJsonArray<THIS>> extends
 	}
 	
 	/**
-	 * Closes this array and any nested arrays or values that remain open.
+	 * Closes this array and any nested arrays, objects, or values that remain open.
 	 * 
 	 * @throws IOException if an I/O error occurs
 	 */

@@ -10,8 +10,18 @@ import java.math.BigInteger;
 import net.dougvalenta.scriptorium.Inscribable;
 
 /**
- *
+ * Represents a JSON object currently being output.
+ * 
+ * <p>
+ * Methods named or beginning with the word {@code with} return the same object they are
+ * called on after outputting any necessary characters.
+ * 
+ * <p>
+ * {@link #key()} and its overloads return an object representing a JSON object key that can
+ * be appended to and assigned a value.
+ * 
  * @author Doug Valenta
+ * @param <THIS> this type
  */
 public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<JsonObject<?>, THIS> {
 	
@@ -705,11 +715,47 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 		return (THIS) this;
 	}
 	
+	/**
+	 * Appends a key to the JSON object with a numeric literal value only if the provided
+	 * value is finite, and returns this object.
+	 * 
+	 * <p>
+	 * The contents of the provided key will be double-quoted and escaped.
+	 * 
+	 * <p>
+	 * If the provided key is null, or if the provided value is not finite,
+	 * this method has no effect.
+	 * 
+	 * @param key the key to append
+	 * @param value the value to append
+	 * @return this object
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, float)
+	 * @see #withIfNotNull(CharSequence, Float)
+	 */
 	public default THIS withIfFinite(final CharSequence key, final float value) throws IOException {
 		if (Float.isFinite(value)) return with(key, value);
 		return (THIS) this;
 	}
 	
+	/**
+	 * Appends a key to the JSON object with a numeric literal value only if the provided
+	 * value is finite, and returns this object.
+	 * 
+	 * <p>
+	 * The contents of the provided key will be double-quoted and escaped.
+	 * 
+	 * <p>
+	 * If the provided key is null, or if the provided value is not finite,
+	 * this method has no effect.
+	 * 
+	 * @param key the key to append
+	 * @param value the value to append
+	 * @return this object
+	 * @throws IOException if an I/O error occurs
+	 * @see #with(CharSequence, double)
+	 * @see #withIfNotNull(CharSequence, Double)
+	 */
 	public default THIS withIfFinite(final CharSequence key, final double value) throws IOException {
 		if (Double.isFinite(value)) return with(key, value);
 		return (THIS) this;
