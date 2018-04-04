@@ -14,7 +14,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 public final class JsonArrayDocument extends CloseableJsonArray<JsonArrayDocument> {
 	
 	
-	public JsonArrayDocument(final JsonScribe scribe) {
+	JsonArrayDocument(final JsonScribe scribe) {
 		super(scribe);
 	}
 	

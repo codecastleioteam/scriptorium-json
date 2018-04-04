@@ -15,7 +15,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  */
 public final class JsonObjectDocument extends CloseableJsonObject<JsonObjectDocument> {
 	
-	public JsonObjectDocument(final JsonScribe scribe) {
+	JsonObjectDocument(final JsonScribe scribe) {
 		super(scribe);
 	}
 	
