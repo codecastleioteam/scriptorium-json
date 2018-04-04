@@ -10,11 +10,12 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  * Represents a JSON array currently being output as a JSON document fragment.
  * 
  * @author Doug Valenta
+ * @see Json#array(Appendable)
  */
 public final class JsonArrayDocument extends CloseableJsonArray<JsonArrayDocument> {
 	
 	
-	public JsonArrayDocument(final JsonScribe scribe) {
+	JsonArrayDocument(final JsonScribe scribe) {
 		super(scribe);
 	}
 	
