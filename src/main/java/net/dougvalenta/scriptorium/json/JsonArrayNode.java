@@ -10,9 +10,10 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 
 /**
  * Represents a JSON array currently being output within a parent context, typically a
- * containing array or object.
+ * containing {@link JsonArray} or {@link JsonObject}.
  * 
  * @author Doug Valenta
+ * @param P the type of the parent object
  */
 public final class JsonArrayNode<P> extends CloseableJsonArray<JsonArrayNode<P>> implements FluentNode<P> {
 
@@ -24,7 +25,7 @@ public final class JsonArrayNode<P> extends CloseableJsonArray<JsonArrayNode<P>>
 	}
 	
 	/**
-	 * Closes this array and any nested arrays or values that remain open and returns
+	 * Closes this JSON array and any nested arrays, objects, or values that remain open and returns
 	 * the parent object, typically a containing {@link JsonArray} or {@link JsonObject}.
 	 * 
 	 * @return the parent object, typically a containing JsonArray or JsonObject

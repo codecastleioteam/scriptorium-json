@@ -197,10 +197,6 @@
 </a>
 <h2 class="title">C</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObjectDocument.html#close--">close()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObjectDocument.html" title="class in net.dougvalenta.scriptorium.json">JsonObjectDocument</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html#close--">close()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html" title="class in net.dougvalenta.scriptorium.json">JsonObjectNode</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonValue.html#close--">close()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json">JsonValue</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html#close--">close()</a></span> - Method in interface net.dougvalenta.scriptorium.json.scribe.<a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe">JsonScribe</a></dt>
@@ -324,7 +320,7 @@
 <dt><a href="net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="class in net.dougvalenta.scriptorium.json"><span class="typeNameLink">JsonArrayNode</span></a>&lt;<a href="net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="type parameter in JsonArrayNode">P</a>&gt; - Class in <a href="net/dougvalenta/scriptorium/json/package-summary.html">net.dougvalenta.scriptorium.json</a></dt>
 <dd>
 <div class="block">Represents a JSON array currently being output within a parent context, typically a
- containing array or object.</div>
+ containing <a href="net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
 </dd>
 <dt><a href="net/dougvalenta/scriptorium/json/scribe/JsonEscaper.html" title="class in net.dougvalenta.scriptorium.json.scribe"><span class="typeNameLink">JsonEscaper</span></a> - Class in <a href="net/dougvalenta/scriptorium/json/scribe/package-summary.html">net.dougvalenta.scriptorium.json.scribe</a></dt>
 <dd>&nbsp;</dd>
@@ -333,13 +329,20 @@
 <dt><a href="net/dougvalenta/scriptorium/json/JsonKey.html" title="class in net.dougvalenta.scriptorium.json"><span class="typeNameLink">JsonKey</span></a>&lt;<a href="net/dougvalenta/scriptorium/json/JsonKey.html" title="type parameter in JsonKey">P</a>&gt; - Class in <a href="net/dougvalenta/scriptorium/json/package-summary.html">net.dougvalenta.scriptorium.json</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><span class="typeNameLink">JsonObject</span></a>&lt;<a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="type parameter in JsonObject">THIS</a> extends <a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json">JsonObject</a>&lt;<a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="type parameter in JsonObject">THIS</a>&gt;&gt; - Interface in <a href="net/dougvalenta/scriptorium/json/package-summary.html">net.dougvalenta.scriptorium.json</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Represents a JSON object currently being output.</div>
+</dd>
 <dt><a href="net/dougvalenta/scriptorium/json/JsonObjectDocument.html" title="class in net.dougvalenta.scriptorium.json"><span class="typeNameLink">JsonObjectDocument</span></a> - Class in <a href="net/dougvalenta/scriptorium/json/package-summary.html">net.dougvalenta.scriptorium.json</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Represents a JSON object currently being output as a JSON document.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObjectDocument.html#JsonObjectDocument-net.dougvalenta.scriptorium.json.scribe.JsonScribe-">JsonObjectDocument(JsonScribe)</a></span> - Constructor for class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObjectDocument.html" title="class in net.dougvalenta.scriptorium.json">JsonObjectDocument</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html" title="class in net.dougvalenta.scriptorium.json"><span class="typeNameLink">JsonObjectNode</span></a>&lt;<a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html" title="type parameter in JsonObjectNode">P</a>&gt; - Class in <a href="net/dougvalenta/scriptorium/json/package-summary.html">net.dougvalenta.scriptorium.json</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Represents a JSON object currently being output within a parent context, typically a
+ containing <a href="net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html#JsonObjectNode-net.dougvalenta.scriptorium.json.scribe.JsonScribe-P-">JsonObjectNode(JsonScribe, P)</a></span> - Constructor for class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html" title="class in net.dougvalenta.scriptorium.json">JsonObjectNode</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="net/dougvalenta/scriptorium/json/scribe/JsonScribe.html" title="interface in net.dougvalenta.scriptorium.json.scribe"><span class="typeNameLink">JsonScribe</span></a> - Interface in <a href="net/dougvalenta/scriptorium/json/scribe/package-summary.html">net.dougvalenta.scriptorium.json.scribe</a></dt>
@@ -476,7 +479,7 @@
 <dl>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonArrayNode.html#then--">then()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="class in net.dougvalenta.scriptorium.json">JsonArrayNode</a></dt>
 <dd>
-<div class="block">Closes this array and any nested arrays or values that remain open and returns
+<div class="block">Closes this JSON array and any nested arrays, objects, or values that remain open and returns
  the parent object, typically a containing <a href="net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonKey.html#then-java.lang.CharSequence-">then(CharSequence)</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonKey.html" title="class in net.dougvalenta.scriptorium.json">JsonKey</a></dt>
@@ -514,7 +517,10 @@
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonKey.html#then-java.lang.Boolean-">then(Boolean)</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonKey.html" title="class in net.dougvalenta.scriptorium.json">JsonKey</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html#then--">then()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObjectNode.html" title="class in net.dougvalenta.scriptorium.json">JsonObjectNode</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Closes this JSON object and any nested arrays, objects, or values that remain open and returns
+ the parent object, typically a containing <a href="net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonArray</code></a> or <a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json"><code>JsonObject</code></a>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonValue.html#then--">then()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json">JsonValue</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonKey.html#thenFalse--">thenFalse()</a></span> - Method in class net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonKey.html" title="class in net.dougvalenta.scriptorium.json">JsonKey</a></dt>
@@ -815,9 +821,15 @@
 <div class="block">Appends a key to the JSON object with a <code>false</code> literal value and returns this object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObject.html#withIfFinite-java.lang.CharSequence-float-">withIfFinite(CharSequence, float)</a></span> - Method in interface net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json">JsonObject</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Appends a key to the JSON object with a numeric literal value only if the provided
+ value is finite, and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObject.html#withIfFinite-java.lang.CharSequence-double-">withIfFinite(CharSequence, double)</a></span> - Method in interface net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json">JsonObject</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Appends a key to the JSON object with a numeric literal value only if the provided
+ value is finite, and returns this object.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/dougvalenta/scriptorium/json/JsonObject.html#withIfNotNull-java.lang.CharSequence-java.lang.CharSequence-">withIfNotNull(CharSequence, CharSequence)</a></span> - Method in interface net.dougvalenta.scriptorium.json.<a href="net/dougvalenta/scriptorium/json/JsonObject.html" title="interface in net.dougvalenta.scriptorium.json">JsonObject</a></dt>
 <dd>
 <div class="block">Appends a key to the JSON object with a string literal value only if the provided

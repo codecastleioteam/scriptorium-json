@@ -555,6 +555,7 @@ public abstract class AbstractJsonArrayTest<A extends JsonArray<A>> {
 			a.object();
 			Assert.assertNotEquals(cursor, scribe.getCursor());
 		});
+		Assert.assertEquals(array, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
 	}
 	
@@ -572,6 +573,7 @@ public abstract class AbstractJsonArrayTest<A extends JsonArray<A>> {
 			a.object();
 			Assert.assertNotEquals(cursor, scribe.getCursor());
 		});
+		Assert.assertEquals(array, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
 	}
 	

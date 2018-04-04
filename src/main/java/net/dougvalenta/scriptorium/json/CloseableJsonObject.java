@@ -18,6 +18,11 @@ abstract class CloseableJsonObject<THIS extends CloseableJsonObject<THIS>> exten
 		super(scribe);
 	}
 	
+	/**
+	 * Closes this object and any nested array, objects, or values that remain open.
+	 * 
+	 * @throws IOException if an I/O error occurs
+	 */
 	@Override
 	public void close() throws IOException {
 		scribe.pop(cursor).pop();
