@@ -1,5 +1,5 @@
 # JSON Scriptorium
-Fluent Java API for writing JSON output.
+Fluent Java 8+ API for writing JSON output.
 
 ## When to use JSON Scriptorium
 - Your codebase is mostly write-only POJOs that exist solely to be
@@ -12,6 +12,40 @@ fuss
 keys, types, or structure
 - You're working with collections of objects that can't or won't
 all be in memory at the same time, and serializing them to a stream
+
+## Getting started
+JSON Scriptorium is not yet in Maven Central. To include in your
+project, you will need to clone this repo and
+[scriptorium-core](https://github.com/dougvalenta/scriptorium-core).
+
+### Maven Installation
+Build and install `scriptorium-core` first, then `scriptorium-json` by
+running Maven in each project's directory:
+
+```
+mvn clean install
+```
+
+To include JSON Scriptorium in your Maven project, add this block
+to the `dependencies` section of your POM:
+
+``` xml
+<dependency>
+    <groupId>net.dougvalenta.scriptorium</groupId>
+    <artifactId>scriptorium-json</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+```
+
+### JAR Installation
+Build and package `scriptorium-core` first, then `scriptorium-json` by
+running Maven in each project's directory:
+
+```
+mvn clean package
+```
+
+Copy each project's JAR from its `target` directory.
 
 ## Basic Usage
 
@@ -90,11 +124,11 @@ order) as well.
 
 ## Staying Fluent
 JSON Scriptorium handles many input errors gracefully so you don't
-have to break method chains to check your input:
+have to break method chains to check input:
 - Null values and elements will be output as JSON null literals
-(never the string "null")
+(never a string literal `"null"`)
 - Key-value pairs with null keys will be skipped
-- Appending null CharSequences and Characters is a no-op
+- Calling `append` methods with null CharSequences and Characters is a no-op
 - Non-finite floats and doubles (not supported by the JSON spec)
 will output as null literals
 - Convenience methods for JSON objects to skip key-value pairs with
