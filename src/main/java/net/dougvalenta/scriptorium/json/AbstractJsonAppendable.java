@@ -36,13 +36,13 @@ class AbstractJsonAppendable<THIS extends AbstractJsonAppendable<THIS>> implemen
 	
 	@Override
 	public THIS append(final CharSequence sequence) throws IOException {
-		scribe.append(sequence);
+		if (sequence != null) scribe.append(sequence);
 		return (THIS) this;
 	}
 	
 	@Override
 	public THIS append(final CharSequence sequence, final int start, final int end) throws IOException {
-		scribe.append(sequence, start, end);
+		if (sequence != null && start >= 0) scribe.append(sequence, start, end);
 		return (THIS) this;
 	}
 	
