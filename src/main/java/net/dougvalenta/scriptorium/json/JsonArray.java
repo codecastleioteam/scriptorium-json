@@ -23,6 +23,9 @@ import net.dougvalenta.scriptorium.Inscribable;
  * 
  * @author Doug Valenta
  * @param <THIS> this type
+ * @see Json#array(Appendable)
+ * @see JsonArray#array()
+ * @see JsonKey#array()
  */
 public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<JsonArray<?>, THIS> {
 	
@@ -495,6 +498,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see JsonValue
 	 * @see #element()
 	 * @see #element(CharSequence)
+	 * @see #element(Character)
 	 * @see #with(char)
 	 */
 	public JsonValue<THIS> element(char element) throws IOException;
@@ -526,6 +530,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see JsonValue
 	 * @see #element()
 	 * @see #element(CharSequence)
+	 * @see #element(char)
 	 * @see #with(char)
 	 */
 	public default JsonValue<THIS> element(final Character element) throws IOException {
@@ -564,12 +569,11 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * return this object.
 	 * 
 	 * <p>
-	 * <p>
 	 * Calling any method of this object before closing the returned JsonObjectNode may result in 
 	 * invalid output and/or an unchecked exception.
 	 * 
 	 * <p>
-	 * When this method returns, and opening brace (preceded by a comma, if appropriate)
+	 * When this method returns, an opening brace (preceded by a comma, if appropriate)
 	 * will have already been appended to the underlying {@link Appendable}
 	 * 
 	 * @return a {@link JsonObjectNode} representing the new JSON object element

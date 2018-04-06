@@ -22,6 +22,9 @@ import net.dougvalenta.scriptorium.Inscribable;
  * 
  * @author Doug Valenta
  * @param <THIS> this type
+ * @see Json#object(Appendable)
+ * @see JsonArray#object()
+ * @see JsonKey#object()
  */
 public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<JsonObject<?>, THIS> {
 	
