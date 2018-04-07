@@ -1,7 +1,19 @@
 # JSON Scriptorium
 Fluent Java 8+ API for writing JSON output.
 
-## When to use JSON Scriptorium
+## Write early, write often
+Almost every method writes as much output as possible directly to your
+`Appendable`, so your memory footprint doesn't scale with the size or
+complexity of your output. Meanwhile, a naturally nested fluent interface
+makes it easy to produce valid JSON.
+
+## Stay fluent
+The JSON Scriptorium interfaces accept a wide variety of input, so you
+can do less converting and null-checking. Powerful inscription features
+allow you to express flow control functionally, and compose polyglot
+output.
+
+## It's time to use JSON Scriptorium when...
 - Your codebase is mostly write-only POJOs that exist solely to be
 object-mapped
 - You need to output a wide variety of small JSON documents, but you
@@ -10,8 +22,8 @@ want more structure than `List<Object>` and `Map<String, Object>`
 fuss
 - You need to generate JSON documents with programmatically-driven
 keys, types, or structure
-- You're working with collections of objects that can't or won't
-all be in memory at the same time, and serializing them to a stream
+- You're serializing collections of objects that can't or won't
+all be in memory at the same time, and outputting them to a stream
 
 ## Getting started
 JSON Scriptorium is not yet in Maven Central. To include in your
@@ -49,21 +61,23 @@ Copy each project's JAR from its `target` directory.
 
 ## Basic Usage
 
-``` Java
-Json.object(System.out) // pass in any Appendable
-    .with("key1", "value1")
-    .with("key2", 99)
-    .withNull("key3")
-    .key("key4").array()
-        .with(1)
-        .withTrue()
-        .with("three")
-        .with(new BigInteger("900000000000000000000000"))
-        .then()
-    .close();
+``` java
+try (final JsonObjectDocument document = Json.object(System.out)) {
+    document.with("key1", "value1")
+        .with("key2", 99)
+        .withNull("key3")
+        .key("key4")
+            .array()
+                .with(1)
+                .withTrue()
+                .with("three")
+                .with(new BigInteger("900000000000000000000000"))
+                .then()
+        .withFalse("key5");
+}
 ```
 
-``` JSON
+``` json
 {
     "key1": "value1",
     "key2": 99,
@@ -73,7 +87,8 @@ Json.object(System.out) // pass in any Appendable
         true,
         "three",
         900000000000000000000000
-    ]
+    ],
+    "key5": false
 }
 ```
 
@@ -81,23 +96,22 @@ Json.object(System.out) // pass in any Appendable
 does not output whitespace.)
 
 A conformant JSON document is always an object at the top level, never
-and array. In real life, this isn't always the case. JSON Scriptorium
+an array. In real life, this isn't always the case. JSON Scriptorium
 supports these JSON document fragments:
 
-``` Java
-Json.array(System.out)
-    .with(1)
-    .withTrue()
-    .with("three")
-    .object()
-        .with("key1", "value1")
-        .with("key2", 99)
-        .withNull("key3")
-        .then()
-    .close();
+``` java
+try (final JsonArrayDocument document = Json.array(System.out)) {
+    document.with(1)
+        .withTrue()
+        .with("three")
+        .object()
+            .with("key1", "value1")
+            .with("key2", 99)
+            .withNull("key3")
+}
 ```
 
-``` JSON
+``` json
 [
     1,
     true,
@@ -110,45 +124,9 @@ Json.array(System.out)
 ]
 ```
 
-## Understanding Deep Fluency
-JSON Scriptorium provides a fluent API to the recursively nested
-structures of JSON documents. To achieve this, JSON Scriptorium
-objects have methods that return nested contexts. These nested
-contexts can be fluently closed using a `then` method that returns
-the parent (the object they were originally returned by).
+Note that closing the document properly closes all dangling nested
+elements.
 
-Many objects in the API are also `Closeable`. When these objects are
-closed (if they have a `then` method, that method calls `close`),
-*any* dangling unclosed inner nested structures will be closed (in
-order) as well.
+## Additional Resources
 
-## Staying Fluent
-JSON Scriptorium handles many input errors gracefully so you don't
-have to break method chains to check input:
-- Null values and elements will be output as JSON null literals
-(never a string literal `"null"`)
-- Key-value pairs with null keys will be skipped
-- Calling `append` methods with null CharSequences and Characters is a no-op
-- Non-finite floats and doubles (not supported by the JSON spec)
-will output as null literals
-- Convenience methods for JSON objects to skip key-value pairs with
-null or non-finite values
-
-In addition, JSON Scriptorium provides several methods for inversion
-of flow control:
-
-``` Java
-object.withIf(includeUri, (o) -> {
-        o.with("uri", uri);
-    }).withEach(map.entrySet(), (entry, o) -> {
-        o.with(entry.getKey(), entry.getValue());
-    }).withIfNotNull(person, (p, o) -> {
-        o.object("person")
-            .with("name", person.getName())
-            .with("id", person.getId().toString());
-        // any dangling open structures, like this nested object,
-        // will be closed after this function returns
-    });
-```
-
-[JavaDoc](https://dougvalenta.github.io/scriptorium-json/apidocs)
+- [JavaDoc](https://dougvalenta.github.io/scriptorium-json/apidocs)
