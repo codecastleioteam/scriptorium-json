@@ -4,18 +4,17 @@
  */
 package net.dougvalenta.scriptorium.json;
 
-import java.io.Closeable;
-import java.io.IOException;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 
 /**
  * Represents a JSON object currently being output as a JSON document.
  * 
  * @author Doug Valenta
+ * @see Json#object(Appendable)
  */
 public final class JsonObjectDocument extends CloseableJsonObject<JsonObjectDocument> {
 	
-	public JsonObjectDocument(final JsonScribe scribe) {
+	JsonObjectDocument(final JsonScribe scribe) {
 		super(scribe);
 	}
 	
