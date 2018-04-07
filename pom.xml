@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>net.dougvalenta.scriptorium</groupId>
 	<artifactId>scriptorium-json</artifactId>
-	<name>Scriptorium Json</name>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+	
+	<name>JSON Scriptorium</name>
+	<description>Fluent Java API for writing JSON output</description>
+	<url>https://github.com/dougvalenta/scriptorium-json</url>
+	
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<name>Doug Valenta</name>
+			<email>dougvalenta@gmail.com</email>
+			<organizationUrl>https://github.com/dougvalenta</organizationUrl>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git:git://github.com/dougvalenta/scriptorium-json.git</connection>
+		<developerConnection>scm:git:ssh://github.com:dougvalenta/scriptorium-json.git</developerConnection>
+		<url>http://github.com/dougvalenta/scriptorium-json</url>
+	</scm>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -17,6 +43,7 @@
 		<clean.plugin.version>3.0.0</clean.plugin.version>
 		<javadoc.plugin.version>3.0.0</javadoc.plugin.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>net.dougvalenta.scriptorium</groupId>
@@ -36,6 +63,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -107,4 +135,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>
