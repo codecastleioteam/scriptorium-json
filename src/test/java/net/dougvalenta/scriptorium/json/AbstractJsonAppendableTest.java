@@ -5,6 +5,8 @@
 package net.dougvalenta.scriptorium.json;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.dougvalenta.scriptorium.function.IOConsumer;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
 import org.junit.Assert;
@@ -45,6 +47,16 @@ public abstract class AbstractJsonAppendableTest<A extends JsonAppendable<A>> {
 		final A result = appendable.append("abcde", 1, 4);
 		Assert.assertEquals(appendable, result);
 		Mockito.verify(scribe).append("abcde", 1, 4);
+		Mockito.verifyNoMoreInteractions(scribe);
+	}
+	
+	@Test
+	public void testAppendCharSequenceWithInclusiveIndexes() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final A appendable = getJsonAppendable(scribe);
+		final A result = appendable.append("abc", 0, 3);
+		Assert.assertEquals(appendable, result);
+		Mockito.verify(scribe).append("abc", 0, 3);
 		Mockito.verifyNoMoreInteractions(scribe);
 	}
 	
@@ -99,11 +111,14 @@ public abstract class AbstractJsonAppendableTest<A extends JsonAppendable<A>> {
 	public void testWithConsumer() throws IOException {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final A appendable = getJsonAppendable(scribe);
+		final AtomicInteger called = new AtomicInteger();
 		final A result = appendable.with((a) -> {
+			called.incrementAndGet();
 			Assert.assertTrue(a instanceof InscribedJsonAppendable);
 			a.append("abc");
 			Mockito.verify(scribe).append("abc");
 		});
+		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(appendable, result);
 	}
 	
@@ -112,12 +127,15 @@ public abstract class AbstractJsonAppendableTest<A extends JsonAppendable<A>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final A appendable = getJsonAppendable(scribe);
 		final Object element = new Object();
+		final AtomicInteger called = new AtomicInteger();
 		final A result = appendable.with(element, (e, a) -> {
+			called.incrementAndGet();
 			Assert.assertEquals(element, e);
 			Assert.assertTrue(a instanceof InscribedJsonAppendable);
 			a.append("abc");
 			Mockito.verify(scribe).append("abc");
 		});
+		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(appendable, result);
 	}
 	

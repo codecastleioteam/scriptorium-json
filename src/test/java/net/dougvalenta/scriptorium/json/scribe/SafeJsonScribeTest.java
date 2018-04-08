@@ -71,6 +71,17 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 	}
 	
 	@Test
+	public void testPopWithZeroCursor() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender).pushArray();
+		Mockito.verify(appender).appendOpenBracket();
+		Mockito.verifyNoMoreInteractions(appender);
+		scribe.pop(0);
+		Mockito.verify(appender).appendCloseBracket();
+		Mockito.verifyNoMoreInteractions(appender);
+	}
+	
+	@Test
 	public void testPopWithFutureCursor() throws IOException {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender).pushArray();

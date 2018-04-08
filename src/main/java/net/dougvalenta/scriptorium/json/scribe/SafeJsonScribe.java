@@ -34,7 +34,7 @@ public class SafeJsonScribe implements JsonScribe {
 		this.appender = appender;
 	}
 	
-	private SafeJsonScribe beforeNode() throws IOException {
+	private void beforeNode() throws IOException {
 		if (!state.isEmpty()) {
 			switch (state.peek()) {
 				case ARRAY:
@@ -47,10 +47,9 @@ public class SafeJsonScribe implements JsonScribe {
 					throw new IllegalStateException("Not an array or key-value");
 			}
 		}
-		return this;
 	}
 	
-	private SafeJsonScribe beforeValue() throws IOException {
+	private void beforeValue() throws IOException {
 		if (state.isEmpty()) throw new IllegalStateException("Not an array or key-value");
 		switch (state.peek()) {
 			case ARRAY:
@@ -62,7 +61,6 @@ public class SafeJsonScribe implements JsonScribe {
 			default:
 				throw new IllegalStateException("Not an array or key-value");
 		}
-		return this;
 	}
 	
 	@Override
@@ -128,8 +126,8 @@ public class SafeJsonScribe implements JsonScribe {
 		if (value instanceof Character) return value((char) value);
 		if (value instanceof BigInteger) return value((BigInteger) value);
 		if (value instanceof BigDecimal) return value((BigDecimal) value);
-		if (value instanceof Byte) return value((int) value);
-		if (value instanceof Short) return value((int) value);
+		if (value instanceof Byte) return value((byte) value);
+		if (value instanceof Short) return value((short) value);
 		if (value instanceof Integer) return value((int) value);
 		if (value instanceof Float) return value((float) value);
 		if (value instanceof Long) return value((long) value);

@@ -302,6 +302,8 @@ public abstract class AbstractJsonScribeTest {
 				.value((Object) Double.NaN)
 				.value((Object) true)
 				.value((Object) null)
+				.value((Object) (byte) 1)
+				.value((Object) (short) 1)
 				.pop();
 		Assert.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
@@ -333,6 +335,10 @@ public abstract class AbstractJsonScribeTest {
 		inOrder.verify(appender).appendBoolean(true);
 		inOrder.verify(appender).appendComma();
 		inOrder.verify(appender).appendNull();
+		inOrder.verify(appender).appendComma();
+		inOrder.verify(appender).appendNumber(1);
+		inOrder.verify(appender).appendComma();
+		inOrder.verify(appender).appendNumber(1);
 		inOrder.verify(appender).appendCloseBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 	}
