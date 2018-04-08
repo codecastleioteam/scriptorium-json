@@ -144,6 +144,9 @@
 							<goal>mutationCoverage</goal>
 						</goals>
 						<phase>test</phase>
+						<configuration>
+							<mutationThreshold>0</mutationThreshold>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

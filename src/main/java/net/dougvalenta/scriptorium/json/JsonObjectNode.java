@@ -13,7 +13,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  * containing {@link JsonArray} or {@link JsonObject}.
  * 
  * @author Doug Valenta
- * @param P the type of the parent object
+ * @param <P> the type of the parent object
  * @see JsonArray#object()
  * @see JsonKey#object()
  */
