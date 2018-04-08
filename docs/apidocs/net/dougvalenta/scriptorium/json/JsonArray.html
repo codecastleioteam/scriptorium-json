@@ -128,6 +128,10 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Doug Valenta</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../net/dougvalenta/scriptorium/json/Json.html#array-java.lang.Appendable-"><code>Json.array(Appendable)</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#array--"><code>array()</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonKey.html#array--"><code>JsonKey.array()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -1101,6 +1105,7 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json"><code>JsonValue</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element--"><code>element()</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-java.lang.CharSequence-"><code>element(CharSequence)</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-java.lang.Character-"><code>element(Character)</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#with-char-"><code>with(char)</code></a></dd>
 </dl>
 </li>
@@ -1143,6 +1148,7 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
 <dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json"><code>JsonValue</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element--"><code>element()</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-java.lang.CharSequence-"><code>element(CharSequence)</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-char-"><code>element(char)</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#with-char-"><code>with(char)</code></a></dd>
 </dl>
 </li>
@@ -1195,12 +1201,11 @@ extends <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/doug
  return this object.
  
  <p>
- <p>
  Calling any method of this object before closing the returned JsonObjectNode may result in 
  invalid output and/or an unchecked exception.
  
  <p>
- When this method returns, and opening brace (preceded by a comma, if appropriate)
+ When this method returns, an opening brace (preceded by a comma, if appropriate)
  will have already been appended to the underlying <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

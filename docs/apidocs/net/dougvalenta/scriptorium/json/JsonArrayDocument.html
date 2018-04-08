@@ -150,7 +150,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayDocument.html#close--">close</a></span>()</code>
-<div class="block">Closes this array and any nested arrays, objects, or values that remain open.</div>
+<div class="block">Closes this JSON array and any nested arrays, objects, or values that remain open.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -335,7 +335,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
            throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Closes this array and any nested arrays, objects, or values that remain open.</div>
+<div class="block">Closes this JSON array and any nested arrays, objects, or values that remain open.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true#close--" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>
@@ -917,6 +917,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json"><code>JsonValue</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element--"><code>JsonArray.element()</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-java.lang.CharSequence-"><code>JsonArray.element(CharSequence)</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-java.lang.Character-"><code>JsonArray.element(Character)</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#with-char-"><code>JsonArray.with(char)</code></a></dd>
 </dl>
 </li>
@@ -973,12 +974,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  return this object.
  
  <p>
- <p>
  Calling any method of this object before closing the returned JsonObjectNode may result in 
  invalid output and/or an unchecked exception.
  
  <p>
- When this method returns, and opening brace (preceded by a comma, if appropriate)
+ When this method returns, an opening brace (preceded by a comma, if appropriate)
  will have already been appended to the underlying <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

@@ -108,6 +108,10 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>P</code> - the type of the parent object</dd>
+</dl>
+<dl>
 <dt>All Implemented Interfaces:</dt>
 <dd><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a>, <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/FluentNode.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">FluentNode</a>&lt;P&gt;, <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/dougvalenta/scriptorium/Inscribable.html?is-external=true" title="class or interface in net.dougvalenta.scriptorium">Inscribable</a>&lt;<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json">JsonArray</a>&lt;?&gt;,<a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="class in net.dougvalenta.scriptorium.json">JsonArrayNode</a>&lt;P&gt;&gt;, <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html" title="interface in net.dougvalenta.scriptorium.json">JsonArray</a>&lt;<a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html" title="class in net.dougvalenta.scriptorium.json">JsonArrayNode</a>&lt;P&gt;&gt;</dd>
 </dl>
@@ -121,6 +125,9 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Doug Valenta</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#array--"><code>JsonArray.array()</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonKey.html#array--"><code>JsonKey.array()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -150,7 +157,7 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../net/dougvalenta/scriptorium/json/JsonArrayNode.html#close--">close</a></span>()</code>
-<div class="block">Closes this array and any nested arrays, objects, or values that remain open.</div>
+<div class="block">Closes this JSON array and any nested arrays, objects, or values that remain open.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -373,7 +380,7 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
            throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Closes this array and any nested arrays, objects, or values that remain open.</div>
+<div class="block">Closes this JSON array and any nested arrays, objects, or values that remain open.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true#close--" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>
@@ -955,6 +962,7 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
 <dd><a href="../../../../net/dougvalenta/scriptorium/json/JsonValue.html" title="class in net.dougvalenta.scriptorium.json"><code>JsonValue</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element--"><code>JsonArray.element()</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-java.lang.CharSequence-"><code>JsonArray.element(CharSequence)</code></a>, 
+<a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#element-java.lang.Character-"><code>JsonArray.element(Character)</code></a>, 
 <a href="../../../../net/dougvalenta/scriptorium/json/JsonArray.html#with-char-"><code>JsonArray.with(char)</code></a></dd>
 </dl>
 </li>
@@ -1011,12 +1019,11 @@ implements <a href="https://dougvalenta.github.io/scriptorium-core/apidocs/net/d
  return this object.
  
  <p>
- <p>
  Calling any method of this object before closing the returned JsonObjectNode may result in 
  invalid output and/or an unchecked exception.
  
  <p>
- When this method returns, and opening brace (preceded by a comma, if appropriate)
+ When this method returns, an opening brace (preceded by a comma, if appropriate)
  will have already been appended to the underlying <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
