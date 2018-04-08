@@ -285,6 +285,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @throws IOException if an I/O error occurs
 	 */
 	public P then(final BigInteger value) throws IOException {
+		if (value == null) return thenNull();
 		scribe.pop().value(value);
 		return parent;
 	}
@@ -302,6 +303,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @throws IOException if an I/O error occurs
 	 */
 	public P then(final BigDecimal value) throws IOException {
+		if (value == null) return thenNull();
 		scribe.pop().value(value);
 		return parent;
 	}
@@ -512,7 +514,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * 
 	 * @return a {@link JsonObjectNode} representing the new JSON object value
 	 * @throws IOException if an I/O error occurs
-	 * @see #withEmptyObject()
+	 * @see #thenEmptyObject()
 	 */
 	public JsonObjectNode<P> object() throws IOException {
 		scribe.pop().pushObject();
@@ -533,7 +535,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * 
 	 * @return a {@link JsonArrayNode} representing the new JSON array value
 	 * @throws IOException if an I/O error occurs
-	 * @see #withEmptyArray()
+	 * @see #thenEmptyArray()
 	 */
 	public JsonArrayNode<P> array() throws IOException {
 		scribe.pop().pushArray();
