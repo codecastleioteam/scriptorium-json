@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Assert;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
@@ -549,12 +550,15 @@ public abstract class AbstractJsonArrayTest<A extends JsonArray<A>> {
 		final A array = getJsonArray(scribe);
 		final int cursor = scribe.getCursor();
 		Mockito.clearInvocations(scribe);
+		final AtomicInteger called = new AtomicInteger();
 		final A result = array.with((a) -> {
+			called.incrementAndGet();
 			Assert.assertTrue(a instanceof InscribedJsonArray);
 			Assert.assertEquals(cursor, scribe.getCursor());
 			a.object();
 			Assert.assertNotEquals(cursor, scribe.getCursor());
 		});
+		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(array, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
 	}
@@ -565,14 +569,17 @@ public abstract class AbstractJsonArrayTest<A extends JsonArray<A>> {
 		final A array = getJsonArray(scribe);
 		final int cursor = scribe.getCursor();
 		Mockito.clearInvocations(scribe);
+		final AtomicInteger called = new AtomicInteger();
 		final Object element = new Object();
 		final A result = array.with(element, (e, a) -> {
+			called.incrementAndGet();
 			Assert.assertEquals(element, e);
 			Assert.assertTrue(a instanceof InscribedJsonArray);
 			Assert.assertEquals(cursor, scribe.getCursor());
 			a.object();
 			Assert.assertNotEquals(cursor, scribe.getCursor());
 		});
+		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(array, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
 	}

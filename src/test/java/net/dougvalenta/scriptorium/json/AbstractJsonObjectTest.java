@@ -7,6 +7,7 @@ package net.dougvalenta.scriptorium.json;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.concurrent.atomic.AtomicInteger;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
 import org.junit.Assert;
@@ -1195,12 +1196,15 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		final int cursor = scribe.getCursor();
 		Mockito.clearInvocations(scribe);
+		final AtomicInteger called = new AtomicInteger();
 		final O result = object.with((o) -> {
+			called.incrementAndGet();
 			Assert.assertTrue(o instanceof InscribedJsonObject);
 			Assert.assertEquals(cursor, scribe.getCursor());
 			o.key().value();
 			Assert.assertNotEquals(cursor, scribe.getCursor());
 		});
+		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(object, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
 	}
@@ -1211,14 +1215,17 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		final int cursor = scribe.getCursor();
 		Mockito.clearInvocations(scribe);
+		final AtomicInteger called = new AtomicInteger();
 		final Object element = new Object();
 		final O result = object.with(element, (e, o) -> {
+			called.getAndIncrement();
 			Assert.assertEquals(element, e);
 			Assert.assertTrue(o instanceof InscribedJsonObject);
 			Assert.assertEquals(cursor, scribe.getCursor());
 			o.key().value();
 			Assert.assertNotEquals(cursor, scribe.getCursor());
 		});
+		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(object, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
 	}

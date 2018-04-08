@@ -7,8 +7,11 @@ package net.dougvalenta.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import net.dougvalenta.scriptorium.Escaper;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 
 /**
  *
@@ -16,212 +19,288 @@ import org.junit.Test;
  */
 public class JsonAppenderTest {
 	
-	private static final char MOCK_ESCAPE_CHARACTER = '%';
-	
 	@Test
 	public void testAppendComma() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendComma();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendComma();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals(",", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendCommaWithTrue() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendComma(true);
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendComma(true);
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals(",", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendCommaWithFalse() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendComma(false);
-		Assert.assertEquals("", builder.toString());
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendComma(false);
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals(0, builder.length());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendOpenBrace() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendOpenBrace();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendOpenBrace();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("{", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendCloseBrace() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendCloseBrace();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendCloseBrace();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("}", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendOpenBracket() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendOpenBracket();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendOpenBracket();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("[", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendCloseBracket() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendCloseBracket();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendCloseBracket();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("]", builder.toString());
-	}
-	
-	@Test
-	public void testAppendEmptyObject() throws IOException {
-		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendEmptyObject();
-		Assert.assertEquals("{}", builder.toString());
-	}
-	
-	@Test
-	public void testAppendEmptyArray() throws IOException {
-		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendEmptyArray();
-		Assert.assertEquals("[]", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendQuote() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendQuote();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendQuote();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("\"", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendCloseKey() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendCloseKey();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendCloseKey();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("\":", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
+	}
+	
+	@Test
+	public void testAppendEmptyArray() throws IOException {
+		final StringBuilder builder = new StringBuilder();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendEmptyArray();
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("[]", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
+	}
+	
+	@Test
+	public void testAppendEmptyObject() throws IOException {
+		final StringBuilder builder = new StringBuilder();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendEmptyObject();
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("{}", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendNull() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendNull();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendNull();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("null", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendTrue() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendTrue();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendTrue();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("true", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendFalse() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendFalse();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendFalse();
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("false", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendNumberWithBigInteger() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		final String number = "900000000000000000000000000000000000000000000";
-		appender.appendNumber(new BigInteger(number));
-		Assert.assertEquals(number, builder.toString());
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendNumber(new BigInteger("12345"));
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("12345", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendNumberWithBigDecimal() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		final String number = "0.123456789123456789";
-		appender.appendNumber(new BigDecimal(number));
-		Assert.assertEquals(number, builder.toString());
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendNumber(new BigDecimal("1.2345"));
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("1.2345", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendNumberWithInt() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendNumber(123456789);
-		Assert.assertEquals("123456789", builder.toString());
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendNumber(12345);
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("12345", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendNumberWithLong() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendNumber(123456789123456789L);
-		Assert.assertEquals("123456789123456789", builder.toString());
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendNumber(12345L);
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("12345", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendNumberWithFloat() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendNumber(0.12345f);
-		Assert.assertEquals("0.12345", builder.toString());
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendNumber(1.2345f);
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("1.2345", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendNumberWithDouble() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendNumber(0.123456789);
-		Assert.assertEquals("0.123456789", builder.toString());
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendNumber(1.2345);
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals("1.2345", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendBooleanWithTrue() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendBoolean(true);
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendBoolean(true);
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("true", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
 	public void testAppendBooleanWithFalse() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.appendBoolean(false);
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.appendBoolean(false);
+		Assert.assertEquals(appender, result);
 		Assert.assertEquals("false", builder.toString());
+		Mockito.verifyZeroInteractions(escaper);
 	}
 	
 	@Test
-	public void testEscapeWithChar() throws IOException {
+	public void testEscapeChar() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final JsonAppender appender = new JsonAppender(builder, new MockEscaper(MOCK_ESCAPE_CHARACTER));
-		appender.escape('A');
-		Assert.assertEquals(new String(new char[]{MOCK_ESCAPE_CHARACTER}), builder.toString());
-	}
-	
-	@Test
-	public void testEscapeWithCharSequence() throws IOException {
-		final StringBuilder builder = new StringBuilder();
-		final MockEscaper escaper = new MockEscaper(MOCK_ESCAPE_CHARACTER);
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
-		appender.escape("ABC");
-		Assert.assertEquals(new String(new char[]{MOCK_ESCAPE_CHARACTER, MOCK_ESCAPE_CHARACTER, MOCK_ESCAPE_CHARACTER}), builder.toString());
-		Assert.assertEquals("ABC", escaper.spyString());
+		final JsonAppender result = appender.escape('a');
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals(0, builder.length());
+		Mockito.verify(escaper).escape('a', builder);
+		Mockito.verifyNoMoreInteractions(escaper);
 	}
 	
 	@Test
-	public void testEscapeWithCharSequenceRange() throws IOException {
+	public void testEscapeCharSequence() throws IOException {
 		final StringBuilder builder = new StringBuilder();
-		final MockEscaper escaper = new MockEscaper(MOCK_ESCAPE_CHARACTER);
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
-		appender.escape("ABCDE", 1, 4);
-		Assert.assertEquals(new String(new char[]{MOCK_ESCAPE_CHARACTER, MOCK_ESCAPE_CHARACTER, MOCK_ESCAPE_CHARACTER}), builder.toString());
-		Assert.assertEquals("BCD", escaper.spyString());
+		final JsonAppender result = appender.escape("abc");
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals(0, builder.length());
+		InOrder inOrder = Mockito.inOrder(escaper);
+		inOrder.verify(escaper).escape('a', builder);
+		inOrder.verify(escaper).escape('b', builder);
+		inOrder.verify(escaper).escape('c', builder);
+		Mockito.verifyNoMoreInteractions(escaper);
+	}
+	
+	@Test
+	public void testEscapeCharSequenceWithIndex() throws IOException {
+		final StringBuilder builder = new StringBuilder();
+		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
+		final JsonAppender appender = new JsonAppender(builder, escaper);
+		final JsonAppender result = appender.escape("abcde", 1, 4);
+		Assert.assertEquals(appender, result);
+		Assert.assertEquals(0, builder.length());
+		InOrder inOrder = Mockito.inOrder(escaper);
+		inOrder.verify(escaper).escape('b', builder);
+		inOrder.verify(escaper).escape('c', builder);
+		inOrder.verify(escaper).escape('d', builder);
+		Mockito.verifyNoMoreInteractions(escaper);
 	}
 	
 }
