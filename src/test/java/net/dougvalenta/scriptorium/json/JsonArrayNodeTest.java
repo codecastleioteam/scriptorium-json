@@ -9,7 +9,6 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 /**

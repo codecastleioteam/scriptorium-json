@@ -13,7 +13,9 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
  * containing {@link JsonArray} or {@link JsonObject}.
  * 
  * @author Doug Valenta
- * @param P the type of the parent object
+ * @param <P> the type of the parent object
+ * @see JsonArray#array()
+ * @see JsonKey#array()
  */
 public final class JsonArrayNode<P> extends CloseableJsonArray<JsonArrayNode<P>> implements FluentNode<P> {
 

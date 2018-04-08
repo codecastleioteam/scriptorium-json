@@ -34,18 +34,64 @@ class AbstractJsonAppendable<THIS extends AbstractJsonAppendable<THIS>> implemen
 		this.scribe = scribe;
 	}
 	
+	/**
+	 * Appends the provided {@link CharSequence} and returns this object.
+	 * 
+	 * <p>
+	 * The provided characters will be escaped.
+	 * 
+	 * <p>
+	 * This method differs from {@link Appendable#append(CharSequence)}: if the provided
+	 * sequence is null, this method has no effect.
+	 * 
+	 * @param sequence the characters to append
+	 * @return this object
+	 * @throws IOException 
+	 * @see Appendable#append(CharSequence)
+	 */
 	@Override
 	public THIS append(final CharSequence sequence) throws IOException {
-		scribe.append(sequence);
+		if (sequence != null) scribe.append(sequence);
 		return (THIS) this;
 	}
 	
+	/**
+	 * Appends the specified subsequence of the provided {@link CharSequence} and 
+	 * returns this object.
+	 * 
+	 * <p>
+	 * The provided characters will be escaped.
+	 * 
+	 * <p>
+	 * This method differs from {@link Appendable#append(CharSequence, int, int)}: if the provided
+	 * sequence is null or if start is less than zero or end is less than or equal to start, 
+	 * this method has no effect.
+	 * 
+	 * @param sequence the characters to append
+	 * @param start the first character from {@code sequence} to append
+	 * @param end the character after the last character from {@code sequence} to append
+	 * @return this object
+	 * @throws IOException 
+	 * @see Appendable#append(CharSequence, int, int)
+	 */
 	@Override
 	public THIS append(final CharSequence sequence, final int start, final int end) throws IOException {
-		scribe.append(sequence, start, end);
+		if (sequence != null && start >= 0) scribe.append(sequence, start, end);
 		return (THIS) this;
 	}
 	
+	/**
+	 * Appends the specified subsequence of the provided character and 
+	 * returns this object.
+	 * 
+	 * <p>
+	 * The provided characters will be escaped.
+	 * 
+	 * @param character the character to append
+	 * @return this object
+	 * @throws IOException 
+	 * @see Appendable#append(char)
+	 */
 	@Override
 	public THIS append(final char character) throws IOException {
 		scribe.append(character);
