@@ -245,6 +245,10 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * Null arguments of any type should output {@code null} literals.
 	 * 
 	 * <p>
+	 * Implementations <b>may</b> throw an {@link IllegalArgumentException} if a non-null
+	 * argument of an unsupported type is provided.
+	 * 
+	 * <p>
 	 * To produce a well-formed JSON document, this method should only be called when
 	 * in the array state, or when in the object state immediately following a key.
 	 * Implementations <b>may</b> throw an {@link IllegalStateException} if this

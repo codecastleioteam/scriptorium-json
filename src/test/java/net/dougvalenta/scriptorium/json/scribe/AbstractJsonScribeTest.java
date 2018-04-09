@@ -343,12 +343,6 @@ public abstract class AbstractJsonScribeTest {
 		Mockito.verifyNoMoreInteractions(appender);
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public void testPushArrayAndObjectsWithInvalidType() throws IOException {
-		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
-		getScribe(appender).pushArray().value(new Object());
-	}
-	
 	@Test
 	public void testPushArrayAndEmptyArraysAndPop() throws IOException {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
@@ -403,6 +397,32 @@ public abstract class AbstractJsonScribeTest {
 		inOrder.verify(appender).escape("xyzq", 1, 3);
 		inOrder.verify(appender).appendQuote();
 		inOrder.verify(appender).appendCloseBracket();
+		Mockito.verifyNoMoreInteractions(appender);
+	}
+	
+	@Test
+	public void testPushArrayAndPushArraysAndPopAll() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender);
+		JsonScribe result = scribe.pushArray().pushArray().pop().pushArray()
+				.value("abc")
+				.value(99)
+				.value(false)
+				.pop().pop();
+		Assert.assertEquals(scribe, result);
+		InOrder inOrder = Mockito.inOrder(appender);
+		inOrder.verify(appender, Mockito.times(2)).appendOpenBracket();
+		inOrder.verify(appender).appendCloseBracket();
+		inOrder.verify(appender).appendComma();
+		inOrder.verify(appender).appendOpenBracket();
+		inOrder.verify(appender).appendQuote();
+		inOrder.verify(appender).escape("abc");
+		inOrder.verify(appender).appendQuote();
+		inOrder.verify(appender).appendComma();
+		inOrder.verify(appender).appendNumber(99);
+		inOrder.verify(appender).appendComma();
+		inOrder.verify(appender).appendBoolean(false);
+		inOrder.verify(appender, Mockito.times(2)).appendCloseBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 	}
 	
@@ -560,6 +580,18 @@ public abstract class AbstractJsonScribeTest {
 		inOrder.verify(appender).appendCloseBrace();
 		inOrder.verify(appender).appendCloseBracket();
 		Mockito.verifyNoMoreInteractions(appender);
+	}
+	
+	@Test
+	public void testPopWithCurrentCursor() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender).pushArray();
+		final int cursor = scribe.getCursor();
+		Mockito.clearInvocations(appender);
+		final JsonScribe result = scribe.pop(cursor);
+		Assert.assertEquals(scribe, result);
+		Mockito.verifyZeroInteractions(appender);
+		Assert.assertEquals(cursor, scribe.getCursor());
 	}
 	
 }

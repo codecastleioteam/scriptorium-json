@@ -5,8 +5,10 @@
 package net.dougvalenta.scriptorium.json;
 
 import java.io.IOException;
+import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 /**
  *
@@ -28,7 +30,23 @@ public class JsonTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testObjectWithNullAppendable() throws IOException {
-		Json.object(null);
+		Json.object((Appendable) null);
+	}
+	
+	@Test
+	public void testObjectWithScribe() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final JsonObjectDocument document = Json.object(scribe);
+		Mockito.verify(scribe).pushObject();
+		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
+		Mockito.verifyNoMoreInteractions(scribe);
+		document.close();
+		Mockito.verify(scribe).pop();
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testObjectWithNullScribe() throws IOException {
+		Json.object((JsonScribe) null);
 	}
 	
 	@Test
@@ -45,7 +63,23 @@ public class JsonTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testArrayWithNullAppendable() throws IOException {
-		Json.array(null);
+		Json.array((Appendable) null);
+	}
+	
+	@Test
+	public void testArrayWithScribe() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final JsonArrayDocument document = Json.array(scribe);
+		Mockito.verify(scribe).pushArray();
+		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
+		Mockito.verifyNoMoreInteractions(scribe);
+		document.close();
+		Mockito.verify(scribe).pop();
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testArrayWithNullScribe() throws IOException {
+		Json.array((JsonScribe) null);
 	}
 	
 }
