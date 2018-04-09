@@ -97,21 +97,6 @@
 							<goal>jar</goal>
 						</goals>
 					</execution>
-					<execution>
-						<id>javadoc-docs</id>
-						<goals>
-							<goal>javadoc</goal>
-						</goals>
-						<configuration>
-							<reportOutputDirectory>${basedir}/docs</reportOutputDirectory>
-							<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
-							<subpackages>net.dougvalenta.scriptorium.json</subpackages>
-							<links>
-								<link>https://dougvalenta.github.io/scriptorium-core/apidocs</link>
-							</links>
-							<notimestamp>true</notimestamp>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -158,9 +143,6 @@
 							<goal>mutationCoverage</goal>
 						</goals>
 						<phase>test</phase>
-						<configuration>
-							<mutationThreshold>0</mutationThreshold>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
