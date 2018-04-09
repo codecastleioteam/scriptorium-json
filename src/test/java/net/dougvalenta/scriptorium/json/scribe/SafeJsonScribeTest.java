@@ -919,4 +919,10 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 		Assert.fail("Did not throw");
 	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void testPushArrayAndObjectsWithInvalidType() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		getScribe(appender).pushArray().value(new Object());
+	}
+	
 }

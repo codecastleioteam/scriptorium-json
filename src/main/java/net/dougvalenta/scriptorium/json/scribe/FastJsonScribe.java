@@ -222,8 +222,9 @@ public class FastJsonScribe implements JsonScribe {
 				appender.appendQuote();
 				comma = true;
 				break;
-			case KEY:
+			default: // case KEY:
 				appender.appendCloseKey();
+				break;
 		}
 		return this;
 	}
