@@ -582,4 +582,16 @@ public abstract class AbstractJsonScribeTest {
 		Mockito.verifyNoMoreInteractions(appender);
 	}
 	
+	@Test
+	public void testPopWithCurrentCursor() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender).pushArray();
+		final int cursor = scribe.getCursor();
+		Mockito.clearInvocations(appender);
+		final JsonScribe result = scribe.pop(cursor);
+		Assert.assertEquals(scribe, result);
+		Mockito.verifyZeroInteractions(appender);
+		Assert.assertEquals(cursor, scribe.getCursor());
+	}
+	
 }

@@ -76,7 +76,8 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender).pushArray();
 		Mockito.verify(appender).appendOpenBracket();
 		Mockito.verifyNoMoreInteractions(appender);
-		scribe.pop(0);
+		final JsonScribe result = scribe.pop(0);
+		Assert.assertEquals(scribe, result);
 		Mockito.verify(appender).appendCloseBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 	}
@@ -87,7 +88,7 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender).pushArray();
 		Mockito.verify(appender).appendOpenBracket();
 		try {
-			scribe.pop(2);
+			scribe.pop(99);
 		} catch (IllegalStateException e) {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
