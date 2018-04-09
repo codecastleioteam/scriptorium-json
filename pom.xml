@@ -97,6 +97,21 @@
 							<goal>jar</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>javadoc-docs</id>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+						<configuration>
+							<reportOutputDirectory>${basedir}/docs</reportOutputDirectory>
+							<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
+							<subpackages>net.dougvalenta.scriptorium.json</subpackages>
+							<links>
+								<link>https://dougvalenta.github.io/scriptorium-core/apidocs</link>
+							</links>
+							<notimestamp>true</notimestamp>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -109,26 +124,6 @@
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
-					</execution>
-					<execution>
-						<id>jacoco-check</id>
-						<goals>
-							<goal>check</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<rule>
-									<element>CLASS</element>
-									<limits>
-										<limit>
-											<counter>BRANCH</counter>
-											<value>COVEREDRATIO</value>
-											<minimum>1</minimum>
-										</limit>
-									</limits>
-								</rule>
-							</rules>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
