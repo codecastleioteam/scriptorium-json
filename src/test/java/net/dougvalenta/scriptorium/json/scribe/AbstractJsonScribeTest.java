@@ -501,6 +501,8 @@ public abstract class AbstractJsonScribeTest {
 		JsonScribe result = scribe.pushObject()
 				.key("key").pushArray()
 					.pushObject()
+						.pop()
+					.pushObject()
 						.key("key").pushArray()
 							.pushValue();
 		Assert.assertEquals(scribe, result);
@@ -511,6 +513,9 @@ public abstract class AbstractJsonScribeTest {
 		inOrder.verify(appender).escape("key");
 		inOrder.verify(appender).appendCloseKey();
 		inOrder.verify(appender).appendOpenBracket();
+		inOrder.verify(appender).appendOpenBrace();
+		inOrder.verify(appender).appendCloseBrace();
+		inOrder.verify(appender).appendComma();
 		inOrder.verify(appender).appendOpenBrace();
 		inOrder.verify(appender).appendQuote();
 		inOrder.verify(appender).escape("key");

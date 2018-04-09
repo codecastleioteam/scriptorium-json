@@ -266,9 +266,8 @@ public class SafeJsonScribe implements JsonScribe {
 				appender.appendCloseKey();
 				state.push(State.KEYVALUE);
 				break;
-			case VALUE:
+			default: // case VALUE:
 				appender.appendQuote();
-				break;
 		}
 		return this;
 	}

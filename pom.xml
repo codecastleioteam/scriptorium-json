@@ -120,15 +120,9 @@
 				<version>0.8.0</version>
 				<executions>
 					<execution>
+						<id>jacoco-prepare-agent</id>
 						<goals>
 							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -144,9 +138,6 @@
 							<goal>mutationCoverage</goal>
 						</goals>
 						<phase>test</phase>
-						<configuration>
-							<mutationThreshold>0</mutationThreshold>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
