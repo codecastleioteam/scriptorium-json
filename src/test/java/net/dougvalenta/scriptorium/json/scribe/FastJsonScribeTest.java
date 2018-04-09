@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 /**
- *
+ * 
  * @author Doug Valenta
  */
 public class FastJsonScribeTest extends AbstractJsonScribeTest {
