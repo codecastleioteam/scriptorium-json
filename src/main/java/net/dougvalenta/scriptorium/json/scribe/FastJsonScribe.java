@@ -14,7 +14,7 @@ import java.util.LinkedList;
  *
  * @author Doug Valenta
  */
-public class FastJsonScribe implements JsonScribe {
+public final class FastJsonScribe implements JsonScribe {
 	
 	private enum State {
 		OBJECT,
@@ -23,8 +23,7 @@ public class FastJsonScribe implements JsonScribe {
 		VALUE
 	}
 	
-	protected final JsonAppender appender;
-	
+	private final JsonAppender appender;
 	private final Deque<State> state = new LinkedList<>();
 	
 	private boolean comma;
