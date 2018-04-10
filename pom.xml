@@ -77,21 +77,15 @@
 							<goal>jar</goal>
 						</goals>
 					</execution>
-					<execution>
-						<id>javadoc-docs</id>
-						<goals>
-							<goal>javadoc</goal>
-						</goals>
-						<configuration>
-							<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
-							<subpackages>net.dougvalenta.scriptorium.json</subpackages>
-							<links>
-								<link>https://dougvalenta.github.io/scriptorium-core/apidocs</link>
-							</links>
-							<notimestamp>true</notimestamp>
-						</configuration>
-					</execution>
 				</executions>
+				<configuration>
+					<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
+					<subpackages>net.dougvalenta.scriptorium.json</subpackages>
+					<links>
+						<link>https://dougvalenta.github.io/scriptorium-core/apidocs</link>
+					</links>
+					<notimestamp>true</notimestamp>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>

@@ -11,10 +11,12 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- *
+ * A {@link JsonScribe} that throws {@link IllegalStateException} rather than
+ * producing invalid or unexpected output.
+ * 
  * @author Doug Valenta
  */
-public class SafeJsonScribe implements JsonScribe {
+public final class SafeJsonScribe implements JsonScribe {
 	
 	private enum State {
 		OBJECT,
@@ -24,8 +26,7 @@ public class SafeJsonScribe implements JsonScribe {
 		KEYVALUE
 	}
 	
-	protected final JsonAppender appender;
-	
+	private final JsonAppender appender;
 	private final Deque<State> state = new LinkedList<>();
 	
 	private boolean comma;
@@ -117,23 +118,6 @@ public class SafeJsonScribe implements JsonScribe {
 		appender.appendOpenBracket();
 		comma = false;
 		return this;
-	}
-	
-	@Override
-	public SafeJsonScribe value(final Object value) throws IOException {
-		if (value == null) return nullValue();
-		if (value instanceof CharSequence) return value((CharSequence) value);
-		if (value instanceof Character) return value((char) value);
-		if (value instanceof BigInteger) return value((BigInteger) value);
-		if (value instanceof BigDecimal) return value((BigDecimal) value);
-		if (value instanceof Byte) return value((byte) value);
-		if (value instanceof Short) return value((short) value);
-		if (value instanceof Integer) return value((int) value);
-		if (value instanceof Float) return value((float) value);
-		if (value instanceof Long) return value((long) value);
-		if (value instanceof Double) return value((double) value);
-		if (value instanceof Boolean) return value((boolean) value);
-		throw new IllegalArgumentException("Invalid type " + value.getClass().getName());
 	}
 	
 	@Override

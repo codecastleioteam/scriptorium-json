@@ -11,7 +11,19 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
- *
+ * A stack-based API to producing valid JSON output.
+ * 
+ * <p>
+ * Methods beginning with the word {@code push} add a state to the top of a hypothetical
+ * stack, making that state the current state. The {@link #pop()} and {@link #pop(int)}
+ * methods pop states off the stack, potentially outputting properly nested closing tokens.
+ * Other methods may have state-specific behaviors (or may be illegal in certain states), but
+ * do not modify the current state.
+ * 
+ * <p>
+ * When the state semantic is misused by callers, implementers <b>may</b> throw unchecked
+ * exceptions instead of producing invalid or unexpected output.
+ * 
  * @author Doug Valenta
  */
 public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
@@ -259,7 +271,21 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @throws IllegalArgumentException if the runtime type of a non-null argument is
 	 * not supported
 	 */
-	public JsonScribe value(Object value) throws IOException;
+	public default JsonScribe value(final Object value) throws IOException {
+		if (value == null) return nullValue();
+		if (value instanceof CharSequence) return value((CharSequence) value);
+		if (value instanceof Character) return value((char) value);
+		if (value instanceof BigInteger) return value((BigInteger) value);
+		if (value instanceof BigDecimal) return value((BigDecimal) value);
+		if (value instanceof Byte) return value((byte) value);
+		if (value instanceof Short) return value((short) value);
+		if (value instanceof Integer) return value((int) value);
+		if (value instanceof Float) return value((float) value);
+		if (value instanceof Long) return value((long) value);
+		if (value instanceof Double) return value((double) value);
+		if (value instanceof Boolean) return value((boolean) value);
+		throw new IllegalArgumentException("Invalid type " + value.getClass().getName());
+	}
 	
 	/**
 	 * Outputs a {@code null} literal, preceded by a comma if necessary, and returns this

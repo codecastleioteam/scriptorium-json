@@ -8,7 +8,20 @@ import java.io.IOException;
 import net.dougvalenta.scriptorium.Escaper;
 
 /**
- *
+ * An {@link Escaper} that escapes characters to be included in JSON string literals,
+ * including both values and keys.
+ * 
+ * <p>
+ * This escaper minimally conforms to section 7 of 
+ * <a href="https://tools.ietf.org/html/rfc8259#section-7">IETF RFC-8259</a>
+ * and may not be appropriate for all use-cases and security contexts. Importantly, not all
+ * legal JSON strings are legal JavaScript strings, as JavaScript requires some characters
+ * be escaped that JSON does not.
+ * 
+ * <p>
+ * This implementation chooses the shorter (fewer characters) escape sequence
+ * for the supplied character when multiple valid escape sequences are allowed.
+ * 
  * @author Doug Valenta
  */
 public class JsonEscaper implements Escaper {
@@ -30,20 +43,6 @@ public class JsonEscaper implements Escaper {
 	private static final String ESCAPED_UNICODE = "\\u";
 	private static final String UNICODE_FORMAT = "%04x";
 	
-	/**
-	 * Appends the provided character or its escape sequence to the provided
-	 * {@link Appendable}.
-	 * 
-	 * <p>
-	 * This {@link net.dougvalenta.scriptorium.Escaper} escapes only those characters
-	 * which MUST be escaped within double-quoted JSON strings: double-quote, backslash,
-	 * and control codes (U+0000 - U+001F).
-	 * 
-	 * @param character the character to escape or append
-	 * @param appendable the appendable to append the character or its escape sequence to
-	 * @throws IOException if an exception occurs while appending to the underlying
-	 * {@link Appendable}
-	 */
 	@Override
 	public void escape(final char character, final Appendable appendable) throws IOException {
 		if (character < 32) {
