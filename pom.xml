@@ -68,26 +68,6 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>${clean.plugin.version}</version>
-				<executions>
-					<execution>
-						<id>clean-docs</id>
-						<goals>
-							<goal>clean</goal>
-						</goals>
-						<configuration>
-							<filesets>
-								<fileset>
-									<directory>docs/apidocs</directory>
-								</fileset>
-							</filesets>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>${javadoc.plugin.version}</version>
 				<executions>
@@ -103,7 +83,6 @@
 							<goal>javadoc</goal>
 						</goals>
 						<configuration>
-							<reportOutputDirectory>${basedir}/docs</reportOutputDirectory>
 							<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
 							<subpackages>net.dougvalenta.scriptorium.json</subpackages>
 							<links>
