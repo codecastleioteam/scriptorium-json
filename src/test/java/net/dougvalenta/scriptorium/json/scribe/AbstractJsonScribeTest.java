@@ -594,4 +594,10 @@ public abstract class AbstractJsonScribeTest {
 		Assert.assertEquals(cursor, scribe.getCursor());
 	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void testPushArrayAndObjectsWithInvalidType() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		getScribe(appender).pushArray().value(new Object());
+	}
+	
 }

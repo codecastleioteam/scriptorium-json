@@ -11,7 +11,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- *
+ * A {@link JsonScribe} that produces invalid or unexpected output and throws
+ * unchecked exceptions rather than checking for misuse of stack semantics.
+ * 
  * @author Doug Valenta
  */
 public final class FastJsonScribe implements JsonScribe {
@@ -80,23 +82,6 @@ public final class FastJsonScribe implements JsonScribe {
 		state.push(State.ARRAY);
 		appender.appendOpenBracket();
 		comma = false;
-		return this;
-	}
-	
-	@Override
-	public FastJsonScribe value(final Object value) throws IOException {
-		if (value == null) return nullValue();
-		if (value instanceof CharSequence) return value((CharSequence) value);
-		if (value instanceof Character) return value((char) value);
-		if (value instanceof BigInteger) return value((BigInteger) value);
-		if (value instanceof BigDecimal) return value((BigDecimal) value);
-		if (value instanceof Byte) return value((byte) value);
-		if (value instanceof Short) return value((short) value);
-		if (value instanceof Integer) return value((int) value);
-		if (value instanceof Float) return value((float) value);
-		if (value instanceof Long) return value((long) value);
-		if (value instanceof Double) return value((double) value);
-		if (value instanceof Boolean) return value((boolean) value);
 		return this;
 	}
 	

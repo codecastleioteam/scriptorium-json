@@ -10,7 +10,8 @@ import java.math.BigInteger;
 import net.dougvalenta.scriptorium.Escaper;
 
 /**
- *
+ * Outputs JSON tokens, including escaped string literals, to an underlying {@link Appendable}.
+ * 
  * @author Doug Valenta
  */
 public class JsonAppender {
@@ -31,6 +32,14 @@ public class JsonAppender {
 	private final Appendable appendable;
 	private final Escaper escaper;
 	
+	/**
+	 * Creates a new JsonAppender that outputs to the provided {@link Appendable},
+	 * and escapes string literals using the provided {@link Escaper}.
+	 * 
+	 * @param appendable the {@link Appendable} the new JsonAppender will output to
+	 * @param escaper the {@link Escaper} the new JsonAppender will use to escape
+	 * string literals
+	 */
 	public JsonAppender(final Appendable appendable, final Escaper escaper) {
 		this.appendable = appendable;
 		this.escaper = escaper;

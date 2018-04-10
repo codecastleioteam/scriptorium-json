@@ -53,17 +53,6 @@ public class FastJsonScribeTest extends AbstractJsonScribeTest {
 		Mockito.verifyNoMoreInteractions(appender);
 	}
 	
-	@Test
-	public void testPushArrayAndObjectsWithInvalidType() throws IOException {
-		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
-		final JsonScribe scribe = getScribe(appender);
-		scribe.pushArray();
-		Mockito.verify(appender).appendOpenBracket();
-		final JsonScribe result = scribe.value(new Object());
-		Assert.assertEquals(scribe, result);
-		Mockito.verifyNoMoreInteractions(appender);
-	}
-	
 	@Test(expected=NoSuchElementException.class)
 	public void testPopWhenEmpty() throws IOException {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
