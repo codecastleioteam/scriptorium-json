@@ -82,7 +82,7 @@
 					<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
 					<subpackages>net.dougvalenta.scriptorium.json</subpackages>
 					<links>
-						<link>https://dougvalenta.github.io/scriptorium-core/apidocs</link>
+						<link>https://dougvalenta.github.io/scriptorium-core/apidocs/1.0</link>
 					</links>
 					<notimestamp>true</notimestamp>
 				</configuration>
