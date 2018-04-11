@@ -6,8 +6,10 @@ package net.dougvalenta.scriptorium.json;
 
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import java.io.IOException;
+import net.dougvalenta.scriptorium.FluentNode;
 import net.dougvalenta.scriptorium.function.IOBiConsumer;
 import net.dougvalenta.scriptorium.function.IOConsumer;
+import net.dougvalenta.scriptorium.function.IOFunction;
 
 /**
  * 
@@ -50,6 +52,13 @@ class AbstractJsonAppendable<THIS extends AbstractJsonAppendable<THIS>> implemen
 	public <T> THIS with(final T element, final IOBiConsumer<? super T, ? super JsonAppendable<?>> biConsumer) throws IOException {
 		biConsumer.accept(element, new InscribedJsonAppendable(scribe));
 		return (THIS) this;
+	}
+	
+	@Override
+	public <T extends FluentNode<THIS>> T inscribe(final IOFunction<? super THIS, T> function) throws IOException {
+		final T inscription = function.apply((THIS) this);
+		scribe.pushInscription(inscription);
+		return inscription;
 	}
 	
 }

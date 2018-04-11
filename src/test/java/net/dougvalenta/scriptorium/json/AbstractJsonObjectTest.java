@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicInteger;
+import net.dougvalenta.scriptorium.FluentNode;
+import net.dougvalenta.scriptorium.function.IOFunction;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
 import org.junit.Assert;
@@ -1228,6 +1230,22 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(object, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
+	}
+	
+	@Test
+	public void testInscribe() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final O object = getJsonObject(scribe);
+		Mockito.clearInvocations(scribe);
+		final FluentNode<O> inscription = Mockito.mock(FluentNode.class);
+		final IOFunction<O, FluentNode<O>> inscriptor = (o) -> {
+			Assert.assertEquals(object, o);
+			return inscription;
+		};
+		final FluentNode<O> result = object.inscribe(inscriptor);
+		Assert.assertEquals(inscription, result);
+		Mockito.verify(scribe).pushInscription(inscription);
+		Mockito.verifyNoMoreInteractions(scribe);
 	}
 	
 }

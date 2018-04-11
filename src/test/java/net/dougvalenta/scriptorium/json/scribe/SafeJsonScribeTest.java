@@ -7,8 +7,10 @@ package net.dougvalenta.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import net.dougvalenta.scriptorium.FluentNode;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 /**
@@ -918,6 +920,18 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Assert.fail("Threw " + t.getClass().getName());
 		}
 		Assert.fail("Did not throw");
+	}
+	
+	@Test(expected=IllegalStateException.class)
+	public void testPushInscriptionAndPushDifferentInscriptionAndPop() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender);
+		scribe.pushArray();
+		Mockito.clearInvocations(appender);
+		final FluentNode<Void> inscriptionA = Mockito.mock(FluentNode.class);
+		final JsonScribe result = scribe.pushInscription(inscriptionA);
+		final FluentNode<Void> inscriptionB = Mockito.mock(FluentNode.class);
+		scribe.pushInscription(inscriptionB);
 	}
 	
 }

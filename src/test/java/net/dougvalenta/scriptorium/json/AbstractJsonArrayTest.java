@@ -10,6 +10,8 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import net.dougvalenta.scriptorium.FluentNode;
+import net.dougvalenta.scriptorium.function.IOFunction;
 import org.junit.Assert;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
@@ -582,6 +584,22 @@ public abstract class AbstractJsonArrayTest<A extends JsonArray<A>> {
 		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(array, result);
 		Assert.assertEquals(cursor, scribe.getCursor());
+	}
+	
+	@Test
+	public void testInscribe() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final A array = getJsonArray(scribe);
+		Mockito.clearInvocations(scribe);
+		final FluentNode<A> inscription = Mockito.mock(FluentNode.class);
+		final IOFunction<A, FluentNode<A>> inscriptor = (a) -> {
+			Assert.assertEquals(array, a);
+			return inscription;
+		};
+		final FluentNode<A> result = array.inscribe(inscriptor);
+		Assert.assertEquals(inscription, result);
+		Mockito.verify(scribe).pushInscription(inscription);
+		Mockito.verifyNoMoreInteractions(scribe);
 	}
 	
 }

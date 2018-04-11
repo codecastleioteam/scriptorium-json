@@ -9,6 +9,7 @@ import net.dougvalenta.scriptorium.FluentAppendable;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import net.dougvalenta.scriptorium.FluentNode;
 
 /**
  * A stack-based API to producing valid JSON output.
@@ -542,5 +543,17 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 */
 	@Override
 	public JsonScribe append(char character) throws IOException;
+	
+	/**
+	 * Registers an inscription node that will be closed the next time this scribe's
+	 * {@link #pop()}, {@link #pop(int)}, or {@link #close()} methods are called.
+	 * 
+	 * <p>
+	 * Implementations <b>may</b> throw an {@link IllegalStateException} if this method
+	 * is called twice with different arguments between calls to the above-named methods.
+	 *
+	 * @param inscription the inscription node to register to be closed
+	 */
+	public JsonScribe pushInscription(FluentNode<?> inscription);
 	
 }
