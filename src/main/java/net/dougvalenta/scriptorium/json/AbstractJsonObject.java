@@ -7,8 +7,10 @@ package net.dougvalenta.scriptorium.json;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import net.dougvalenta.scriptorium.FluentNode;
 import net.dougvalenta.scriptorium.function.IOBiConsumer;
 import net.dougvalenta.scriptorium.function.IOConsumer;
+import net.dougvalenta.scriptorium.function.IOFunction;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 
 /**
@@ -145,6 +147,11 @@ class AbstractJsonObject<THIS extends AbstractJsonObject<THIS>> implements JsonO
 		return (THIS) this;
 	}
 	
-	
+	@Override
+	public <T extends FluentNode<THIS>> T inscribe(final IOFunction<? super THIS, T> function) throws IOException {
+		final T inscription = function.apply((THIS) this);
+		scribe.pushInscription(inscription);
+		return inscription;
+	}
 	
 }

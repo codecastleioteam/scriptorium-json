@@ -7,6 +7,7 @@ package net.dougvalenta.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import net.dougvalenta.scriptorium.FluentNode;
 
 /**
  *
@@ -154,6 +155,11 @@ public class MockJsonScribe implements JsonScribe {
 
 	@Override
 	public JsonScribe append(char character) throws IOException {
+		return this;
+	}
+
+	@Override
+	public JsonScribe pushInscription(FluentNode<?> inscription) {
 		return this;
 	}
 	

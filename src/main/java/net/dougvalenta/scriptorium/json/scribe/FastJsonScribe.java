@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Deque;
 import java.util.LinkedList;
+import net.dougvalenta.scriptorium.FluentNode;
 
 /**
  * A {@link JsonScribe} that produces invalid or unexpected output and throws
@@ -35,7 +36,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe emptyObject() throws IOException {
+	public JsonScribe emptyObject() throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendEmptyObject();
 		comma=true;
@@ -43,7 +44,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe pushObject() throws IOException {
+	public JsonScribe pushObject() throws IOException {
 		if (comma) appender.appendComma();
 		state.push(State.OBJECT);
 		appender.appendOpenBrace();
@@ -52,7 +53,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe key(final CharSequence key) throws IOException {
+	public JsonScribe key(final CharSequence key) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendQuote().escape(key).appendCloseKey();
 		comma = false;
@@ -60,7 +61,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe pushKey() throws IOException {
+	public JsonScribe pushKey() throws IOException {
 		if (comma) appender.appendComma();
 		state.push(State.KEY);
 		appender.appendQuote();
@@ -69,7 +70,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe emptyArray() throws IOException {
+	public JsonScribe emptyArray() throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendEmptyArray();
 		comma = true;
@@ -77,7 +78,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe pushArray() throws IOException {
+	public JsonScribe pushArray() throws IOException {
 		if (comma) appender.appendComma();
 		state.push(State.ARRAY);
 		appender.appendOpenBracket();
@@ -86,7 +87,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final CharSequence value) throws IOException {
+	public JsonScribe value(final CharSequence value) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendQuote().escape(value).appendQuote();
 		comma = true;
@@ -94,7 +95,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final char value) throws IOException {
+	public JsonScribe value(final char value) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendQuote().escape(value).appendQuote();
 		comma = true;
@@ -102,7 +103,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final BigInteger value) throws IOException {
+	public JsonScribe value(final BigInteger value) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendNumber(value);
 		comma = true;
@@ -110,7 +111,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final BigDecimal value) throws IOException {
+	public JsonScribe value(final BigDecimal value) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendNumber(value);
 		comma = true;
@@ -118,7 +119,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final int value) throws IOException {
+	public JsonScribe value(final int value) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendNumber(value);
 		comma = true;
@@ -126,7 +127,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final float value) throws IOException {
+	public JsonScribe value(final float value) throws IOException {
 		if (!Float.isFinite(value)) return nullValue();
 		if (comma) appender.appendComma();
 		appender.appendNumber(value);
@@ -135,7 +136,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final long value) throws IOException {
+	public JsonScribe value(final long value) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendNumber(value);
 		comma = true;
@@ -143,7 +144,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final double value) throws IOException {
+	public JsonScribe value(final double value) throws IOException {
 		if (!Double.isFinite(value)) return nullValue();
 		if (comma) appender.appendComma();
 		appender.appendNumber(value);
@@ -152,7 +153,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe value(final boolean value) throws IOException {
+	public JsonScribe value(final boolean value) throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendBoolean(value);
 		comma = true;
@@ -160,7 +161,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe nullValue() throws IOException {
+	public JsonScribe nullValue() throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendNull();
 		comma = true;
@@ -168,7 +169,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe trueValue() throws IOException {
+	public JsonScribe trueValue() throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendTrue();
 		comma = true;
@@ -176,7 +177,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe falseValue() throws IOException {
+	public JsonScribe falseValue() throws IOException {
 		if (comma) appender.appendComma();
 		appender.appendFalse();
 		comma = true;
@@ -184,7 +185,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe pushValue() throws IOException {
+	public JsonScribe pushValue() throws IOException {
 		if (comma) appender.appendComma();
 		state.push(State.VALUE);
 		appender.appendQuote();
@@ -192,7 +193,11 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe pop() throws IOException {
+	public JsonScribe pop() throws IOException {
+		if (inscription != null) {
+			inscription.close();
+			inscription = null;
+		}
 		switch (state.pop()) {
 			case OBJECT:
 				appender.appendCloseBrace();
@@ -214,18 +219,18 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe append(final CharSequence sequence) throws IOException {
+	public JsonScribe append(final CharSequence sequence) throws IOException {
 		return append(sequence, 0, sequence.length());
 	}
 	
 	@Override
-	public FastJsonScribe append(final CharSequence sequence, final int start, final int end) throws IOException {
+	public JsonScribe append(final CharSequence sequence, final int start, final int end) throws IOException {
 		appender.escape(sequence, start, end);
 		return this;
 	}
 	
 	@Override
-	public FastJsonScribe append(final char character) throws IOException {
+	public JsonScribe append(final char character) throws IOException {
 		appender.escape(character);
 		return this;
 	}
@@ -241,12 +246,20 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	@Override
-	public FastJsonScribe pop(final int cursor) throws IOException {
+	public JsonScribe pop(final int cursor) throws IOException {
 		if (cursor >= 0) {
 			while (cursor < state.size()) {
 				pop();
 			}
 		}
+		return this;
+	}
+	
+	private FluentNode<?> inscription;
+	
+	@Override
+	public JsonScribe pushInscription(final FluentNode<?> inscription) {
+		this.inscription = inscription;
 		return this;
 	}
 	
