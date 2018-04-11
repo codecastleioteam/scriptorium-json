@@ -7,6 +7,7 @@ package net.dougvalenta.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import net.dougvalenta.scriptorium.FluentNode;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -598,6 +599,79 @@ public abstract class AbstractJsonScribeTest {
 	public void testPushArrayAndObjectsWithInvalidType() throws IOException {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		getScribe(appender).pushArray().value(new Object());
+	}
+	
+	@Test
+	public void testPushInscriptionAndPop() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender);
+		scribe.pushArray();
+		Mockito.clearInvocations(appender);
+		final FluentNode<Void> inscription = Mockito.mock(FluentNode.class);
+		final JsonScribe result = scribe.pushInscription(inscription);
+		Assert.assertEquals(scribe, result);
+		Mockito.verifyZeroInteractions(appender);
+		Mockito.verifyZeroInteractions(inscription);
+		scribe.pop();
+		final InOrder inOrder = Mockito.inOrder(appender, inscription);
+		inOrder.verify(inscription).close();
+		inOrder.verify(appender).appendCloseBracket();
+		Mockito.verifyNoMoreInteractions(appender);
+		Mockito.verifyNoMoreInteractions(inscription);
+	}
+	
+	@Test
+	public void testPushInscriptionAndPushSameInscriptionAndPop() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender);
+		scribe.pushArray();
+		Mockito.clearInvocations(appender);
+		final FluentNode<Void> inscription = Mockito.mock(FluentNode.class);
+		final JsonScribe result = scribe.pushInscription(inscription);
+		Assert.assertEquals(scribe, result);
+		scribe.pushInscription(inscription);
+		Mockito.verifyZeroInteractions(appender);
+		Mockito.verifyZeroInteractions(inscription);
+		scribe.pop();
+		final InOrder inOrder = Mockito.inOrder(appender, inscription);
+		inOrder.verify(inscription).close();
+		inOrder.verify(appender).appendCloseBracket();
+		Mockito.verifyNoMoreInteractions(appender);
+		Mockito.verifyNoMoreInteractions(inscription);
+	}
+	
+	@Test
+	public void testPushInscriptionAndPopAndPushDifferentInscriptionAndPop() throws IOException {
+		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = getScribe(appender);
+		scribe.pushArray();
+		Mockito.clearInvocations(appender);
+		final FluentNode<Void> inscriptionA = Mockito.mock(FluentNode.class);
+		final JsonScribe resultA = scribe.pushInscription(inscriptionA);
+		Assert.assertEquals(scribe, resultA);
+		scribe.pushInscription(inscriptionA);
+		Mockito.verifyZeroInteractions(appender);
+		Mockito.verifyZeroInteractions(inscriptionA);
+		scribe.pop();
+		final InOrder inOrderA = Mockito.inOrder(appender, inscriptionA);
+		inOrderA.verify(inscriptionA).close();
+		inOrderA.verify(appender).appendCloseBracket();
+		Mockito.verifyNoMoreInteractions(appender);
+		Mockito.verifyNoMoreInteractions(inscriptionA);
+		scribe.pushArray();
+		Mockito.clearInvocations(appender);
+		final FluentNode<Void> inscriptionB = Mockito.mock(FluentNode.class);
+		final JsonScribe resultB = scribe.pushInscription(inscriptionB);
+		Assert.assertEquals(scribe, resultB);
+		scribe.pushInscription(inscriptionB);
+		Mockito.verifyZeroInteractions(appender);
+		Mockito.verifyZeroInteractions(inscriptionB);
+		scribe.pop();
+		final InOrder inOrderB = Mockito.inOrder(appender, inscriptionB);
+		inOrderB.verify(inscriptionB).close();
+		inOrderB.verify(appender).appendCloseBracket();
+		Mockito.verifyNoMoreInteractions(appender);
+		Mockito.verifyNoMoreInteractions(inscriptionB);
 	}
 	
 }

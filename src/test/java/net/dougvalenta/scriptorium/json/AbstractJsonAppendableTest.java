@@ -6,7 +6,9 @@ package net.dougvalenta.scriptorium.json;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
+import net.dougvalenta.scriptorium.FluentNode;
 import net.dougvalenta.scriptorium.function.IOConsumer;
+import net.dougvalenta.scriptorium.function.IOFunction;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
 import org.junit.Assert;
@@ -137,6 +139,22 @@ public abstract class AbstractJsonAppendableTest<A extends JsonAppendable<A>> {
 		});
 		Assert.assertEquals(1, called.get());
 		Assert.assertEquals(appendable, result);
+	}
+	
+	@Test
+	public void testInscribe() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final A appendable = getJsonAppendable(scribe);
+		Mockito.clearInvocations(scribe);
+		final FluentNode<A> inscription = Mockito.mock(FluentNode.class);
+		final IOFunction<A, FluentNode<A>> inscriptor = (a) -> {
+			Assert.assertEquals(appendable, a);
+			return inscription;
+		};
+		final FluentNode<A> result = appendable.inscribe(inscriptor);
+		Assert.assertEquals(inscription, result);
+		Mockito.verify(scribe).pushInscription(inscription);
+		Mockito.verifyNoMoreInteractions(scribe);
 	}
 	
 }
