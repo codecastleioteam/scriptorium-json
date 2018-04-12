@@ -20,7 +20,7 @@ import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
 class AbstractJsonObject<THIS extends AbstractJsonObject<THIS>> implements JsonObject<THIS> {
 	
 	final JsonScribe scribe;
-	final int cursor;
+	int cursor;
 	
 	AbstractJsonObject(final JsonScribe scribe) {
 		this.scribe = scribe;

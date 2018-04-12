@@ -6,9 +6,11 @@ package net.dougvalenta.scriptorium.json;
 
 import java.io.IOException;
 import net.dougvalenta.scriptorium.FluentAppendable;
+import net.dougvalenta.scriptorium.FluentNode;
 import net.dougvalenta.scriptorium.Inscribable;
 import net.dougvalenta.scriptorium.function.IOBiConsumer;
 import net.dougvalenta.scriptorium.function.IOConsumer;
+import net.dougvalenta.scriptorium.function.IOFunction;
 
 /**
  *
@@ -48,6 +50,11 @@ public class MockInscribableAppendable implements FluentAppendable<MockInscribab
 	@Override
 	public <T> MockInscribableAppendable with(T element, IOBiConsumer<? super T, ? super Appendable> biConsumer) throws IOException {
 		return this;
+	}
+
+	@Override
+	public <T extends FluentNode<MockInscribableAppendable>> T inscribe(IOFunction<? super MockInscribableAppendable, T> function) throws IOException {
+		return function.apply(this);
 	}
 	
 }

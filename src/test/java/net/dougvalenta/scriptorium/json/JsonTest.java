@@ -6,6 +6,7 @@ package net.dougvalenta.scriptorium.json;
 
 import java.io.IOException;
 import net.dougvalenta.scriptorium.json.scribe.JsonScribe;
+import net.dougvalenta.scriptorium.json.scribe.MockJsonScribe;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -35,7 +36,7 @@ public class JsonTest {
 	
 	@Test
 	public void testObjectWithScribe() throws IOException {
-		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = Mockito.spy(new MockJsonScribe());
 		final JsonObjectDocument document = Json.object(scribe);
 		Mockito.verify(scribe).pushObject();
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
@@ -68,7 +69,7 @@ public class JsonTest {
 	
 	@Test
 	public void testArrayWithScribe() throws IOException {
-		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final JsonScribe scribe = Mockito.spy(new MockJsonScribe());
 		final JsonArrayDocument document = Json.array(scribe);
 		Mockito.verify(scribe).pushArray();
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
