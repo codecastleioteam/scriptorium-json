@@ -26,12 +26,13 @@ public class JsonObjectNodeTest extends CloseableJsonObjectTest<JsonObjectNode<O
 	
 	@Test
 	public void testThen() throws IOException {
-		final JsonScribe scribe = Mockito.spy(new MockJsonScribe());
+		final JsonScribe scribe = Mockito.spy(new MockJsonScribe()).pushObject();
 		final int startingState = scribe.getCursor();
 		Mockito.clearInvocations(scribe);
 		final JsonObjectNode<Object> node = getJsonObject(scribe);
 		final Object parent = node.then();
 		Assert.assertEquals(PARENT, parent);
+		Assert.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop(Mockito.anyInt());

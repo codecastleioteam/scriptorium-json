@@ -19,16 +19,46 @@ public abstract class CloseableJsonArrayTest<A extends CloseableJsonArray<A>> ex
 	
 	@Test
 	public void testClose() throws IOException {
-		final JsonScribe scribe = Mockito.spy(new MockJsonScribe());
+		final JsonScribe scribe = Mockito.spy(new MockJsonScribe()).pushArray();
 		final int startingState = scribe.getCursor();
 		Mockito.clearInvocations(scribe);
 		final A array = getJsonArray(scribe);
 		array.close();
+		Assert.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop(Mockito.anyInt());
 		Mockito.verifyNoMoreInteractions(scribe);
 		Assert.assertEquals(startingState - 1, scribe.getCursor());
+	}
+	
+	@Test
+	public void testCloseTwice() throws IOException {
+		final JsonScribe scribe = Mockito.spy(new MockJsonScribe()).pushArray();
+		final int startingState = scribe.getCursor();
+		Mockito.clearInvocations(scribe);
+		final A array = getJsonArray(scribe);
+		array.close();
+		Assert.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
+		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
+		Mockito.verify(scribe, Mockito.atLeast(0)).pop();
+		Mockito.verify(scribe, Mockito.atLeast(0)).pop(Mockito.anyInt());
+		Mockito.verifyNoMoreInteractions(scribe);
+		Assert.assertEquals(startingState - 1, scribe.getCursor());
+		Mockito.clearInvocations(scribe);
+		array.close();
+		Mockito.verifyZeroInteractions(scribe);
+	}
+	
+	@Test
+	public void testCloseAtZero() throws IOException {
+		final JsonScribe scribe = Mockito.spy(new MockJsonScribe());
+		Assert.assertEquals(0, scribe.getCursor());
+		Mockito.clearInvocations(scribe);
+		final A array = getJsonArray(scribe);
+		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
+		array.close();
+		Mockito.verifyNoMoreInteractions(scribe);
 	}
 	
 }

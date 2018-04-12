@@ -33,6 +33,16 @@ public class JsonValueTest extends AbstractJsonAppendableTest<JsonValue<Object>>
 	}
 	
 	@Test
+	public void testCloseTwice() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final JsonValue<Object> value = getJsonAppendable(scribe);
+		value.close();
+		Mockito.verify(scribe).pop();
+		value.close();
+		Mockito.verifyNoMoreInteractions(scribe);
+	}
+	
+	@Test
 	public void testThen() throws IOException {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonValue<Object> value = getJsonAppendable(scribe);
