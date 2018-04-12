@@ -42,14 +42,23 @@ public final class JsonValue<P> extends AbstractJsonAppendable<JsonValue<P>> imp
 		return parent;
 	}
 	
+	private boolean closed = false;
+	
 	/**
 	 * Closes this JSON string literal.
+	 * 
+	 * <p>
+	 * Subsequent calls to this method after the first on the same object have no
+	 * effect.
 	 * 
 	 * @throws IOException if an I/O error occurs
 	 */
 	@Override
 	public void close() throws IOException {
-		scribe.pop();
+		if (!closed) {
+			scribe.pop();
+			closed = true;
+		}
 	}
 	
 }
