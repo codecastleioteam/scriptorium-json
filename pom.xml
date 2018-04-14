@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>net.dougvalenta.scriptorium</groupId>
+	<groupId>io.codecastle.scriptorium</groupId>
 	<artifactId>scriptorium-json</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -14,15 +14,15 @@
 	<licenses>
 		<license>
 			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<url>http://www.opensource.org/licenses/mit-license</url>
 		</license>
 	</licenses>
 	
 	<developers>
 		<developer>
 			<name>Doug Valenta</name>
-			<email>dougvalenta@gmail.com</email>
-			<organizationUrl>https://github.com/dougvalenta</organizationUrl>
+			<email>doug@codecastle.io</email>
+			<organizationUrl>https://codecastle.io</organizationUrl>
 		</developer>
 	</developers>
 	
@@ -51,7 +51,7 @@
 		
 		<!-- Scriptorium dependencies -->
 		<dependency>
-			<groupId>net.dougvalenta.scriptorium</groupId>
+			<groupId>io.codecastle.scriptorium</groupId>
 			<artifactId>scriptorium-core</artifactId>
 			<version>${scriptorium.core.version}</version>
 		</dependency>
@@ -134,6 +134,7 @@
 			<properties>
 				<javadoc.plugin.version>3.0.0</javadoc.plugin.version>
 				<source.plugin.version>3.0.1</source.plugin.version>
+				<gpg.plugin.version>1.6</gpg.plugin.version>
 			</properties>
 			<build>
 				<plugins>
@@ -147,16 +148,12 @@
 								<goals>
 									<goal>jar</goal>
 								</goals>
+								<configuration>
+									<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
+									<subpackages>io.codecastle.scriptorium.json</subpackages>
+								</configuration>
 							</execution>
 						</executions>
-						<configuration>
-							<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
-							<subpackages>net.dougvalenta.scriptorium.json</subpackages>
-							<links>
-								<link>https://dougvalenta.github.io/scriptorium-core/apidocs/1.0</link>
-							</links>
-							<notimestamp>true</notimestamp>
-						</configuration>
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -167,6 +164,19 @@
 								<id>attach-source</id>
 								<goals>
 									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${gpg.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<goals>
+									<goal>sign</goal>
 								</goals>
 							</execution>
 						</executions>
