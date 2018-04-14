@@ -7,6 +7,7 @@ package net.dougvalenta.scriptorium.json;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Optional;
 import net.dougvalenta.scriptorium.FluentNode;
 import net.dougvalenta.scriptorium.function.IOBiConsumer;
 import net.dougvalenta.scriptorium.function.IOConsumer;
@@ -152,6 +153,14 @@ class AbstractJsonObject<THIS extends AbstractJsonObject<THIS>> implements JsonO
 		final T inscription = function.apply((THIS) this);
 		scribe.pushInscription(inscription);
 		return inscription;
+	}
+	
+	@Override
+	public THIS withIfPresent(final CharSequence key, final Optional<?> optional) throws IOException {
+		if (optional.isPresent()) {
+			if (key != null) scribe.key(key).value(optional.get());
+		}
+		return (THIS) this;
 	}
 	
 }

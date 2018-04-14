@@ -33,23 +33,30 @@
 	</scm>
 	
 	<properties>
+		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		
+		<!-- Scriptorium dependency versions -->
+		<scriptorium.core.version>0.1-SNAPSHOT</scriptorium.core.version>
+		
 		<!-- Test dependency versions -->
 		<junit.version>4.12</junit.version>
 		<mockito.version>2.15.0</mockito.version>
-		<!-- Build plugin versions -->
-		<clean.plugin.version>3.0.0</clean.plugin.version>
-		<javadoc.plugin.version>3.0.0</javadoc.plugin.version>
+		
 	</properties>
 	
 	<dependencies>
+		
+		<!-- Scriptorium dependencies -->
 		<dependency>
 			<groupId>net.dougvalenta.scriptorium</groupId>
 			<artifactId>scriptorium-core</artifactId>
-			<version>0.1-SNAPSHOT</version>
+			<version>${scriptorium.core.version}</version>
 		</dependency>
+		
+		<!-- Test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -62,65 +69,112 @@
 			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${javadoc.plugin.version}</version>
-				<executions>
-					<execution>
-						<id>javadoc-jar</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
-					<subpackages>net.dougvalenta.scriptorium.json</subpackages>
-					<links>
-						<link>https://dougvalenta.github.io/scriptorium-core/apidocs/1.0</link>
-					</links>
-					<notimestamp>true</notimestamp>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.0</version>
-				<executions>
-					<execution>
-						<id>jacoco-prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>jacoco-report</id>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.pitest</groupId>
-				<artifactId>pitest-maven</artifactId>
-				<version>1.3.2</version>
-				<executions>
-					<execution>
-						<id>pitest</id>
-						<goals>
-							<goal>mutationCoverage</goal>
-						</goals>
-						<phase>test</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+	<profiles>
+		
+		<profile>
+			<id>validate</id>
+			<activation>
+				<property>
+					<name>validate</name>
+				</property>
+			</activation>
+			<properties>
+				<jacoco.plugin.version>0.8.1</jacoco.plugin.version>
+				<pitest.plugin.version>1.3.2</pitest.plugin.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${jacoco.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>jacoco-prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>jacoco-report</id>
+								<goals>
+									<goal>report</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.pitest</groupId>
+						<artifactId>pitest-maven</artifactId>
+						<version>${pitest.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>pitest</id>
+								<goals>
+									<goal>mutationCoverage</goal>
+								</goals>
+								<phase>test</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>release</id>
+			<activation>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
+			<properties>
+				<javadoc.plugin.version>3.0.0</javadoc.plugin.version>
+				<source.plugin.version>3.0.1</source.plugin.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>${javadoc.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>attach-javadoc</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<sourcepath>${basedir}/../scriptorium-core/src/main/java:${basedir}/src/main/java</sourcepath>
+							<subpackages>net.dougvalenta.scriptorium.json</subpackages>
+							<links>
+								<link>https://dougvalenta.github.io/scriptorium-core/apidocs/1.0</link>
+							</links>
+							<notimestamp>true</notimestamp>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>${source.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>attach-source</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+	</profiles>
 	
 </project>
