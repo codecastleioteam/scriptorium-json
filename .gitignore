@@ -2,3 +2,4 @@ target
 gh-pages
 licenseheader.txt
 nb-configuration.xml
+nbactions.xml
