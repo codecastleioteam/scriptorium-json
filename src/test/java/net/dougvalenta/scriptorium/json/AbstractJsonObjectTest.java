@@ -7,6 +7,7 @@ package net.dougvalenta.scriptorium.json;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.dougvalenta.scriptorium.FluentNode;
 import net.dougvalenta.scriptorium.function.IOFunction;
@@ -1246,6 +1247,40 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		Assert.assertEquals(inscription, result);
 		Mockito.verify(scribe).pushInscription(inscription);
 		Mockito.verifyNoMoreInteractions(scribe);
+	}
+	
+	@Test
+	public void testIfPresentWithPresent() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final O object = getJsonObject(scribe);
+		Mockito.clearInvocations(scribe);
+		final Object value = new Object();
+		final O result = object.withIfPresent("key", Optional.of(value));
+		Assert.assertEquals(object, result);
+		final InOrder inOrder = Mockito.inOrder(scribe);
+		inOrder.verify(scribe).key("key");
+		inOrder.verify(scribe).value(value);
+		Mockito.verifyNoMoreInteractions(scribe);
+	}
+	
+	@Test
+	public void testIfPresentWithNotPresent() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final O object = getJsonObject(scribe);
+		Mockito.clearInvocations(scribe);
+		final O result = object.withIfPresent("key", Optional.empty());
+		Assert.assertEquals(object, result);
+		Mockito.verifyZeroInteractions(scribe);
+	}
+	
+	@Test
+	public void testIfPresentWithNullKey() throws IOException {
+		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
+		final O object = getJsonObject(scribe);
+		Mockito.clearInvocations(scribe);
+		final O result = object.withIfPresent(null, Optional.of(new Object()));
+		Assert.assertEquals(object, result);
+		Mockito.verifyZeroInteractions(scribe);
 	}
 	
 }

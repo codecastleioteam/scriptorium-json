@@ -7,6 +7,7 @@ package net.dougvalenta.scriptorium.json;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Optional;
 import net.dougvalenta.scriptorium.Inscribable;
 
 /**
@@ -717,6 +718,36 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 		if (value != null) return with(key, (boolean) value);
 		return (THIS) this;
 	}
+	
+	/**
+	 * If the provided {@link Optional} is not empty, appends a key to the JSON object
+	 * with the value; then returns this object.
+	 * 
+	 * <p>
+	 * Present {@link CharSequence} or {@link Character} values will be appended
+	 * as double-quoted and escaped string literals.
+	 * 
+	 * <p>
+	 * Present {@link Byte}, {@link Short}, {@link Integer}, {@link Float},
+	 * {@link Long}, {@link Double}, {@link BigInteger}, or {@link BigDecimal}
+	 * values will be appended as numeric literals.
+	 * 
+	 * <p>
+	 * Present {@link Boolean} values will be appended as Boolean value literals.
+	 * 
+	 * <p>
+	 * Present values of any other type will result in an {@link IllegalArgumentException}.
+	 * 
+	 * <p>
+	 * If {@code optional} is empty (if {@link Optional#isPresent()} returns false), or if
+	 * the provided key is null, this method has no effect.
+	 * 
+	 * @param key the key to append if the provided optional is present
+	 * @param optional an {@link Optional} optionally containing the value to append
+	 * @return this object
+	 * @throws IOException if an I/O error occurs 
+	 */
+	public THIS withIfPresent(CharSequence key, Optional<?> optional) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a numeric literal value only if the provided
