@@ -7,7 +7,7 @@ package io.codecastle.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import io.codecastle.scriptorium.Escaper;
+import io.codecastle.scriptorium.scribe.Escaper;
 
 /**
  * Outputs JSON tokens, including escaped string literals, to an underlying {@link Appendable}.
@@ -303,7 +303,7 @@ public class JsonAppender {
 	
 	/**
 	 * Outputs the provided character or its escape sequence, using the provided
-	 * {@link io.codecastle.scriptorium.Escaper}, and returns this object.
+	 * {@link io.codecastle.scriptorium.scribe.Escaper}, and returns this object.
 	 * 
 	 * @param character the character to output or escape
 	 * @return this object
@@ -317,7 +317,7 @@ public class JsonAppender {
 
 	/**
 	 * Outputs the characters of the provided {@link CharSequence} or their escape 
-	 * sequences, using the provided {@link io.codecastle.scriptorium.Escaper}, 
+	 * sequences, using the provided {@link io.codecastle.scriptorium.scribe.Escaper}, 
 	 * and returns this object.
 	 * 
 	 * <p>
@@ -340,7 +340,7 @@ public class JsonAppender {
 
 	/**
 	 * Outputs the characters of the provided {@link CharSequence} or their escape 
-	 * sequences, using the provided {@link io.codecastle.scriptorium.Escaper}, 
+	 * sequences, using the provided {@link io.codecastle.scriptorium.scribe.Escaper}, 
 	 * and returns this object.
 	 * 
 	 * <p>

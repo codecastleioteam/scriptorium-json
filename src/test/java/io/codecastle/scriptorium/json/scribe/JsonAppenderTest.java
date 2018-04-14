@@ -7,7 +7,7 @@ package io.codecastle.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import io.codecastle.scriptorium.Escaper;
+import io.codecastle.scriptorium.scribe.Escaper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InOrder;

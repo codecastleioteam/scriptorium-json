@@ -5,7 +5,7 @@
 package io.codecastle.scriptorium.json.scribe;
 
 import java.io.IOException;
-import io.codecastle.scriptorium.Escaper;
+import io.codecastle.scriptorium.scribe.Escaper;
 
 /**
  * An {@link Escaper} that escapes characters to be included in JSON string literals,
