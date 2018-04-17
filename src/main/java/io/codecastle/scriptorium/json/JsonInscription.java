@@ -27,8 +27,8 @@ public class JsonInscription {
 	 * @param inscribed the {@link Appendable} to inscribe
 	 * @return a new {@link JsonObjectNode} whose parent is the inscribed Appendable 
 	 * @throws IOException if an I/O error occurs
-	 * @see net.dougvalenta.scriptorium.function.IOFunction
-	 * @see net.dougvalenta.scriptorium.Inscribable#inscribe(net.dougvalenta.scriptorium.function.IOFunction)
+	 * @see io.codecastle.scriptorium.function.IOFunction
+	 * @see io.codecastle.scriptorium.Inscribable#inscribe(io.codecastle.scriptorium.function.IOFunction)
 	 */
 	public static <T extends Appendable> JsonObjectNode<T> object(final T inscribed) throws IOException {
 		return new JsonObjectNode<>(new FastJsonScribe(new JsonAppender(inscribed, new JsonEscaper())).pushObject(), inscribed);
@@ -45,8 +45,8 @@ public class JsonInscription {
 	 * @param inscribed the {@link Appendable} to inscribe
 	 * @return a new {@link JsonArrayNode} whose parent is the inscribed Appendable 
 	 * @throws IOException if an I/O error occurs
-	 * @see net.dougvalenta.scriptorium.function.IOFunction
-	 * @see net.dougvalenta.scriptorium.Inscribable#inscribe(net.dougvalenta.scriptorium.function.IOFunction)
+	 * @see io.codecastle.scriptorium.function.IOFunction
+	 * @see io.codecastle.scriptorium.Inscribable#inscribe(io.codecastle.scriptorium.function.IOFunction)
 	 */
 	public static <T extends Appendable> JsonArrayNode<T> array(final T inscribed) throws IOException {
 		return new JsonArrayNode<>(new FastJsonScribe(new JsonAppender(inscribed, new JsonEscaper())).pushArray(), inscribed);

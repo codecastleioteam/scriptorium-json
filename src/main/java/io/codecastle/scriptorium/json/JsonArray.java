@@ -19,7 +19,7 @@ import io.codecastle.scriptorium.Inscribable;
  * <p>
  * Methods named for an output element ({@code element}, {@code array}, {@code object})
  * return a new object representing a nested structure or context. Calling the returned object's
- * {@link net.dougvalenta.scriptorium.FluentNode#then()} method will return this object.
+ * {@link io.codecastle.scriptorium.FluentNode#then()} method will return this object.
  * 
  * @author Doug Valenta
  * @param <THIS> this type
