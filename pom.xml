@@ -4,7 +4,7 @@
 	
 	<groupId>io.codecastle.scriptorium</groupId>
 	<artifactId>scriptorium-json</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	
 	<name>JSON Scriptorium</name>
@@ -190,6 +190,17 @@
 					</plugin>
 				</plugins>
 			</build>
+			
+			<distributionManagement>
+				<snapshotRepository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+				<repository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+			</distributionManagement>
 			
 		</profile>
 		
