@@ -9,7 +9,7 @@
 	
 	<name>JSON Scriptorium</name>
 	<description>Fluent Java API for writing JSON output</description>
-	<url>https://github.com/dougvalenta/scriptorium-json</url>
+	<url>https://github.com/codecastleioteam/scriptorium-json</url>
 	
 	<licenses>
 		<license>
@@ -27,9 +27,9 @@
 	</developers>
 	
 	<scm>
-		<connection>scm:git:git://github.com/dougvalenta/scriptorium-json.git</connection>
-		<developerConnection>scm:git:ssh://github.com:dougvalenta/scriptorium-json.git</developerConnection>
-		<url>http://github.com/dougvalenta/scriptorium-json</url>
+		<connection>scm:git:git://github.com/codecastleioteam/scriptorium-json.git</connection>
+		<developerConnection>scm:git:ssh://github.com:codecastleioteam/scriptorium-json.git</developerConnection>
+		<url>http://github.com/codecastleioteam/scriptorium-json</url>
 	</scm>
 	
 	<properties>
