@@ -1,5 +1,5 @@
 # JSON Scriptorium
-## Fluent Java API for writing JSON output.
+Fluent Java API for writing JSON output
 
 ### Get JSON Scriptorium from Maven Central
 ``` xml
@@ -10,7 +10,7 @@
 </dependency>
 ```
 
-## When to use JSON Scriptorium
+### When to use JSON Scriptorium
 JSON Scriptorium provides an intuitive, fluent API to writing JSON output directly to your underlying [Appendable](https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html), making it incredibly flexible, even for output whose keys or structure is determined at runtime. This approach also gives it a small memory footprint, even for very large output.
 
 Use JSON Scriptorium when:
@@ -20,12 +20,13 @@ Use JSON Scriptorium when:
 - You need to produce JSON output for data that can't or won't all be in memory at the same time
 
 ## Basic usage
-The [Json](https://scriptorium.codecastle.io/apidocs/scriptorium-json/1.0/io/codecastle/scriptorium/json/Json.html) provides static factory methods for accessing JSON Scriptorium's fluent API:
+The [Json](https://scriptorium.codecastle.io/apidocs/scriptorium-json/1.0/io/codecastle/scriptorium/json/Json.html) class
+provides static factory methods for accessing JSON Scriptorium's fluent API:
 
 Example:
 ``` java
 Json.object(System.out)          // writes "{" to System.out and returns a new JsonObjectDocument
-    .with("greeting", "Hello!")  // writes '"greeting": "Hello!"' to System.out returns the JsonObjectDocument
+    .with("greeting", "Hello!")  // writes '"greeting":"Hello!"' to System.out returns the JsonObjectDocument
     .key("to")                   // writes '"to' to System.out and returns a JsonKey<JsonObjectDocument>
         // we could continue to append to the key here (JsonKey implements Appendable)
         .array()                 // writes '":[' to System.out and returns a JsonArrayNode<JsonObjectDocument>
