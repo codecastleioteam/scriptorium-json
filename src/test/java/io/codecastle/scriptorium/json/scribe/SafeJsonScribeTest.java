@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import io.codecastle.scriptorium.FluentNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 /**
@@ -33,9 +33,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -50,9 +50,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -66,9 +66,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -78,7 +78,7 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 		Mockito.verify(appender).appendOpenBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 		final JsonScribe result = scribe.pop(0);
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verify(appender).appendCloseBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 	}
@@ -94,9 +94,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -109,9 +109,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -124,9 +124,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -139,9 +139,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -154,9 +154,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -169,9 +169,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -184,9 +184,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -199,9 +199,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -214,9 +214,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -229,9 +229,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -244,9 +244,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -259,9 +259,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -274,9 +274,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -289,9 +289,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -304,9 +304,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -319,9 +319,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyZeroInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -335,9 +335,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -351,9 +351,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -367,9 +367,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -383,9 +383,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -399,9 +399,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -415,9 +415,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -431,9 +431,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -447,9 +447,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -463,9 +463,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -479,9 +479,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -495,9 +495,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -511,9 +511,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -527,9 +527,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 
 	@Test
@@ -543,9 +543,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -559,9 +559,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -575,9 +575,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -591,9 +591,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -610,9 +610,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -629,9 +629,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -648,9 +648,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -667,9 +667,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -683,9 +683,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -699,9 +699,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -718,9 +718,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -733,9 +733,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -748,9 +748,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -763,9 +763,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -779,9 +779,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -795,9 +795,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -811,9 +811,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -827,9 +827,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -843,9 +843,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -859,9 +859,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -878,9 +878,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -897,9 +897,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
 	@Test
@@ -916,13 +916,17 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 			Mockito.verifyNoMoreInteractions(appender);
 			return;
 		} catch (Throwable t) {
-			Assert.fail("Threw " + t.getClass().getName());
+			Assertions.fail("Threw " + t.getClass().getName());
 		}
-		Assert.fail("Did not throw");
+		Assertions.fail("Did not throw");
 	}
 	
-	@Test(expected=IllegalStateException.class)
-	public void testPushInscriptionAndPushDifferentInscriptionAndPop() throws IOException {
+	@Test
+	public void testPushInscriptionAndPushDifferentInscriptionAndPop() {
+		Assertions.assertThrows(IllegalStateException.class, this::pushInscriptionAndPushDifferentInscriptionAndPop);
+	}
+	
+	private void pushInscriptionAndPushDifferentInscriptionAndPop() throws IOException {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		scribe.pushArray();

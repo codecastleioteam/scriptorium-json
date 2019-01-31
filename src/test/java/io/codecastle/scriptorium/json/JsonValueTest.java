@@ -6,8 +6,8 @@ package io.codecastle.scriptorium.json;
 
 import java.io.IOException;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 /**
@@ -47,7 +47,7 @@ public class JsonValueTest extends AbstractJsonAppendableTest<JsonValue<Object>>
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonValue<Object> value = getJsonAppendable(scribe);
 		final Object parent = value.then();
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		Mockito.verify(scribe).pop();
 		Mockito.verifyNoMoreInteractions(scribe);
 	}

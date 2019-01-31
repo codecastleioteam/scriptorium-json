@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import io.codecastle.scriptorium.FluentNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
@@ -26,11 +26,11 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verify(appender).appendOpenBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 		result = scribe.pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verify(appender).appendCloseBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 	}
@@ -40,7 +40,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().nullValue().nullValue().nullValue().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNull();
@@ -57,7 +57,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value("abc").value("123").value("xyz").pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendQuote();
@@ -80,7 +80,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value('a').value('b').value('c').pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendQuote();
@@ -103,7 +103,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(new BigInteger("1")).value(new BigInteger("2")).value(new BigInteger("3")).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNumber(new BigInteger("1"));
@@ -120,7 +120,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(new BigDecimal("1.0")).value(new BigDecimal("2.0")).value(new BigDecimal("3.0")).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNumber(new BigDecimal("1.0"));
@@ -137,7 +137,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(1).value(2).value(3).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNumber(1);
@@ -154,7 +154,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(1l).value(2l).value(3l).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNumber(1l);
@@ -171,7 +171,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(1.0f).value(2.0f).value(3.0f).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNumber(1.0f);
@@ -188,7 +188,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(1.0).value(2.0).value(3.0).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNumber(1.0);
@@ -205,7 +205,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(Float.NaN).value(Float.POSITIVE_INFINITY).value(Float.NEGATIVE_INFINITY).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNull();
@@ -222,7 +222,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(Double.NaN).value(Double.POSITIVE_INFINITY).value(Double.NEGATIVE_INFINITY).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendNull();
@@ -239,7 +239,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().value(true).value(false).value(true).pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendBoolean(true);
@@ -256,7 +256,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().trueValue().trueValue().trueValue().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendTrue();
@@ -274,7 +274,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().falseValue().falseValue().falseValue().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendFalse();
@@ -306,7 +306,7 @@ public abstract class AbstractJsonScribeTest {
 				.value((Object) (byte) 1)
 				.value((Object) (short) 1)
 				.pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendQuote();
@@ -349,7 +349,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().emptyArray().emptyArray().emptyArray().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendEmptyArray();
@@ -366,7 +366,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushArray().emptyObject().emptyObject().emptyObject().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender).appendEmptyObject();
@@ -387,7 +387,7 @@ public abstract class AbstractJsonScribeTest {
 				.append('x')
 				.append("xyzq", 1, 3)
 				.pop().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBracket();
 		inOrder.verify(appender, Mockito.times(2)).appendQuote();
@@ -410,7 +410,7 @@ public abstract class AbstractJsonScribeTest {
 				.value(99)
 				.value(false)
 				.pop().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender, Mockito.times(2)).appendOpenBracket();
 		inOrder.verify(appender).appendCloseBracket();
@@ -432,7 +432,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushObject().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBrace();
 		inOrder.verify(appender).appendCloseBrace();
@@ -450,7 +450,7 @@ public abstract class AbstractJsonScribeTest {
 				.value(1)
 				.key("key3")
 				.nullValue().pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBrace();
 		inOrder.verify(appender).appendQuote();
@@ -493,7 +493,7 @@ public abstract class AbstractJsonScribeTest {
 					.append("value")
 					.pop()
 				.pop();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBrace();
 		inOrder.verify(appender).appendQuote();
@@ -526,7 +526,7 @@ public abstract class AbstractJsonScribeTest {
 					.pushObject()
 						.key("key").pushArray()
 							.pushValue();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		result.close();
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBrace();
@@ -555,16 +555,16 @@ public abstract class AbstractJsonScribeTest {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		final JsonScribe scribe = getScribe(appender);
 		JsonScribe result = scribe.pushObject();
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		final int cursor = result.getCursor();
 		result.key("key").pushArray()
 					.pushObject()
 						.key("key").pushArray()
 							.pushValue();
-		Assert.assertEquals(scribe, result);
-		Assert.assertNotEquals(cursor, result.getCursor());
+		Assertions.assertEquals(scribe, result);
+		Assertions.assertNotEquals(cursor, result.getCursor());
 		result.pop(cursor);
-		Assert.assertEquals(cursor, result.getCursor());
+		Assertions.assertEquals(cursor, result.getCursor());
 		InOrder inOrder = Mockito.inOrder(appender);
 		inOrder.verify(appender).appendOpenBrace();
 		inOrder.verify(appender).appendQuote();
@@ -590,15 +590,15 @@ public abstract class AbstractJsonScribeTest {
 		final int cursor = scribe.getCursor();
 		Mockito.clearInvocations(appender);
 		final JsonScribe result = scribe.pop(cursor);
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verifyZeroInteractions(appender);
-		Assert.assertEquals(cursor, scribe.getCursor());
+		Assertions.assertEquals(cursor, scribe.getCursor());
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testPushArrayAndObjectsWithInvalidType() throws IOException {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
-		getScribe(appender).pushArray().value(new Object());
+		Assertions.assertThrows(IllegalArgumentException.class, ()->{getScribe(appender).pushArray().value(new Object());});
 	}
 	
 	@Test
@@ -609,7 +609,7 @@ public abstract class AbstractJsonScribeTest {
 		Mockito.clearInvocations(appender);
 		final FluentNode<Void> inscription = Mockito.mock(FluentNode.class);
 		final JsonScribe result = scribe.pushInscription(inscription);
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verifyZeroInteractions(appender);
 		Mockito.verifyZeroInteractions(inscription);
 		scribe.pop();
@@ -628,7 +628,7 @@ public abstract class AbstractJsonScribeTest {
 		Mockito.clearInvocations(appender);
 		final FluentNode<Void> inscription = Mockito.mock(FluentNode.class);
 		final JsonScribe result = scribe.pushInscription(inscription);
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		scribe.pushInscription(inscription);
 		Mockito.verifyZeroInteractions(appender);
 		Mockito.verifyZeroInteractions(inscription);
@@ -648,7 +648,7 @@ public abstract class AbstractJsonScribeTest {
 		Mockito.clearInvocations(appender);
 		final FluentNode<Void> inscriptionA = Mockito.mock(FluentNode.class);
 		final JsonScribe resultA = scribe.pushInscription(inscriptionA);
-		Assert.assertEquals(scribe, resultA);
+		Assertions.assertEquals(scribe, resultA);
 		scribe.pushInscription(inscriptionA);
 		Mockito.verifyZeroInteractions(appender);
 		Mockito.verifyZeroInteractions(inscriptionA);
@@ -662,7 +662,7 @@ public abstract class AbstractJsonScribeTest {
 		Mockito.clearInvocations(appender);
 		final FluentNode<Void> inscriptionB = Mockito.mock(FluentNode.class);
 		final JsonScribe resultB = scribe.pushInscription(inscriptionB);
-		Assert.assertEquals(scribe, resultB);
+		Assertions.assertEquals(scribe, resultB);
 		scribe.pushInscription(inscriptionB);
 		Mockito.verifyZeroInteractions(appender);
 		Mockito.verifyZeroInteractions(inscriptionB);

@@ -6,12 +6,16 @@ Fluent Java API for writing JSON output
 <dependency>
     <groupId>io.codecastle.scriptorium</groupId>
     <artifactId>scriptorium-json</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
-As of version 1.0.1, this library provides an Automatic-Module-Name for forward compatibility 
-with the Java 9+ module system: `io.codecastle.scriptorium.json`
+### Add JSON Scriptorium as a module
+``` java
+requires io.codecastle.scriptorium.json;
+```
+
+As of version 1.0.2, Java 8 support has been dropped.
 
 ### When to use JSON Scriptorium
 JSON Scriptorium provides an intuitive, fluent API to writing JSON output directly to your underlying [Appendable](https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html), making it incredibly flexible, even for output whose keys or structure is determined at runtime. This approach also gives it a small memory footprint, even for very large output.
@@ -52,9 +56,9 @@ Output:
 ```
 
 I've passed `System.out` above for simplicity, but `Json.object()` will take any `Appendable`. If you just want 
-to produce a string, use [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html). 
+to produce a string, use [StringBuilder](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/StringBuilder.html). 
 If you are writing to an `OutputStream` (or a `Writer` that is), make sure you use a 
-[BufferedWriter](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedWriter.html), as most of JSON Scriptorium's 
+[BufferedWriter](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/BufferedWriter.html), as most of JSON Scriptorium's 
 output is written character-by-character.
 
 ### Staying fluent

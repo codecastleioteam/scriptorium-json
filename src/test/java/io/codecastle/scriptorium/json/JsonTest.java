@@ -7,8 +7,8 @@ package io.codecastle.scriptorium.json;
 import java.io.IOException;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
 import io.codecastle.scriptorium.json.scribe.MockJsonScribe;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 /**
@@ -26,12 +26,12 @@ public class JsonTest {
 				.with("key2", "value2")
 				.with("key3", "value3")
 		.close();
-		Assert.assertEquals("{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":\"value3\"}", builder.toString());	
+		Assertions.assertEquals("{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":\"value3\"}", builder.toString());	
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testObjectWithNullAppendable() throws IOException {
-		Json.object((Appendable) null);
+		Assertions.assertThrows(IllegalArgumentException.class, ()->{Json.object((Appendable) null);});
 	}
 	
 	@Test
@@ -45,8 +45,12 @@ public class JsonTest {
 		Mockito.verify(scribe).pop();
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public void testObjectWithNullScribe() throws IOException {
+	@Test
+	public void testObjectWithNullScribe() {
+		Assertions.assertThrows(IllegalArgumentException.class, this::objectWithNullScribe);
+	}
+	
+	private void objectWithNullScribe() throws IOException {
 		Json.object((JsonScribe) null);
 	}
 	
@@ -59,12 +63,12 @@ public class JsonTest {
 				.with("element2")
 				.with("element3")
 		.close();
-		Assert.assertEquals("[\"element1\",\"element2\",\"element3\"]", builder.toString());	
+		Assertions.assertEquals("[\"element1\",\"element2\",\"element3\"]", builder.toString());	
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testArrayWithNullAppendable() throws IOException {
-		Json.array((Appendable) null);
+		Assertions.assertThrows(IllegalArgumentException.class, ()->{Json.array((Appendable) null);});
 	}
 	
 	@Test
@@ -78,9 +82,9 @@ public class JsonTest {
 		Mockito.verify(scribe).pop();
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testArrayWithNullScribe() throws IOException {
-		Json.array((JsonScribe) null);
+		Assertions.assertThrows(IllegalArgumentException.class, ()->{Json.array((JsonScribe) null);});
 	}
 	
 }

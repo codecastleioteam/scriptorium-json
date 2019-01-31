@@ -5,8 +5,8 @@
 package io.codecastle.scriptorium.json;
 
 import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -19,10 +19,10 @@ public class JsonInscriptionTest {
 		final StringBuilder appendable = new StringBuilder();
 		final MockInscribableAppendable inscribable = new MockInscribableAppendable(appendable);
 		final JsonObjectNode<MockInscribableAppendable> inscription = inscribable.inscribe(JsonInscription::object);
-		Assert.assertEquals("{", appendable.toString());
+		Assertions.assertEquals("{", appendable.toString());
 		final MockInscribableAppendable result = inscription.then();
-		Assert.assertEquals(inscribable, result);
-		Assert.assertEquals("{}", appendable.toString());
+		Assertions.assertEquals(inscribable, result);
+		Assertions.assertEquals("{}", appendable.toString());
 	}
 	
 	@Test
@@ -30,10 +30,10 @@ public class JsonInscriptionTest {
 		final StringBuilder appendable = new StringBuilder();
 		final MockInscribableAppendable inscribable = new MockInscribableAppendable(appendable);
 		final JsonArrayNode<MockInscribableAppendable> inscription = inscribable.inscribe(JsonInscription::array);
-		Assert.assertEquals("[", appendable.toString());
+		Assertions.assertEquals("[", appendable.toString());
 		final MockInscribableAppendable result = inscription.then();
-		Assert.assertEquals(inscribable, result);
-		Assert.assertEquals("[]", appendable.toString());
+		Assertions.assertEquals(inscribable, result);
+		Assertions.assertEquals("[]", appendable.toString());
 	}
 	
 }

@@ -13,8 +13,8 @@ import io.codecastle.scriptorium.FluentNode;
 import io.codecastle.scriptorium.function.IOFunction;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
 import io.codecastle.scriptorium.json.scribe.MockJsonScribe;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
@@ -32,7 +32,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withNull("abc");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("abc");
 		inOrder.verify(scribe).nullValue();
@@ -45,7 +45,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withNull(null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -55,7 +55,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withTrue("abc");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("abc");
 		inOrder.verify(scribe).trueValue();
@@ -68,7 +68,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withTrue(null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -78,7 +78,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withFalse("abc");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("abc");
 		inOrder.verify(scribe).falseValue();
@@ -91,7 +91,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withFalse(null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -101,7 +101,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", "value");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value("value");
@@ -114,7 +114,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (CharSequence) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -127,7 +127,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, "value");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -137,7 +137,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Character.valueOf('a'));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value('a');
@@ -150,7 +150,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Character) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -163,7 +163,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Character.valueOf('a'));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -173,7 +173,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", 'a');
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value('a');
@@ -186,7 +186,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, 'a');
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -196,7 +196,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", BigInteger.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(BigInteger.ONE);
@@ -209,7 +209,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (BigInteger) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -222,7 +222,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, BigInteger.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -232,7 +232,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", BigDecimal.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(BigDecimal.ONE);
@@ -245,7 +245,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (BigDecimal) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -258,7 +258,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, BigDecimal.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -268,7 +268,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Byte.valueOf((byte) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1);
@@ -281,7 +281,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Byte) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -294,7 +294,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Byte.valueOf((byte) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -304,7 +304,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Short.valueOf((short) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1);
@@ -317,7 +317,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Short) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -330,7 +330,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Short.valueOf((short) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -340,7 +340,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Integer.valueOf(1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1);
@@ -353,7 +353,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Integer) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -366,7 +366,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Integer.valueOf(1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -376,7 +376,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", 1);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1);
@@ -389,7 +389,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, 1);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -399,7 +399,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Long.valueOf(1L));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1L);
@@ -412,7 +412,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Long) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -425,7 +425,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Long.valueOf(1L));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -435,7 +435,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", 1L);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1L);
@@ -448,7 +448,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, 1L);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -458,7 +458,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Float.valueOf(1f));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1f);
@@ -471,7 +471,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Float) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -484,7 +484,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Float.valueOf(1f));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -494,7 +494,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", 1f);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1f);
@@ -507,7 +507,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, 1f);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -517,7 +517,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Double.valueOf(1.0));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1.0);
@@ -530,7 +530,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Double) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -543,7 +543,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Double.valueOf(1.0));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -553,7 +553,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", 1.0);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1.0);
@@ -566,7 +566,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, 1.0);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -576,7 +576,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", Boolean.TRUE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(true);
@@ -589,7 +589,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", (Boolean) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).nullValue();
@@ -602,7 +602,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, Boolean.TRUE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -612,7 +612,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with("key", true);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(true);
@@ -625,7 +625,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.with(null, true);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -635,7 +635,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", "value");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value("value");
@@ -648,7 +648,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (CharSequence) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -658,7 +658,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, "value");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -668,7 +668,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Character.valueOf('a'));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value('a');
@@ -681,7 +681,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Character) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -691,7 +691,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Character.valueOf('a'));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -701,7 +701,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Byte.valueOf((byte) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1);
@@ -714,7 +714,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Byte) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -724,7 +724,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Byte.valueOf((byte) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -734,7 +734,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Short.valueOf((short) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1);
@@ -747,7 +747,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Short) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -757,7 +757,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Short.valueOf((byte) 1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -767,7 +767,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Integer.valueOf(1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1);
@@ -780,7 +780,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Integer) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -790,7 +790,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Integer.valueOf(1));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -800,7 +800,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Float.valueOf(1f));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1f);
@@ -813,7 +813,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Float) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -823,7 +823,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Float.valueOf(Float.NaN));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -833,7 +833,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Float.valueOf(1f));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -843,7 +843,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Long.valueOf(1L));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1L);
@@ -856,7 +856,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Long) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -866,7 +866,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Long.valueOf(1L));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -876,7 +876,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Double.valueOf(1.0));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1.0);
@@ -889,7 +889,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Double) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -899,7 +899,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Double.valueOf(Double.NaN));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -909,7 +909,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Double.valueOf(1.0));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -919,7 +919,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", BigInteger.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(BigInteger.ONE);
@@ -932,7 +932,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (BigInteger) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -942,7 +942,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, BigInteger.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -952,7 +952,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", BigDecimal.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(BigDecimal.ONE);
@@ -965,7 +965,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (BigDecimal) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -975,7 +975,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, BigDecimal.ONE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -985,7 +985,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", Boolean.TRUE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(true);
@@ -998,7 +998,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull("key", (Boolean) null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1008,7 +1008,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfNotNull(null, Boolean.TRUE);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1018,7 +1018,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfFinite("key", 1.0);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1.0);
@@ -1031,7 +1031,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfFinite("key", Double.NaN);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1041,7 +1041,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfFinite(null, 1.0);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1051,7 +1051,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfFinite("key", 1f);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(1f);
@@ -1064,7 +1064,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfFinite("key", Float.NaN);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1074,7 +1074,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfFinite(null, 1f);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1084,7 +1084,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withEmptyArray("key");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).emptyArray();
@@ -1097,7 +1097,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withEmptyArray(null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1107,7 +1107,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withEmptyObject("key");
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).emptyObject();
@@ -1120,7 +1120,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withEmptyObject(null);
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1132,7 +1132,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final JsonKey<O> key = object.key();
 		Mockito.verify(scribe).pushKey();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(object, key.thenNull());
+		Assertions.assertEquals(object, key.thenNull());
 	}
 	
 	@Test
@@ -1144,7 +1144,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		Mockito.verify(scribe).pushKey();
 		Mockito.verify(scribe).append('a');
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(object, key.thenNull());
+		Assertions.assertEquals(object, key.thenNull());
 	}
 	
 	@Test
@@ -1156,7 +1156,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		Mockito.verify(scribe).pushKey();
 		Mockito.verify(scribe).append('a');
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(object, key.thenNull());
+		Assertions.assertEquals(object, key.thenNull());
 	}
 	
 	@Test
@@ -1167,7 +1167,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final JsonKey<O> key = object.key((Character) null);
 		Mockito.verify(scribe).pushKey();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(object, key.thenNull());
+		Assertions.assertEquals(object, key.thenNull());
 	}
 	
 	@Test
@@ -1179,7 +1179,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		Mockito.verify(scribe).pushKey();
 		Mockito.verify(scribe).append("abc");
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(object, key.thenNull());
+		Assertions.assertEquals(object, key.thenNull());
 	}
 	
 	@Test
@@ -1190,7 +1190,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final JsonKey<O> key = object.key((CharSequence) null);
 		Mockito.verify(scribe).pushKey();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(object, key.thenNull());
+		Assertions.assertEquals(object, key.thenNull());
 	}
 	
 	@Test
@@ -1202,14 +1202,14 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final AtomicInteger called = new AtomicInteger();
 		final O result = object.with((o) -> {
 			called.incrementAndGet();
-			Assert.assertTrue(o instanceof InscribedJsonObject);
-			Assert.assertEquals(cursor, scribe.getCursor());
+			Assertions.assertTrue(o instanceof InscribedJsonObject);
+			Assertions.assertEquals(cursor, scribe.getCursor());
 			o.key().value();
-			Assert.assertNotEquals(cursor, scribe.getCursor());
+			Assertions.assertNotEquals(cursor, scribe.getCursor());
 		});
-		Assert.assertEquals(1, called.get());
-		Assert.assertEquals(object, result);
-		Assert.assertEquals(cursor, scribe.getCursor());
+		Assertions.assertEquals(1, called.get());
+		Assertions.assertEquals(object, result);
+		Assertions.assertEquals(cursor, scribe.getCursor());
 	}
 	
 	@Test
@@ -1222,15 +1222,15 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final Object element = new Object();
 		final O result = object.with(element, (e, o) -> {
 			called.getAndIncrement();
-			Assert.assertEquals(element, e);
-			Assert.assertTrue(o instanceof InscribedJsonObject);
-			Assert.assertEquals(cursor, scribe.getCursor());
+			Assertions.assertEquals(element, e);
+			Assertions.assertTrue(o instanceof InscribedJsonObject);
+			Assertions.assertEquals(cursor, scribe.getCursor());
 			o.key().value();
-			Assert.assertNotEquals(cursor, scribe.getCursor());
+			Assertions.assertNotEquals(cursor, scribe.getCursor());
 		});
-		Assert.assertEquals(1, called.get());
-		Assert.assertEquals(object, result);
-		Assert.assertEquals(cursor, scribe.getCursor());
+		Assertions.assertEquals(1, called.get());
+		Assertions.assertEquals(object, result);
+		Assertions.assertEquals(cursor, scribe.getCursor());
 	}
 	
 	@Test
@@ -1240,11 +1240,11 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		Mockito.clearInvocations(scribe);
 		final FluentNode<O> inscription = Mockito.mock(FluentNode.class);
 		final IOFunction<O, FluentNode<O>> inscriptor = (o) -> {
-			Assert.assertEquals(object, o);
+			Assertions.assertEquals(object, o);
 			return inscription;
 		};
 		final FluentNode<O> result = object.inscribe(inscriptor);
-		Assert.assertEquals(inscription, result);
+		Assertions.assertEquals(inscription, result);
 		Mockito.verify(scribe).pushInscription(inscription);
 		Mockito.verifyNoMoreInteractions(scribe);
 	}
@@ -1256,7 +1256,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		Mockito.clearInvocations(scribe);
 		final Object value = new Object();
 		final O result = object.withIfPresent("key", Optional.of(value));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).key("key");
 		inOrder.verify(scribe).value(value);
@@ -1269,7 +1269,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfPresent("key", Optional.empty());
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	
@@ -1279,7 +1279,7 @@ public abstract class AbstractJsonObjectTest<O extends JsonObject<O>> {
 		final O object = getJsonObject(scribe);
 		Mockito.clearInvocations(scribe);
 		final O result = object.withIfPresent(null, Optional.of(new Object()));
-		Assert.assertEquals(object, result);
+		Assertions.assertEquals(object, result);
 		Mockito.verifyZeroInteractions(scribe);
 	}
 	

@@ -6,8 +6,8 @@ package io.codecastle.scriptorium.json.scribe;
 
 import java.io.IOException;
 import java.util.NoSuchElementException;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 /**
@@ -27,7 +27,7 @@ public class FastJsonScribeTest extends AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender).pushArray();
 		Mockito.verify(appender).appendOpenBracket();
 		final JsonScribe result = scribe.pop(-1);
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verifyNoMoreInteractions(appender);
 	}
 	
@@ -38,7 +38,7 @@ public class FastJsonScribeTest extends AbstractJsonScribeTest {
 		Mockito.verify(appender).appendOpenBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 		final JsonScribe result = scribe.pop(0);
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verify(appender).appendCloseBracket();
 		Mockito.verifyNoMoreInteractions(appender);
 	}
@@ -49,12 +49,16 @@ public class FastJsonScribeTest extends AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender).pushArray();
 		Mockito.verify(appender).appendOpenBracket();
 		final JsonScribe result = scribe.pop(99);
-		Assert.assertEquals(scribe, result);
+		Assertions.assertEquals(scribe, result);
 		Mockito.verifyNoMoreInteractions(appender);
 	}
 	
-	@Test(expected=NoSuchElementException.class)
-	public void testPopWhenEmpty() throws IOException {
+	@Test
+	public void testPopWhenEmpty() {
+		Assertions.assertThrows(NoSuchElementException.class, this::popWhenEmpty);
+	}
+		
+	private void popWhenEmpty() throws IOException {
 		final JsonAppender appender = Mockito.mock(JsonAppender.class, Mockito.RETURNS_SELF);
 		getScribe(appender).pop();
 	}

@@ -7,8 +7,8 @@ package io.codecastle.scriptorium.json;
 import java.io.IOException;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
 import io.codecastle.scriptorium.json.scribe.MockJsonScribe;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 /**
@@ -24,12 +24,12 @@ public abstract class CloseableJsonArrayTest<A extends CloseableJsonArray<A>> ex
 		Mockito.clearInvocations(scribe);
 		final A array = getJsonArray(scribe);
 		array.close();
-		Assert.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
+		Assertions.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop(Mockito.anyInt());
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(startingState - 1, scribe.getCursor());
+		Assertions.assertEquals(startingState - 1, scribe.getCursor());
 	}
 	
 	@Test
@@ -39,12 +39,12 @@ public abstract class CloseableJsonArrayTest<A extends CloseableJsonArray<A>> ex
 		Mockito.clearInvocations(scribe);
 		final A array = getJsonArray(scribe);
 		array.close();
-		Assert.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
+		Assertions.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop(Mockito.anyInt());
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(startingState - 1, scribe.getCursor());
+		Assertions.assertEquals(startingState - 1, scribe.getCursor());
 		Mockito.clearInvocations(scribe);
 		array.close();
 		Mockito.verifyZeroInteractions(scribe);
@@ -53,7 +53,7 @@ public abstract class CloseableJsonArrayTest<A extends CloseableJsonArray<A>> ex
 	@Test
 	public void testCloseAtZero() throws IOException {
 		final JsonScribe scribe = Mockito.spy(new MockJsonScribe());
-		Assert.assertEquals(0, scribe.getCursor());
+		Assertions.assertEquals(0, scribe.getCursor());
 		Mockito.clearInvocations(scribe);
 		final A array = getJsonArray(scribe);
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();

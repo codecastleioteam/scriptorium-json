@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import io.codecastle.scriptorium.scribe.Escaper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
@@ -25,8 +25,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendComma();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals(",", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals(",", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -36,8 +36,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendComma(true);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals(",", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals(",", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -47,8 +47,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendComma(false);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals(0, builder.length());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals(0, builder.length());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -58,8 +58,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendOpenBrace();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("{", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("{", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -69,8 +69,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendCloseBrace();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("}", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("}", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -80,8 +80,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendOpenBracket();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("[", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("[", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -91,8 +91,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendCloseBracket();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("]", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("]", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -102,8 +102,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendQuote();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("\"", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("\"", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -113,8 +113,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendCloseKey();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("\":", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("\":", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -124,8 +124,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendEmptyArray();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("[]", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("[]", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -135,8 +135,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendEmptyObject();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("{}", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("{}", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -146,8 +146,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendNull();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("null", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("null", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -157,8 +157,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendTrue();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("true", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("true", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -168,8 +168,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendFalse();
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("false", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("false", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -179,8 +179,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendNumber(new BigInteger("12345"));
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("12345", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("12345", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -190,8 +190,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendNumber(new BigDecimal("1.2345"));
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("1.2345", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("1.2345", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -201,8 +201,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendNumber(12345);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("12345", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("12345", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -212,8 +212,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendNumber(12345L);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("12345", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("12345", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -223,8 +223,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendNumber(1.2345f);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("1.2345", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("1.2345", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -234,8 +234,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendNumber(1.2345);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("1.2345", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("1.2345", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -245,8 +245,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendBoolean(true);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("true", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("true", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -256,8 +256,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.appendBoolean(false);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals("false", builder.toString());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals("false", builder.toString());
 		Mockito.verifyZeroInteractions(escaper);
 	}
 	
@@ -267,8 +267,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.escape('a');
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals(0, builder.length());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals(0, builder.length());
 		Mockito.verify(escaper).escape('a', builder);
 		Mockito.verifyNoMoreInteractions(escaper);
 	}
@@ -279,8 +279,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.escape("abc");
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals(0, builder.length());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals(0, builder.length());
 		InOrder inOrder = Mockito.inOrder(escaper);
 		inOrder.verify(escaper).escape('a', builder);
 		inOrder.verify(escaper).escape('b', builder);
@@ -294,8 +294,8 @@ public class JsonAppenderTest {
 		final Escaper escaper = Mockito.mock(Escaper.class, Mockito.RETURNS_SELF);
 		final JsonAppender appender = new JsonAppender(builder, escaper);
 		final JsonAppender result = appender.escape("abcde", 1, 4);
-		Assert.assertEquals(appender, result);
-		Assert.assertEquals(0, builder.length());
+		Assertions.assertEquals(appender, result);
+		Assertions.assertEquals(0, builder.length());
 		InOrder inOrder = Mockito.inOrder(escaper);
 		inOrder.verify(escaper).escape('b', builder);
 		inOrder.verify(escaper).escape('c', builder);

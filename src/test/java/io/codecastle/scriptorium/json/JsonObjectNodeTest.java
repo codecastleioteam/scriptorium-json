@@ -7,8 +7,8 @@ package io.codecastle.scriptorium.json;
 import java.io.IOException;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
 import io.codecastle.scriptorium.json.scribe.MockJsonScribe;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 /**
@@ -31,13 +31,13 @@ public class JsonObjectNodeTest extends CloseableJsonObjectTest<JsonObjectNode<O
 		Mockito.clearInvocations(scribe);
 		final JsonObjectNode<Object> node = getJsonObject(scribe);
 		final Object parent = node.then();
-		Assert.assertEquals(PARENT, parent);
-		Assert.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
+		Assertions.assertEquals(PARENT, parent);
+		Assertions.assertFalse(Mockito.mockingDetails(scribe).getInvocations().isEmpty());
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop();
 		Mockito.verify(scribe, Mockito.atLeast(0)).pop(Mockito.anyInt());
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(startingState - 1, scribe.getCursor());
+		Assertions.assertEquals(startingState - 1, scribe.getCursor());
 	}
 	
 }

@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
@@ -35,7 +35,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).pushValue();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, value.then());
+		Assertions.assertEquals(PARENT, value.then());
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pushValue();
 		inOrder.verify(scribe).append("abc");
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, value.then());
+		Assertions.assertEquals(PARENT, value.then());
 	}
 	
 	@Test
@@ -60,7 +60,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).pushValue();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, value.then());
+		Assertions.assertEquals(PARENT, value.then());
 	}
 	
 	@Test
@@ -73,7 +73,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pushValue();
 		inOrder.verify(scribe).append('a');
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, value.then());
+		Assertions.assertEquals(PARENT, value.then());
 	}
 	
 	@Test
@@ -86,7 +86,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pushValue();
 		inOrder.verify(scribe).append('a');
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, value.then());
+		Assertions.assertEquals(PARENT, value.then());
 	}
 	
 	@Test
@@ -98,7 +98,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).pushValue();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, value.then());
+		Assertions.assertEquals(PARENT, value.then());
 	}
 	
 	@Test
@@ -106,7 +106,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.thenNull();
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -118,7 +118,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.thenTrue();
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).trueValue();
@@ -130,7 +130,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.thenFalse();
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).falseValue();
@@ -142,7 +142,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.thenEmptyObject();
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).emptyObject();
@@ -154,7 +154,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.thenEmptyArray();
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).emptyArray();
@@ -166,7 +166,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then("abc");
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value("abc");
@@ -178,7 +178,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((CharSequence) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -190,7 +190,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then('a');
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value('a');
@@ -202,7 +202,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Character.valueOf('a'));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value('a');
@@ -214,7 +214,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Character) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -226,7 +226,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(BigInteger.ONE);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(BigInteger.ONE);
@@ -238,7 +238,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((BigInteger) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -250,7 +250,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(BigDecimal.ONE);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(BigDecimal.ONE);
@@ -262,7 +262,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((BigDecimal) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -274,7 +274,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(1);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1);
@@ -286,7 +286,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Byte.valueOf((byte) 1));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1);
@@ -298,7 +298,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Byte) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -310,7 +310,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Short.valueOf((short) 1));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1);
@@ -322,7 +322,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Short) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -334,7 +334,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Integer.valueOf(1));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1);
@@ -346,7 +346,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Integer) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -358,7 +358,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(1L);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1L);
@@ -370,7 +370,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Long.valueOf(1L));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1L);
@@ -382,7 +382,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Long) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -394,7 +394,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(true);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(true);
@@ -406,7 +406,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Boolean.valueOf(true));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(true);
@@ -418,7 +418,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Boolean) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -430,7 +430,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(1f);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1f);
@@ -442,7 +442,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Float.valueOf(1f));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1f);
@@ -454,7 +454,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Float) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -466,7 +466,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(1.0);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1.0);
@@ -478,7 +478,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then(Double.valueOf(1.0));
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).value(1.0);
@@ -490,7 +490,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		final JsonScribe scribe = Mockito.mock(JsonScribe.class, Mockito.RETURNS_SELF);
 		final JsonKey<Object> key = getJsonAppendable(scribe);
 		final Object parent = key.then((Double) null);
-		Assert.assertEquals(PARENT, parent);
+		Assertions.assertEquals(PARENT, parent);
 		final InOrder inOrder = Mockito.inOrder(scribe);
 		inOrder.verify(scribe).pop();
 		inOrder.verify(scribe).nullValue();
@@ -507,7 +507,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pushArray();
 		inOrder.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, array.then());
+		Assertions.assertEquals(PARENT, array.then());
 	}
 	
 	@Test
@@ -520,7 +520,7 @@ public class JsonKeyTest extends AbstractJsonAppendableTest<JsonKey<Object>> {
 		inOrder.verify(scribe).pushObject();
 		inOrder.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verifyNoMoreInteractions(scribe);
-		Assert.assertEquals(PARENT, object.then());
+		Assertions.assertEquals(PARENT, object.then());
 	}
 	
 }
