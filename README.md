@@ -12,6 +12,7 @@ Fluent Java API for writing JSON output
 
 ### Add JSON Scriptorium as a module
 ``` java
+requires io.codecastle.scriptorium.core;
 requires io.codecastle.scriptorium.json;
 ```
 
