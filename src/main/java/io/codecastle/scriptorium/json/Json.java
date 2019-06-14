@@ -4,10 +4,11 @@
  */
 package io.codecastle.scriptorium.json;
 
+import io.codecastle.scriptorium.json.impl.JsonFactory;
 import java.io.IOException;
+import io.codecastle.scriptorium.json.scribe.FastJsonScribe;
 import io.codecastle.scriptorium.json.scribe.JsonAppender;
 import io.codecastle.scriptorium.json.scribe.JsonEscaper;
-import io.codecastle.scriptorium.json.scribe.FastJsonScribe;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
 
 /**
@@ -37,7 +38,7 @@ public final class Json {
 	 */
 	public static JsonObjectDocument object(final Appendable appendable) throws IOException {
 		if (appendable == null) throw new IllegalArgumentException("Missing appendable");
-		return new JsonObjectDocument(new FastJsonScribe(new JsonAppender(appendable, new JsonEscaper())).pushObject());
+		return object(new FastJsonScribe(new JsonAppender(appendable, JsonEscaper.getInstance())));
 	}
 	
 	/**
@@ -56,7 +57,7 @@ public final class Json {
 	 */
 	public static JsonObjectDocument object(final JsonScribe scribe) throws IOException {
 		if (scribe == null) throw new IllegalArgumentException("Missing scribe");
-		return new JsonObjectDocument(scribe.pushObject());
+		return JsonFactory.object(scribe);
 	}
 	
 	/**
@@ -79,7 +80,7 @@ public final class Json {
 	 */
 	public static JsonArrayDocument array(final Appendable appendable) throws IOException {
 		if (appendable == null) throw new IllegalArgumentException("Missing appendable");
-		return new JsonArrayDocument(new FastJsonScribe(new JsonAppender(appendable, new JsonEscaper())).pushArray());
+		return array(new FastJsonScribe(new JsonAppender(appendable, JsonEscaper.getInstance())));
 	}
 	
 	/**
@@ -98,7 +99,7 @@ public final class Json {
 	 */
 	public static JsonArrayDocument array(final JsonScribe scribe) throws IOException {
 		if (scribe == null) throw new IllegalArgumentException("Missing scribe");
-		return new JsonArrayDocument(scribe.pushArray());
+		return JsonFactory.array(scribe);
 	}
 	
 	private Json() {}

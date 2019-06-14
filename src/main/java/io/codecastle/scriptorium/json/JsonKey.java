@@ -7,7 +7,6 @@ package io.codecastle.scriptorium.json;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import io.codecastle.scriptorium.json.scribe.JsonScribe;
 
 /**
  * Represents a JSON key currently being output within a containing {@link JsonObject}.
@@ -16,14 +15,7 @@ import io.codecastle.scriptorium.json.scribe.JsonScribe;
  * @param <P> the type of the containing {@link JsonObject}
  * @see JsonObject#key()
  */
-public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
-
-	private final P parent;
-	
-	JsonKey(final JsonScribe scribe, final P parent) {
-		super(scribe);
-		this.parent = parent;
-	}
+public interface JsonKey<P> extends JsonAppendable<JsonKey<P>> {
 
 	/**
 	 * Closes this JSON key, then begins a new string literal value assigned to it
@@ -48,10 +40,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @see #value(Character)
 	 * @see #value(CharSequence)
 	 */
-	public JsonValue<P> value() throws IOException {
-		scribe.pop().pushValue();
-		return new JsonValue(scribe, parent);
-	}
+	JsonValue<P> value() throws IOException;
 	
 	/**
 	 * Closes this JSON key, then begins a new string literal value assigned to it,
@@ -81,10 +70,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @see #value(char)
 	 * @see #value(CharSequence)
 	 */
-	public JsonValue<P> value(final char value) throws IOException {
-		scribe.pop().pushValue().append(value);
-		return new JsonValue(scribe, parent);
-	}
+	JsonValue<P> value(final char value) throws IOException;
 	
 	/**
 	 * Closes this JSON key, then begins a new string literal value assigned to it,
@@ -115,7 +101,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @see #value(char)
 	 * @see #value(CharSequence)
 	 */
-	public JsonValue<P> value(final Character value) throws IOException {
+	default JsonValue<P> value(final Character value) throws IOException {
 		if (value == null) return value();
 		return value((char) value);
 	}
@@ -149,11 +135,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @see #value(char)
 	 * @see #value(Character)
 	 */
-	public JsonValue<P> value(final CharSequence value) throws IOException {
-		scribe.pop().pushValue();
-		if (value != null) scribe.append(value);
-		return new JsonValue(scribe, parent);
-	}
+	JsonValue<P> value(final CharSequence value) throws IOException;
 	
 	/**
 	 * Assigns this key a {@code null} literal value and returns the containing
@@ -162,10 +144,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P thenNull() throws IOException {
-		scribe.pop().nullValue();
-		return parent;
-	}
+	P thenNull() throws IOException;
 	
 	/**
 	 * Assigns this key a {@code true} literal value and returns the containing
@@ -174,10 +153,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P thenTrue() throws IOException {
-		scribe.pop().trueValue();
-		return parent;
-	}
+	P thenTrue() throws IOException;
 	
 	/**
 	 * Assigns this key a {@code false} literal value and returns the containing
@@ -186,10 +162,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P thenFalse() throws IOException {
-		scribe.pop().falseValue();
-		return parent;
-	}
+	P thenFalse() throws IOException;
 	
 	/**
 	 * Assigns this key an empty JSON array value and returns the containing 
@@ -198,10 +171,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P thenEmptyArray() throws IOException {
-		scribe.pop().emptyArray();
-		return parent;
-	}
+	P thenEmptyArray() throws IOException;
 	
 	/**
 	 * Assigns this key an empty JSON object value and returns the containing 
@@ -210,10 +180,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P thenEmptyObject() throws IOException {
-		scribe.pop().emptyObject();
-		return parent;
-	}
+	P thenEmptyObject() throws IOException;
 	
 	/**
 	 * Assigns this key a string literal value and returns the containing
@@ -230,11 +197,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final CharSequence value) throws IOException {
-		if (value == null) return thenNull();
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final CharSequence value) throws IOException;
 	
 	/**
 	 * Assigns this key a single-character string literal value and returns the containing
@@ -247,10 +210,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final char value) throws IOException {
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final char value) throws IOException;
 	
 	/**
 	 * Assigns this key a single-character string literal value and returns the containing
@@ -267,10 +227,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Character value) throws IOException {
-		if (value == null) return thenNull();
-		return then((char) value);
-	}
+	P then(final Character value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -284,11 +241,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final BigInteger value) throws IOException {
-		if (value == null) return thenNull();
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final BigInteger value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -302,11 +255,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final BigDecimal value) throws IOException {
-		if (value == null) return thenNull();
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final BigDecimal value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -320,10 +269,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Byte value) throws IOException {
-		if (value == null) return thenNull();
-		return then((int) value);
-	}
+	P then(final Byte value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -337,10 +283,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Short value) throws IOException {
-		if (value == null) return thenNull();
-		return then((int) value);
-	}
+	P then(final Short value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -350,10 +293,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final int value) throws IOException {
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final int value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -367,7 +307,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Integer value) throws IOException {
+	default P then(final Integer value) throws IOException {
 		if (value == null) return thenNull();
 		return then((int) value);
 	}
@@ -384,10 +324,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final float value) throws IOException {
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final float value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -401,7 +338,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Float value) throws IOException {
+	default P then(final Float value) throws IOException {
 		if (value == null) return thenNull();
 		return then((float) value);
 	}
@@ -414,10 +351,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final long value) throws IOException {
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final long value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -431,7 +365,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Long value) throws IOException {
+	default P then(final Long value) throws IOException {
 		if (value == null) return thenNull();
 		return then((long) value);
 	}
@@ -448,10 +382,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final double value) throws IOException {
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final double value) throws IOException;
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -465,7 +396,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Double value) throws IOException {
+	default P then(final Double value) throws IOException {
 		if (value == null) return thenNull();
 		return then((double) value);
 	}
@@ -478,10 +409,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final boolean value) throws IOException {
-		scribe.pop().value(value);
-		return parent;
-	}
+	P then(final boolean value) throws IOException;
 	
 	/**
 	 * Assigns this key a Boolean literal value and returns the containing
@@ -495,7 +423,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	public P then(final Boolean value) throws IOException {
+	default P then(final Boolean value) throws IOException {
 		if (value == null) return thenNull();
 		return then((boolean) value);
 	}
@@ -516,10 +444,7 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @throws IOException if an I/O error occurs
 	 * @see #thenEmptyObject()
 	 */
-	public JsonObjectNode<P> object() throws IOException {
-		scribe.pop().pushObject();
-		return new JsonObjectNode(scribe, parent);
-	}
+	JsonObjectNode<P> object() throws IOException;
 	
 	/**
 	 * Begins a new JSON array value assigned to this key and returns a 
@@ -537,9 +462,6 @@ public final class JsonKey<P> extends AbstractJsonAppendable<JsonKey<P>> {
 	 * @throws IOException if an I/O error occurs
 	 * @see #thenEmptyArray()
 	 */
-	public JsonArrayNode<P> array() throws IOException {
-		scribe.pop().pushArray();
-		return new JsonArrayNode(scribe, parent);
-	}
+	JsonArrayNode<P> array() throws IOException;
 	
 }

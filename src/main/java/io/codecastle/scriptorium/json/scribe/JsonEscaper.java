@@ -25,6 +25,8 @@ import io.codecastle.scriptorium.scribe.Escaper;
  * @author Doug Valenta
  */
 public class JsonEscaper implements Escaper {
+	
+	private static final JsonEscaper INSTANCE = new JsonEscaper();
 
 	private static final char BACKSPACE = '\b';
 	private static final char FORMFEED = '\f';
@@ -42,6 +44,12 @@ public class JsonEscaper implements Escaper {
 	private static final String ESCAPED_QUOTE = "\\\"";
 	private static final String ESCAPED_UNICODE = "\\u";
 	private static final String UNICODE_FORMAT = "%04x";
+	
+	public static JsonEscaper getInstance() {
+		return INSTANCE;
+	}
+	
+	private JsonEscaper() {}
 	
 	@Override
 	public void escape(final char character, final Appendable appendable) throws IOException {

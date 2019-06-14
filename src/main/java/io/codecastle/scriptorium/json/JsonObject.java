@@ -42,7 +42,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public THIS withNull(CharSequence key) throws IOException;
+	THIS withNull(CharSequence key) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a {@code true} literal value and returns this object.
@@ -60,7 +60,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, boolean)
 	 * @see #with(CharSequence, Boolean)
 	 */
-	public THIS withTrue(CharSequence key) throws IOException;
+	THIS withTrue(CharSequence key) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a {@code false} literal value and returns this object.
@@ -78,7 +78,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, boolean)
 	 * @see #with(CharSequence, Boolean)
 	 */
-	public THIS withFalse(CharSequence key) throws IOException;
+	THIS withFalse(CharSequence key) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a string literal value and returns this object.
@@ -102,7 +102,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, char)
 	 * @see JsonKey#value(CharSequence)
 	 */
-	public THIS with(CharSequence key, CharSequence value) throws IOException;
+	THIS with(CharSequence key, CharSequence value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a single-character string literal value
@@ -122,7 +122,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, Character)
 	 * @see JsonKey#value(char)
 	 */
-	public THIS with(CharSequence key, char value) throws IOException;
+	THIS with(CharSequence key, char value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a single-character string literal value
@@ -147,7 +147,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, char)
 	 * @see JsonKey#value(Character)
 	 */
-	public default THIS with(final CharSequence key, final Character value) throws IOException {
+	default THIS with(final CharSequence key, final Character value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (char) value);
 	}
@@ -172,7 +172,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withNull(CharSequence)
 	 * @see #withIfNotNull(CharSequence, BigInteger)
 	 */
-	public THIS with(CharSequence key, BigInteger value) throws IOException;
+	THIS with(CharSequence key, BigInteger value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a numeric literal value and returns this
@@ -194,7 +194,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withNull(CharSequence)
 	 * @see #withIfNotNull(CharSequence, BigDecimal)
 	 */
-	public THIS with(CharSequence key, BigDecimal value) throws IOException;
+	THIS with(CharSequence key, BigDecimal value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a numeric literal value and returns this
@@ -217,7 +217,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withIfNotNull(CharSequence, Byte)
 	 * @see #with(CharSequence, int)
 	 */
-	public default THIS with(final CharSequence key, final Byte value) throws IOException {
+	default THIS with(final CharSequence key, final Byte value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (int) value);
 	}
@@ -243,7 +243,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withIfNotNull(CharSequence, Short)
 	 * @see #with(CharSequence, int)
 	 */
-	public default THIS with(final CharSequence key, final Short value) throws IOException {
+	default THIS with(final CharSequence key, final Short value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (int) value);
 	}
@@ -269,7 +269,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withIfNotNull(CharSequence, Integer)
 	 * @see #with(CharSequence, int)
 	 */
-	public default THIS with(final CharSequence key, final Integer value) throws IOException {
+	default THIS with(final CharSequence key, final Integer value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (int) value);
 	}
@@ -295,7 +295,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withIfNotNull(CharSequence, Float)
 	 * @see #with(CharSequence, float)
 	 */
-	public default THIS with(final CharSequence key, final Float value) throws IOException {
+	default THIS with(final CharSequence key, final Float value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (float) value);
 	}
@@ -321,7 +321,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withIfNotNull(CharSequence, Long)
 	 * @see #with(CharSequence, long)
 	 */
-	public default THIS with(final CharSequence key, final Long value) throws IOException {
+	default THIS with(final CharSequence key, final Long value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (long) value);
 	}
@@ -347,7 +347,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withIfNotNull(CharSequence, Double)
 	 * @see #with(CharSequence, double)
 	 */
-	public default THIS with(final CharSequence key, final Double value) throws IOException {
+	default THIS with(final CharSequence key, final Double value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (double) value);
 	}
@@ -370,7 +370,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, Short)
 	 * @see #with(CharSequence, Integer)
 	 */
-	public THIS with(CharSequence key, int value) throws IOException;
+	THIS with(CharSequence key, int value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a numeric literal value and returns this
@@ -392,7 +392,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, Float)
 	 * @see #withIfFinite(CharSequence, float)
 	 */
-	public THIS with(CharSequence key, float value) throws IOException;
+	THIS with(CharSequence key, float value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a numeric literal value and returns this
@@ -410,7 +410,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, Long)
 	 */
-	public THIS with(CharSequence key, long value) throws IOException;
+	THIS with(CharSequence key, long value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a numeric literal value and returns this
@@ -432,7 +432,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, Double)
 	 * @see #withIfFinite(CharSequence, double)
 	 */
-	public THIS with(CharSequence key, double value) throws IOException;
+	THIS with(CharSequence key, double value) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a Boolean literal value and returns this
@@ -457,7 +457,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #withTrue(CharSequence)
 	 * @see #withFalse(CharSequence)
 	 */
-	public default THIS with(final CharSequence key, final Boolean value) throws IOException {
+	default THIS with(final CharSequence key, final Boolean value) throws IOException {
 		if (value == null) return withNull(key);
 		return with(key, (boolean) value);
 	}
@@ -499,7 +499,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, CharSequence)
 	 * @see #withIfNotNull(CharSequence, Character)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final CharSequence value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final CharSequence value) throws IOException {
 		if (value != null) return with(key, value);
 		return (THIS) this;
 	}
@@ -521,7 +522,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, Character)
 	 * @see #withIfNotNull(CharSequence, CharSequence)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Character value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Character value) throws IOException {
 		if (value != null) return with(key, (char) value);
 		return (THIS) this;
 	}
@@ -542,7 +544,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, BigInteger)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final BigInteger value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final BigInteger value) throws IOException {
 		if (value != null) return with(key, value);
 		return (THIS) this;
 	}
@@ -563,7 +566,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, BigDecimal)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final BigDecimal value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final BigDecimal value) throws IOException {
 		if (value != null) return with(key, value);
 		return (THIS) this;
 	}
@@ -584,7 +588,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, Byte)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Byte value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Byte value) throws IOException {
 		if (value != null) return with(key, (int) value);
 		return (THIS) this;
 	}
@@ -605,7 +610,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, Short)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Short value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Short value) throws IOException {
 		if (value != null) return with(key, (int) value);
 		return (THIS) this;
 	}
@@ -626,7 +632,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, Integer)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Integer value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Integer value) throws IOException {
 		if (value != null) return with(key, (int) value);
 		return (THIS) this;
 	}
@@ -649,7 +656,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, Float)
 	 * @see #withIfFinite(CharSequence, float)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Float value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Float value) throws IOException {
 		if (value != null) return withIfFinite(key, (float) value);
 		return (THIS) this;
 	}
@@ -670,7 +678,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, Long)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Long value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Long value) throws IOException {
 		if (value != null) return with(key, (long) value);
 		return (THIS) this;
 	}
@@ -693,7 +702,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, Double)
 	 * @see #withIfFinite(CharSequence, float)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Double value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Double value) throws IOException {
 		if (value != null) return withIfFinite(key, (double) value);
 		return (THIS) this;
 	}
@@ -714,7 +724,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(CharSequence, Boolean)
 	 */
-	public default THIS withIfNotNull(final CharSequence key, final Boolean value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfNotNull(final CharSequence key, final Boolean value) throws IOException {
 		if (value != null) return with(key, (boolean) value);
 		return (THIS) this;
 	}
@@ -747,7 +758,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @return this object
 	 * @throws IOException if an I/O error occurs 
 	 */
-	public THIS withIfPresent(CharSequence key, Optional<?> optional) throws IOException;
+	THIS withIfPresent(CharSequence key, Optional<?> optional) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with a numeric literal value only if the provided
@@ -767,7 +778,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, float)
 	 * @see #withIfNotNull(CharSequence, Float)
 	 */
-	public default THIS withIfFinite(final CharSequence key, final float value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfFinite(final CharSequence key, final float value) throws IOException {
 		if (Float.isFinite(value)) return with(key, value);
 		return (THIS) this;
 	}
@@ -790,7 +802,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #with(CharSequence, double)
 	 * @see #withIfNotNull(CharSequence, Double)
 	 */
-	public default THIS withIfFinite(final CharSequence key, final double value) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS withIfFinite(final CharSequence key, final double value) throws IOException {
 		if (Double.isFinite(value)) return with(key, value);
 		return (THIS) this;
 	}
@@ -805,7 +818,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public THIS withEmptyObject(CharSequence key) throws IOException;
+	THIS withEmptyObject(CharSequence key) throws IOException;
 	
 	/**
 	 * Appends a key to the JSON object with an empty array value and returns this object.
@@ -817,7 +830,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public THIS withEmptyArray(CharSequence key) throws IOException;
+	THIS withEmptyArray(CharSequence key) throws IOException;
 	
 	/**
 	 * Begins a new key of this JSON object and returns a {@link JsonKey} object that
@@ -847,7 +860,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #key(Character)
 	 * @see #key(CharSequence)
 	 */
-	public JsonKey<THIS> key() throws IOException;
+	JsonKey<THIS> key() throws IOException;
 	
 	/**
 	 * Begins a new key of this JSON object beginning with the provided character
@@ -880,7 +893,7 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #key(Character)
 	 * @see #key(CharSequence)
 	 */
-	public JsonKey<THIS> key(char key) throws IOException;
+	JsonKey<THIS> key(char key) throws IOException;
 	
 	/**
 	 * Begins a new key of this JSON object beginning with the provided character
@@ -916,7 +929,8 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #key(Character)
 	 * @see #key(CharSequence)
 	 */
-	public default JsonKey<THIS> key(final Character key) throws IOException {
+	@SuppressWarnings("unchecked")
+	default JsonKey<THIS> key(final Character key) throws IOException {
 		if (key == null) return key();
 		return key((char) key);
 	}
@@ -955,6 +969,6 @@ public interface JsonObject<THIS extends JsonObject<THIS>> extends Inscribable<J
 	 * @see #key(Character)
 	 * @see #key(CharSequence)
 	 */
-	public JsonKey<THIS> key(CharSequence key) throws IOException;
+	JsonKey<THIS> key(CharSequence key) throws IOException;
 	
 }

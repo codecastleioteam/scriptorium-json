@@ -39,14 +39,11 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		
 		<!-- Scriptorium dependency versions -->
-		<scriptorium.core.version>1.0.1</scriptorium.core.version>
+		<scriptorium.core.version>1.0.2</scriptorium.core.version>
 		
 		<!-- Test dependency versions -->
 		<junit.version>4.12</junit.version>
-		<mockito.version>2.15.0</mockito.version>
-		
-		<!-- Build plugin versions -->
-		<jar.plugin.version>3.1.0</jar.plugin.version>
+		<mockito.version>2.28.2</mockito.version>
 		
 	</properties>
 	
@@ -80,7 +77,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${jar.plugin.version}</version>
+				<version>3.1.2</version>
 				<configuration>
 					<archive>
 						<manifestEntries>
@@ -88,6 +85,11 @@
 						</manifestEntries>
 					</archive>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
 			</plugin>
 		</plugins>
 	</build>

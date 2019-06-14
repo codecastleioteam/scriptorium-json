@@ -42,7 +42,7 @@ public class JsonTest {
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verifyNoMoreInteractions(scribe);
 		document.close();
-		Mockito.verify(scribe).pop();
+		Mockito.verify(scribe).close();
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
@@ -75,7 +75,7 @@ public class JsonTest {
 		Mockito.verify(scribe, Mockito.atLeast(0)).getCursor();
 		Mockito.verifyNoMoreInteractions(scribe);
 		document.close();
-		Mockito.verify(scribe).pop();
+		Mockito.verify(scribe).close();
 	}
 	
 	@Test(expected=IllegalArgumentException.class)

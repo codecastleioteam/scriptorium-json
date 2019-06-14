@@ -43,7 +43,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @throws IOException if an I/O error occurs
 	 * @see #pushArray()
 	 */
-	public JsonScribe emptyArray() throws IOException;
+	JsonScribe emptyArray() throws IOException;
 	
 	/**
 	 * Outputs the opening bracket of a JSON array, preceded by a comma if necessary,
@@ -63,7 +63,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs 
 	 */
-	public JsonScribe pushArray() throws IOException;
+	JsonScribe pushArray() throws IOException;
 	
 	/**
 	 * Outputs the opening quotation mark of a JSON string literal, preceded by a
@@ -82,7 +82,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs 
 	 */
-	public JsonScribe pushValue() throws IOException;
+	JsonScribe pushValue() throws IOException;
 	
 	/**
 	 * Outputs a string literal containing the contents of the provided value, preceded
@@ -101,7 +101,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe value(CharSequence value) throws IOException;
+	JsonScribe value(CharSequence value) throws IOException;
 	
 	/**
 	 * Outputs a single-character string literal containing the provided value, preceded
@@ -120,7 +120,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe value(char value) throws IOException;
+	JsonScribe value(char value) throws IOException;
 	
 	/**
 	 * Outputs a numeric literal, preceded by a comma if necessary, and returns this
@@ -136,7 +136,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe value(BigInteger value) throws IOException;
+	JsonScribe value(BigInteger value) throws IOException;
 	
 	/**
 	 * Outputs a numeric literal, preceded by a comma if necessary, and returns this
@@ -152,7 +152,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe value(BigDecimal value) throws IOException;
+	JsonScribe value(BigDecimal value) throws IOException;
 
 	/**
 	 * Outputs a numeric literal, preceded by a comma if necessary, and returns this
@@ -168,7 +168,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe value(int value) throws IOException;
+	JsonScribe value(int value) throws IOException;
 	
 	/**
 	 * Outputs a numeric literal, preceded by a comma if necessary, and returns this
@@ -188,7 +188,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @throws IOException if an I/O error occurs
 	 * @see #nullValue()
 	 */
-	public JsonScribe value(float value) throws IOException;
+	JsonScribe value(float value) throws IOException;
 	
 	/**
 	 * Outputs a numeric literal, preceded by a comma if necessary, and returns this
@@ -204,7 +204,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe value(long value) throws IOException;
+	JsonScribe value(long value) throws IOException;
 	
 	/**
 	 * Outputs a numeric literal, preceded by a comma if necessary, and returns this
@@ -224,7 +224,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @throws IOException if an I/O error occurs
 	 * @see #nullValue()
 	 */
-	public JsonScribe value(double value) throws IOException;
+	JsonScribe value(double value) throws IOException;
 	
 	/**
 	 * Outputs a Boolean literal, preceded by a comma if necessary, and returns this
@@ -242,7 +242,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @see #trueValue()
 	 * @see #falseValue()
 	 */
-	public JsonScribe value(boolean value) throws IOException;
+	JsonScribe value(boolean value) throws IOException;
 	
 	/**
 	 * Outputs a value literal, preceded by a comma if necessary, and returns this
@@ -272,7 +272,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @throws IllegalArgumentException if the runtime type of a non-null argument is
 	 * not supported
 	 */
-	public default JsonScribe value(final Object value) throws IOException {
+	default JsonScribe value(final Object value) throws IOException {
 		if (value == null) return nullValue();
 		if (value instanceof CharSequence) return value((CharSequence) value);
 		if (value instanceof Character) return value((char) value);
@@ -301,7 +301,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe nullValue() throws IOException;
+	JsonScribe nullValue() throws IOException;
 	
 	/**
 	 * Outputs a Boolean {@code true} literal, preceded by a comma if necessary, and returns this
@@ -318,7 +318,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @see #falseValue()
 	 * @see #value(boolean)
 	 */
-	public JsonScribe trueValue() throws IOException;
+	JsonScribe trueValue() throws IOException;
 	
 	/**
 	 * Outputs a Boolean {@code false} literal, preceded by a comma if necessary, and returns this
@@ -335,7 +335,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @see #trueValue()
 	 * @see #value(boolean)
 	 */
-	public JsonScribe falseValue() throws IOException;
+	JsonScribe falseValue() throws IOException;
 	
 	/**
 	 * Outputs an empty JSON object, preceded by a comma if necessary, and returns this
@@ -351,7 +351,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @throws IOException if an I/O error occurs
 	 * @see #pushObject()
 	 */
-	public JsonScribe emptyObject() throws IOException;
+	JsonScribe emptyObject() throws IOException;
 	
 	/**
 	 * Outputs the opening brace of a JSON object, preceded by a comma if necessary,
@@ -371,7 +371,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs 
 	 */
-	public JsonScribe pushObject() throws IOException;
+	JsonScribe pushObject() throws IOException;
 	
 	/**
 	 * Outputs the opening quotation mark of a JSON key, preceded by a
@@ -390,7 +390,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs 
 	 */
-	public JsonScribe pushKey() throws IOException;
+	JsonScribe pushKey() throws IOException;
 	
 	/**
 	 * Outputs a JSON key containing the contents of the provided key, preceded
@@ -409,7 +409,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public JsonScribe key(CharSequence key) throws IOException;
+	JsonScribe key(CharSequence key) throws IOException;
 	
 	/**
 	 * Returns to the previous scribe state and returns this object.
@@ -434,7 +434,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return this object
 	 * @throws IOException if an I/O error occurs 
 	 */
-	public JsonScribe pop() throws IOException;
+	JsonScribe pop() throws IOException;
 	
 	/**
 	 * Returns a cursor representing the current state of the scribe.
@@ -442,7 +442,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @return a cursor
 	 * @see #pop(int)
 	 */
-	public int getCursor();
+	int getCursor();
 	
 	/**
 	 * Returns the scribe to the state represented by the cursor and returns this object.
@@ -462,7 +462,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @see #pop()
 	 * @see #close()
 	 */
-	public JsonScribe pop(int cursor) throws IOException;
+	JsonScribe pop(int cursor) throws IOException;
 	
 	/**
 	 * Returns the scribe to its initial state.
@@ -474,7 +474,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @throws IOException if an I/O error occurs
 	 */
 	@Override
-	public void close() throws IOException;
+	void close() throws IOException;
 	
 	/**
 	 * Outputs the provided sequence as a JSON string and returns this object. 
@@ -496,7 +496,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @see Appendable#append(CharSequence)
 	 */
 	@Override
-	public JsonScribe append(CharSequence sequence) throws IOException;
+	JsonScribe append(CharSequence sequence) throws IOException;
 	
 	/**
 	 * Outputs the provided sequence as a JSON string and returns this object. 
@@ -520,7 +520,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @see Appendable#append(CharSequence, int, int)
 	 */
 	@Override
-	public JsonScribe append(CharSequence sequence, int start, int end) throws IOException;
+	JsonScribe append(CharSequence sequence, int start, int end) throws IOException;
 	
 	/**
 	 * Outputs the provided character as a JSON string and returns this object. 
@@ -542,7 +542,7 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 * @see Appendable#append(char)
 	 */
 	@Override
-	public JsonScribe append(char character) throws IOException;
+	JsonScribe append(char character) throws IOException;
 	
 	/**
 	 * Registers an inscription node that will be closed the next time this scribe's
@@ -554,6 +554,6 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 *
 	 * @param inscription the inscription node to register to be closed
 	 */
-	public JsonScribe pushInscription(FluentNode<?> inscription);
+	JsonScribe pushInscription(FluentNode<?> inscription);
 	
 }

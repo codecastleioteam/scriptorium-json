@@ -35,7 +35,7 @@ public interface JsonAppendable<THIS extends JsonAppendable<THIS>> extends Fluen
 	 * @see Appendable#append(CharSequence)
 	 */
 	@Override
-	public THIS append(CharSequence sequence) throws IOException;
+	THIS append(CharSequence sequence) throws IOException;
 	
 	/**
 	 * Appends the specified subsequence of the provided {@link CharSequence} and 
@@ -57,7 +57,7 @@ public interface JsonAppendable<THIS extends JsonAppendable<THIS>> extends Fluen
 	 * @see Appendable#append(CharSequence, int, int)
 	 */
 	@Override
-	public THIS append(CharSequence sequence, int start, int end) throws IOException;
+	THIS append(CharSequence sequence, int start, int end) throws IOException;
 	
 	/**
 	 * Appends the specified subsequence of the provided character and 
@@ -73,7 +73,7 @@ public interface JsonAppendable<THIS extends JsonAppendable<THIS>> extends Fluen
 	 * @see Appendable#append(char)
 	 */
 	@Override
-	public THIS append(char character) throws IOException;
+	THIS append(char character) throws IOException;
 	
 	/**
 	 * Appends the specified subsequence of the provided character and 
@@ -90,7 +90,8 @@ public interface JsonAppendable<THIS extends JsonAppendable<THIS>> extends Fluen
 	 * @throws IOException 
 	 * @see #append(char)
 	 */
-	public default THIS append(final Character character) throws IOException {
+	@SuppressWarnings("unchecked")
+	default THIS append(final Character character) throws IOException {
 		if (character != null) return append((char) character);
 		return (THIS) this;
 	}

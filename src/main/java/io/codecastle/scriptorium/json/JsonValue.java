@@ -6,7 +6,6 @@ package io.codecastle.scriptorium.json;
 
 import java.io.IOException;
 import io.codecastle.scriptorium.FluentNode;
-import io.codecastle.scriptorium.json.scribe.JsonScribe;
 
 /**
  * Represents a JSON string literal currently being output within a containing 
@@ -17,14 +16,7 @@ import io.codecastle.scriptorium.json.scribe.JsonScribe;
  * @see JsonArray#element()
  * @see JsonKey#value()
  */
-public final class JsonValue<P> extends AbstractJsonAppendable<JsonValue<P>> implements FluentNode<P> {
-	
-	private final P parent;
-	
-	JsonValue(final JsonScribe scribe, final P parent) {
-		super(scribe);
-		this.parent = parent;
-	}
+public interface JsonValue<P> extends JsonAppendable<JsonValue<P>>, FluentNode<P> {
 	
 	/**
 	 * Closes this JSON string literal and returns
@@ -37,12 +29,7 @@ public final class JsonValue<P> extends AbstractJsonAppendable<JsonValue<P>> imp
 	 * @see JsonKey#value()
 	 */
 	@Override
-	public P then() throws IOException {
-		close();
-		return parent;
-	}
-	
-	private boolean closed = false;
+	P then() throws IOException;
 	
 	/**
 	 * Closes this JSON string literal.
@@ -54,11 +41,6 @@ public final class JsonValue<P> extends AbstractJsonAppendable<JsonValue<P>> imp
 	 * @throws IOException if an I/O error occurs
 	 */
 	@Override
-	public void close() throws IOException {
-		if (!closed) {
-			scribe.pop();
-			closed = true;
-		}
-	}
+	void close() throws IOException;
 	
 }

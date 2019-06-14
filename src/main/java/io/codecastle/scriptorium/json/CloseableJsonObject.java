@@ -6,17 +6,12 @@ package io.codecastle.scriptorium.json;
 
 import java.io.Closeable;
 import java.io.IOException;
-import io.codecastle.scriptorium.json.scribe.JsonScribe;
 
 /**
  *
  * @author Doug Valenta
  */
-abstract class CloseableJsonObject<THIS extends CloseableJsonObject<THIS>> extends AbstractJsonObject<THIS> implements Closeable {
-
-	public CloseableJsonObject(final JsonScribe scribe) {
-		super(scribe);
-	}
+interface CloseableJsonObject<THIS extends CloseableJsonObject<THIS>> extends JsonObject<THIS>, Closeable {
 	
 	/**
 	 * Closes this JSON object and any nested arrays, objects, or values that remain open.
@@ -28,11 +23,6 @@ abstract class CloseableJsonObject<THIS extends CloseableJsonObject<THIS>> exten
 	 * @throws IOException if an I/O error occurs
 	 */
 	@Override
-	public void close() throws IOException {
-		if (cursor > 0) {
-			scribe.pop(cursor).pop();
-			cursor = -1;
-		}
-	}
+	void close() throws IOException;
 	
 }

@@ -16,7 +16,7 @@ public class JsonEscaperTest {
 	
 	@Test
 	public void testEscapeBackslash() throws IOException {
-		final JsonEscaper escaper = new JsonEscaper();
+		final JsonEscaper escaper = JsonEscaper.getInstance();
 		final StringBuilder builder = new StringBuilder();
 		escaper.escape('\\', builder);
 		Assert.assertEquals("\\\\", builder.toString());
@@ -24,7 +24,7 @@ public class JsonEscaperTest {
 	
 	@Test
 	public void testEscapeDoubleQuote() throws IOException {
-		final JsonEscaper escaper = new JsonEscaper();
+		final JsonEscaper escaper = JsonEscaper.getInstance();
 		final StringBuilder builder = new StringBuilder();
 		escaper.escape('"', builder);
 		Assert.assertEquals("\\\"", builder.toString());
@@ -32,7 +32,7 @@ public class JsonEscaperTest {
 	
 	@Test
 	public void testEscapeControlCodes() throws IOException {
-		final JsonEscaper escaper = new JsonEscaper();
+		final JsonEscaper escaper = JsonEscaper.getInstance();
 		final StringBuilder builder = new StringBuilder();
 		for (char i = 0; i < 32; i++) {
 			escaper.escape(i, builder);
@@ -42,7 +42,7 @@ public class JsonEscaperTest {
 	
 	@Test
 	public void testUnescapedCharacters() throws IOException {
-		final JsonEscaper escaper = new JsonEscaper();
+		final JsonEscaper escaper = JsonEscaper.getInstance();
 		final StringBuilder builder = new StringBuilder();
 		escaper.escape('A', builder);
 		escaper.escape(' ', builder); // U+0020 first non-control character

@@ -6,7 +6,6 @@ package io.codecastle.scriptorium.json;
 
 import java.io.IOException;
 import io.codecastle.scriptorium.FluentNode;
-import io.codecastle.scriptorium.json.scribe.JsonScribe;
 
 /**
  * Represents a JSON object currently being output within a parent context, typically a
@@ -17,14 +16,7 @@ import io.codecastle.scriptorium.json.scribe.JsonScribe;
  * @see JsonArray#object()
  * @see JsonKey#object()
  */
-public final class JsonObjectNode<P> extends CloseableJsonObject<JsonObjectNode<P>> implements FluentNode<P> {
-
-	private final P parent;
-	
-	public JsonObjectNode(final JsonScribe scribe, final P parent) {
-		super(scribe);
-		this.parent = parent;
-	}
+public interface JsonObjectNode<P> extends CloseableJsonObject<JsonObjectNode<P>>, FluentNode<P> {
 	
 	/**
 	 * Closes this JSON object and any nested arrays, objects, or values that remain open and returns
@@ -37,9 +29,6 @@ public final class JsonObjectNode<P> extends CloseableJsonObject<JsonObjectNode<
 	 * @see JsonKey#object()
 	 */
 	@Override
-	public P then() throws IOException {
-		close();
-		return parent;
-	}
+	P then() throws IOException;
 	
 }

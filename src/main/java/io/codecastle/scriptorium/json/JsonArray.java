@@ -36,7 +36,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * {@link Appendable}
 	 */
-	public THIS withNull() throws IOException;
+	THIS withNull() throws IOException;
 	
 	/**
 	 * Appends a {@code true} literal element to the array and returns this object.
@@ -47,7 +47,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #with(boolean)
 	 * @see #with(Boolean)
 	 */
-	public THIS withTrue() throws IOException;
+	THIS withTrue() throws IOException;
 	
 	/**
 	 * Appends a {@code false} literal element to the array and returns this object.
@@ -58,7 +58,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #with(boolean)
 	 * @see #with(Boolean)
 	 */
-	public THIS withFalse() throws IOException;
+	THIS withFalse() throws IOException;
 	
 	/**
 	 * Appends a string literal element to the array and returns this object.
@@ -77,7 +77,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #element(CharSequence)
 	 * @see #element()
 	 */
-	public THIS with(CharSequence element) throws IOException;
+	THIS with(CharSequence element) throws IOException;
 	
 	/**
 	 * Appends a single-character string literal element to the array and returns this
@@ -94,7 +94,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #element(char)
 	 * @see #element()
 	 */
-	public THIS with(char element) throws IOException;
+	THIS with(char element) throws IOException;
 	
 	/**
 	 * Appends a single-character string literal element to the array and
@@ -115,7 +115,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #element(char)
 	 * @see #element()
 	 */
-	public default THIS with(final Character element) throws IOException {
+	default THIS with(final Character element) throws IOException {
 		if (element == null) return withNull();
 		return with((char) element);
 	}
@@ -132,7 +132,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #withNull()
 	 */
-	public THIS with(BigInteger element) throws IOException;
+	THIS with(BigInteger element) throws IOException;
 	
 	/**
 	 * Appends a numeric literal element to the array and returns
@@ -146,7 +146,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #withNull()
 	 */
-	public THIS with(BigDecimal element) throws IOException;
+	THIS with(BigDecimal element) throws IOException;
 	
 	/**
 	 * Appends a numeric literal element to the array and returns
@@ -161,7 +161,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withNull()
 	 * @see #with(int)
 	 */
-	public default THIS with(final Byte element) throws IOException {
+	default THIS with(final Byte element) throws IOException {
 		if (element == null) return withNull();
 		return with((int) element);
 	}
@@ -179,7 +179,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withNull()
 	 * @see #with(int)
 	 */
-	public default THIS with(final Short element) throws IOException {
+	default THIS with(final Short element) throws IOException {
 		if (element == null) return withNull();
 		return with((int) element);
 	}
@@ -192,7 +192,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(Integer)
 	 */
-	public THIS with(int element) throws IOException;
+	THIS with(int element) throws IOException;
 	
 	/**
 	 * Appends a numeric literal element to the array and returns
@@ -207,7 +207,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withNull()
 	 * @see #with(int)
 	 */
-	public default THIS with(final Integer element) throws IOException {
+	default THIS with(final Integer element) throws IOException {
 		if (element == null) return withNull();
 		return with((int) element);
 	}
@@ -223,7 +223,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(Float)
 	 */
-	public THIS with(float element) throws IOException;
+	THIS with(float element) throws IOException;
 	
 	/**
 	 * Appends a numeric literal element to the array and returns
@@ -238,7 +238,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withNull()
 	 * @see #with(float)
 	 */
-	public default THIS with(final Float element) throws IOException {
+	default THIS with(final Float element) throws IOException {
 		if (element == null) return withNull();
 		return with((float) element);
 	}
@@ -251,7 +251,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(Long)
 	 */
-	public THIS with(long element) throws IOException;
+	THIS with(long element) throws IOException;
 	
 	/**
 	 * Appends a numeric literal element to the array and returns
@@ -266,7 +266,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withNull()
 	 * @see #with(long)
 	 */
-	public default THIS with(final Long element) throws IOException {
+	default THIS with(final Long element) throws IOException {
 		if (element == null) return withNull();
 		return with((long) element);
 	}
@@ -282,7 +282,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #with(Double)
 	 */
-	public THIS with(double element) throws IOException;
+	THIS with(double element) throws IOException;
 	
 	/**
 	 * Appends a numeric literal element to the array and returns
@@ -297,7 +297,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withNull()
 	 * @see #with(double)
 	 */
-	public default THIS with(final Double element) throws IOException {
+	default THIS with(final Double element) throws IOException {
 		if (element == null) return withNull();
 		return with((double) element);
 	}
@@ -312,7 +312,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withTrue()
 	 * @see #withFalse()
 	 */
-	public THIS with(boolean element) throws IOException;
+	THIS with(boolean element) throws IOException;
 	
 	/**
 	 * Appends a Boolean literal element to the array and returns this object.
@@ -328,7 +328,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #withTrue()
 	 * @see #withFalse() 
 	 */
-	public default THIS with(final Boolean element) throws IOException {
+	default THIS with(final Boolean element) throws IOException {
 		if (element == null) return withNull();
 		return with((boolean) element);
 	}
@@ -364,7 +364,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * provided
 	 * @see #withAll(Iterable)
 	 */
-	public THIS withAll(Object... elements) throws IOException;
+	THIS withAll(Object... elements) throws IOException;
 	
 	/**
 	 * Appends the provided elements to the array and returns this object.
@@ -397,7 +397,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * provided
 	 * @see #withAll(Object...) 
 	 */
-	public THIS withAll(Iterable<?> elements) throws IOException;
+	THIS withAll(Iterable<?> elements) throws IOException;
 	
 	/**
 	 * Appends an empty JSON array as an element of this array and returns this object.
@@ -405,7 +405,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public THIS withEmptyArray() throws IOException;
+	THIS withEmptyArray() throws IOException;
 	
 	/**
 	 * Appends an empty JSON object as an element of this array and returns this object.
@@ -413,7 +413,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @return this object
 	 * @throws IOException if an I/O error occurs
 	 */
-	public THIS withEmptyObject() throws IOException;
+	THIS withEmptyObject() throws IOException;
 	
 	/**
 	 * Begins a new string literal element of this array and returns a {@link JsonValue}
@@ -440,7 +440,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #with(Character)
 	 * @see #with(char)
 	 */
-	public JsonValue<THIS> element() throws IOException;
+	JsonValue<THIS> element() throws IOException;
 	
 	/**
 	 * Begins a new string literal element of this array beginning with the provided
@@ -472,7 +472,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #element(char)
 	 * @see #with(CharSequence)
 	 */
-	public JsonValue<THIS> element(CharSequence element) throws IOException;
+	JsonValue<THIS> element(CharSequence element) throws IOException;
 	
 	/**
 	 * Begins a new string literal element of this array beginning with the provided
@@ -501,7 +501,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #element(Character)
 	 * @see #with(char)
 	 */
-	public JsonValue<THIS> element(char element) throws IOException;
+	JsonValue<THIS> element(char element) throws IOException;
 	
 	/**
 	 * Begins a new string literal element of this array beginning with the provided
@@ -533,7 +533,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @see #element(char)
 	 * @see #with(char)
 	 */
-	public default JsonValue<THIS> element(final Character element) throws IOException {
+	default JsonValue<THIS> element(final Character element) throws IOException {
 		if (element == null) return element();
 		return element((char) element);
 	}
@@ -558,7 +558,7 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #withEmptyArray()
 	 */
-	public JsonArrayNode<THIS> array() throws IOException;
+	JsonArrayNode<THIS> array() throws IOException;
 	
 	/**
 	 * Begins a new JSON object element of this array and returns a {@link JsonObjectNode}
@@ -580,6 +580,6 @@ public interface JsonArray<THIS extends JsonArray<THIS>> extends Inscribable<Jso
 	 * @throws IOException if an I/O error occurs
 	 * @see #withEmptyObject()
 	 */
-	public JsonObjectNode<THIS> object() throws IOException;
+	JsonObjectNode<THIS> object() throws IOException;
 	
 }

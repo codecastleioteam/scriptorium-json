@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Deque;
-import java.util.LinkedList;
 import io.codecastle.scriptorium.FluentNode;
+import java.util.ArrayDeque;
 
 /**
  * A {@link JsonScribe} that produces invalid or unexpected output and throws
@@ -27,7 +27,7 @@ public final class FastJsonScribe implements JsonScribe {
 	}
 	
 	private final JsonAppender appender;
-	private final Deque<State> state = new LinkedList<>();
+	private final Deque<State> state = new ArrayDeque<>();
 	
 	private boolean comma;
 	
