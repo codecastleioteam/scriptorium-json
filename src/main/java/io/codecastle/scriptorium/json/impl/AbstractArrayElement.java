@@ -48,6 +48,7 @@ abstract class AbstractArrayElement<THIS extends JsonArray<THIS>> extends Abstra
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS with(final CharSequence element) throws IOException {
+		if (element == null) return withNull();
 		host.scribe.value(element);
 		return (THIS) this;
 	}
@@ -62,6 +63,7 @@ abstract class AbstractArrayElement<THIS extends JsonArray<THIS>> extends Abstra
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS with(final BigInteger element) throws IOException {
+		if (element == null) return withNull();
 		host.scribe.value(element);
 		return (THIS) this;
 	}
@@ -69,6 +71,7 @@ abstract class AbstractArrayElement<THIS extends JsonArray<THIS>> extends Abstra
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS with(final BigDecimal element) throws IOException {
+		if (element == null) return withNull();
 		host.scribe.value(element);
 		return (THIS) this;
 	}
@@ -111,8 +114,10 @@ abstract class AbstractArrayElement<THIS extends JsonArray<THIS>> extends Abstra
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS withAll(final Object... elements) throws IOException {
-		for (Object element : elements) {
-			host.scribe.value(element);
+		if (elements != null) {
+			for (Object element : elements) {
+				host.scribe.value(element);
+			}
 		}
 		return (THIS) this;
 	}
@@ -120,8 +125,10 @@ abstract class AbstractArrayElement<THIS extends JsonArray<THIS>> extends Abstra
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS withAll(final Iterable<?> elements) throws IOException {
-		for (Object element : elements) {
-			host.scribe.value(element);
+		if (elements != null) {
+			for (Object element : elements) {
+				host.scribe.value(element);
+			}
 		}
 		return (THIS) this;
 	}
@@ -152,7 +159,8 @@ abstract class AbstractArrayElement<THIS extends JsonArray<THIS>> extends Abstra
 	@SuppressWarnings("unchecked")
 	public JsonValue<THIS> element(final CharSequence element) throws IOException {
 		host.stack.push(this);
-		host.scribe.pushValue().append(element);
+		host.scribe.pushValue();
+		if (element != null) host.scribe.append(element);
 		return (JsonValue<THIS>) (Object) host.jsonValueElement;
 	}
 

@@ -72,6 +72,7 @@ final class JsonKeyElement extends AbstractAppendableElement<JsonKey<Object>> im
 
 	@Override
 	public Object then(final CharSequence value) throws IOException {
+		if (value == null) return thenNull();
 		host.scribe.pop().value(value);
 		return host.stack.pop();
 	}
@@ -83,31 +84,15 @@ final class JsonKeyElement extends AbstractAppendableElement<JsonKey<Object>> im
 	}
 
 	@Override
-	public Object then(final Character value) throws IOException {
-		host.scribe.pop().value(value);
-		return host.stack.pop();
-	}
-
-	@Override
 	public Object then(final BigInteger value) throws IOException {
+		if (value == null) return thenNull();
 		host.scribe.pop().value(value);
 		return host.stack.pop();
 	}
 
 	@Override
 	public Object then(final BigDecimal value) throws IOException {
-		host.scribe.pop().value(value);
-		return host.stack.pop();
-	}
-
-	@Override
-	public Object then(final Byte value) throws IOException {
-		host.scribe.pop().value(value);
-		return host.stack.pop();
-	}
-
-	@Override
-	public Object then(final Short value) throws IOException {
+		if (value == null) return thenNull();
 		host.scribe.pop().value(value);
 		return host.stack.pop();
 	}

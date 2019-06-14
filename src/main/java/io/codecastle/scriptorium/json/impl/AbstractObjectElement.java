@@ -47,6 +47,7 @@ abstract class AbstractObjectElement<THIS extends JsonObject<THIS>> extends Abst
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS with(final CharSequence key, final CharSequence value) throws IOException {
+		if (value == null) return withNull(key);
 		host.scribe.key(key).value(value);
 		return (THIS) this;
 	}
@@ -61,6 +62,7 @@ abstract class AbstractObjectElement<THIS extends JsonObject<THIS>> extends Abst
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS with(final CharSequence key, final BigInteger value) throws IOException {
+		if (value == null) return withNull(key);
 		host.scribe.key(key).value(value);
 		return (THIS) this;
 	}
@@ -68,6 +70,7 @@ abstract class AbstractObjectElement<THIS extends JsonObject<THIS>> extends Abst
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS with(final CharSequence key, final BigDecimal value) throws IOException {
+		if (value == null) return withNull(key);
 		host.scribe.key(key).value(value);
 		return (THIS) this;
 	}
@@ -110,7 +113,7 @@ abstract class AbstractObjectElement<THIS extends JsonObject<THIS>> extends Abst
 	@Override
 	@SuppressWarnings("unchecked")
 	public THIS withIfPresent(final CharSequence key, final Optional<?> optional) throws IOException {
-		if (optional.isPresent()) {
+		if (optional != null && optional.isPresent()) {
 			host.scribe.key(key).value(optional.get());
 		}
 		return (THIS) this;
@@ -147,7 +150,8 @@ abstract class AbstractObjectElement<THIS extends JsonObject<THIS>> extends Abst
 	@Override
 	@SuppressWarnings("unchecked")
 	public JsonKey<THIS> key(final CharSequence key) throws IOException {
-		host.scribe.pushKey().append(key);
+		host.scribe.pushKey();
+		if (key != null) host.scribe.append(key);
 		return (JsonKey<THIS>) (Object) host.jsonKeyElement;
 	}
 

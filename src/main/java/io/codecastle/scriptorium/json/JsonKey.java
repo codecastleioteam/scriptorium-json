@@ -227,7 +227,10 @@ public interface JsonKey<P> extends JsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	P then(final Character value) throws IOException;
+	default P then(final Character value) throws IOException {
+		if (value == null) return thenNull();
+		return then((char) value);
+	}
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -269,7 +272,10 @@ public interface JsonKey<P> extends JsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	P then(final Byte value) throws IOException;
+	default P then(final Byte value) throws IOException {
+		if (value == null) return thenNull();
+		return then((int) value);
+	}
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
@@ -283,7 +289,10 @@ public interface JsonKey<P> extends JsonAppendable<JsonKey<P>> {
 	 * @return the containing {@link JsonObject}
 	 * @throws IOException if an I/O error occurs
 	 */
-	P then(final Short value) throws IOException;
+	default P then(final Short value) throws IOException {
+		if (value == null) return thenNull();
+		return then((int) value);
+	}
 	
 	/**
 	 * Assigns this key a numeric literal value and returns the containing
