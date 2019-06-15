@@ -75,7 +75,7 @@ Json.array(System.out)
 ```
 
 ## Resources
-- [API Docs](https://scriptorium.codecastle.io/apidocs/scriptorium-json/1.0)
+- [API Docs](https://scriptorium.codecastle.io/apidocs/scriptorium-json/2.0)
 - User Guide (coming soon)
 
 
