@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import io.codecastle.scriptorium.FluentNode;
+import io.codecastle.scriptorium.Inscription;
 
 /**
  * A stack-based API to producing valid JSON output.
@@ -554,6 +555,6 @@ public interface JsonScribe extends FluentAppendable<JsonScribe>, Closeable {
 	 *
 	 * @param inscription the inscription node to register to be closed
 	 */
-	JsonScribe pushInscription(FluentNode<?> inscription);
+	JsonScribe pushInscription(Inscription<?> inscription);
 	
 }

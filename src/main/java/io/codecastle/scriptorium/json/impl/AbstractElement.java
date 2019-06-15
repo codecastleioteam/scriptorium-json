@@ -4,8 +4,8 @@
  */
 package io.codecastle.scriptorium.json.impl;
 
-import io.codecastle.scriptorium.FluentNode;
 import io.codecastle.scriptorium.Inscribable;
+import io.codecastle.scriptorium.Inscription;
 import io.codecastle.scriptorium.function.IOFunction;
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ abstract class AbstractElement<I, THIS extends Inscribable<I, THIS>> implements 
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends FluentNode<THIS>> T inscribe(IOFunction<? super THIS, T> function) throws IOException {
+	public <T extends Inscription<THIS>> T inscribe(IOFunction<? super THIS, T> function) throws IOException {
 		final T inscription = function.apply((THIS) this);
 		host.scribe.pushInscription(inscription);
 		return inscription;

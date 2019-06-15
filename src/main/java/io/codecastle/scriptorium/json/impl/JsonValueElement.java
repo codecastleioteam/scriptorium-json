@@ -23,9 +23,4 @@ final class JsonValueElement extends AbstractAppendableElement<JsonValue<Object>
 		return host.stack.pop();
 	}
 
-	@Override
-	public void close() throws IOException {
-		host.close();
-	}
-
 }

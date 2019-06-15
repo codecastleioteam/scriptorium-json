@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Deque;
 import io.codecastle.scriptorium.FluentNode;
+import io.codecastle.scriptorium.Inscription;
 import java.util.ArrayDeque;
 
 /**
@@ -314,10 +315,10 @@ public final class SafeJsonScribe implements JsonScribe {
 		return this;
 	}
 	
-	private FluentNode<?> inscription;
+	private Inscription<?> inscription;
 	
 	@Override
-	public JsonScribe pushInscription(final FluentNode<?> inscription) {
+	public JsonScribe pushInscription(final Inscription<?> inscription) {
 		if (this.inscription != null && this.inscription != inscription) {
 			throw new IllegalStateException("Already inscribed");
 		}

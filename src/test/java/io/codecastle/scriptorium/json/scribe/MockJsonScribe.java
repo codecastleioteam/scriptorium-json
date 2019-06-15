@@ -7,7 +7,7 @@ package io.codecastle.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import io.codecastle.scriptorium.FluentNode;
+import io.codecastle.scriptorium.Inscription;
 
 /**
  *
@@ -159,7 +159,7 @@ public class MockJsonScribe implements JsonScribe {
 	}
 
 	@Override
-	public JsonScribe pushInscription(FluentNode<?> inscription) {
+	public JsonScribe pushInscription(Inscription<?> inscription) {
 		return this;
 	}
 	

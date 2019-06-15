@@ -5,9 +5,9 @@
 package io.codecastle.scriptorium.json.impl;
 
 import io.codecastle.scriptorium.json.JsonArrayDocument;
-import io.codecastle.scriptorium.json.JsonArrayNode;
+import io.codecastle.scriptorium.json.JsonArrayInscription;
 import io.codecastle.scriptorium.json.JsonObjectDocument;
-import io.codecastle.scriptorium.json.JsonObjectNode;
+import io.codecastle.scriptorium.json.JsonObjectInscription;
 import io.codecastle.scriptorium.json.scribe.JsonScribe;
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -37,19 +37,19 @@ public class JsonFactory {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static <T> JsonObjectNode<T> inscribeObject(final JsonScribe scribe, final T inscribed) throws IOException {
+	public static <T> JsonObjectInscription<T> inscribeObject(final JsonScribe scribe, final T inscribed) throws IOException {
 		final Host host = INSTANCE.getHost();
 		host.scribe = scribe.pushObject();
 		host.stack.push(inscribed);
-		return (JsonObjectNode<T>) (Object) host.jsonObjectNodeElement;
+		return (JsonObjectInscription<T>) (Object) host.jsonObjectInscriptionElement;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static <T> JsonArrayNode<T> inscribeArray(final JsonScribe scribe, final T inscribed) throws IOException {
+	public static <T> JsonArrayInscription<T> inscribeArray(final JsonScribe scribe, final T inscribed) throws IOException {
 		final Host host = INSTANCE.getHost();
 		host.scribe = scribe.pushArray();
 		host.stack.push(inscribed);
-		return (JsonArrayNode<T>) (Object) host.jsonArrayNodeElement;
+		return (JsonArrayInscription<T>) (Object) host.jsonArrayInscriptionElement;
 	}
 	
 	private final Queue<Host> hosts = new ConcurrentLinkedQueue<>();
@@ -58,16 +58,20 @@ public class JsonFactory {
 	private JsonFactory() {}
 	
 	private Host getHost() {
-		if (hosts.isEmpty()) {
+		Host host = hosts.poll();
+		if (host == null) {
 			return new Host();
 		}
-		return hosts.remove();
+		poolSize--;
+		return host;
 	}
 	
 	private void releaseHost(final Host host) {
 		if (poolSize < MAX_POOL_SIZE) {
 			host.scribe = null;
+			host.stack.clear();
 			hosts.add(host);
+			poolSize++;
 		}
 	}
 
@@ -87,12 +91,13 @@ public class JsonFactory {
 		final JsonArrayNodeElement jsonArrayNodeElement = new JsonArrayNodeElement(this);
 		final JsonObjectDocumentElement jsonObjectDocumentElement = new JsonObjectDocumentElement(this);
 		final JsonArrayDocumentElement jsonArrayDocumentElement = new JsonArrayDocumentElement(this);
+		final JsonObjectInscriptionElement jsonObjectInscriptionElement = new JsonObjectInscriptionElement(this);
+		final JsonArrayInscriptionElement jsonArrayInscriptionElement = new JsonArrayInscriptionElement(this);
 		
 		JsonScribe scribe;
 
 		void close() throws IOException {
 			scribe.close();
-			stack.clear();
 			releaseHost(this);
 		}
 		

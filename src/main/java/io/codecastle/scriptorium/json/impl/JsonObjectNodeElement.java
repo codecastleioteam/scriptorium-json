@@ -22,10 +22,5 @@ final class JsonObjectNodeElement extends AbstractObjectElement<JsonObjectNode<O
 		host.scribe.pop();
 		return host.stack.pop();
 	}
-
-	@Override
-	public void close() throws IOException {
-		host.close();
-	}
 	
 }

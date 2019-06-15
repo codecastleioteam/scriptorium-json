@@ -31,7 +31,7 @@ public class JsonInscription {
 	 * @see io.codecastle.scriptorium.function.IOFunction
 	 * @see io.codecastle.scriptorium.Inscribable#inscribe(io.codecastle.scriptorium.function.IOFunction)
 	 */
-	public static <T extends Appendable> JsonObjectNode<T> object(final T inscribed) throws IOException {
+	public static <T extends Appendable> JsonObjectInscription<T> object(final T inscribed) throws IOException {
 		return JsonFactory.inscribeObject(new FastJsonScribe(new JsonAppender(inscribed, JsonEscaper.getInstance())), inscribed);
 	}
 	
@@ -49,7 +49,7 @@ public class JsonInscription {
 	 * @see io.codecastle.scriptorium.function.IOFunction
 	 * @see io.codecastle.scriptorium.Inscribable#inscribe(io.codecastle.scriptorium.function.IOFunction)
 	 */
-	public static <T extends Appendable> JsonArrayNode<T> array(final T inscribed) throws IOException {
+	public static <T extends Appendable> JsonArrayInscription<T> array(final T inscribed) throws IOException {
 		return JsonFactory.inscribeArray(new FastJsonScribe(new JsonAppender(inscribed, JsonEscaper.getInstance())), inscribed);
 	}
 	

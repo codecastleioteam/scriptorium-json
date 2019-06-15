@@ -7,7 +7,7 @@ package io.codecastle.scriptorium.json.scribe;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import io.codecastle.scriptorium.FluentNode;
+import io.codecastle.scriptorium.Inscription;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -607,7 +607,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender);
 		scribe.pushArray();
 		Mockito.clearInvocations(appender);
-		final FluentNode<Void> inscription = Mockito.mock(FluentNode.class);
+		final Inscription<Void> inscription = Mockito.mock(Inscription.class);
 		final JsonScribe result = scribe.pushInscription(inscription);
 		Assert.assertEquals(scribe, result);
 		Mockito.verifyZeroInteractions(appender);
@@ -626,7 +626,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender);
 		scribe.pushArray();
 		Mockito.clearInvocations(appender);
-		final FluentNode<Void> inscription = Mockito.mock(FluentNode.class);
+		final Inscription<Void> inscription = Mockito.mock(Inscription.class);
 		final JsonScribe result = scribe.pushInscription(inscription);
 		Assert.assertEquals(scribe, result);
 		scribe.pushInscription(inscription);
@@ -646,7 +646,7 @@ public abstract class AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender);
 		scribe.pushArray();
 		Mockito.clearInvocations(appender);
-		final FluentNode<Void> inscriptionA = Mockito.mock(FluentNode.class);
+		final Inscription<Void> inscriptionA = Mockito.mock(Inscription.class);
 		final JsonScribe resultA = scribe.pushInscription(inscriptionA);
 		Assert.assertEquals(scribe, resultA);
 		scribe.pushInscription(inscriptionA);
@@ -660,7 +660,7 @@ public abstract class AbstractJsonScribeTest {
 		Mockito.verifyNoMoreInteractions(inscriptionA);
 		scribe.pushArray();
 		Mockito.clearInvocations(appender);
-		final FluentNode<Void> inscriptionB = Mockito.mock(FluentNode.class);
+		final Inscription<Void> inscriptionB = Mockito.mock(Inscription.class);
 		final JsonScribe resultB = scribe.pushInscription(inscriptionB);
 		Assert.assertEquals(scribe, resultB);
 		scribe.pushInscription(inscriptionB);

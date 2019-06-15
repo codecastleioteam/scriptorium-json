@@ -6,12 +6,9 @@ Fluent Java API for writing JSON output
 <dependency>
     <groupId>io.codecastle.scriptorium</groupId>
     <artifactId>scriptorium-json</artifactId>
-    <version>1.0.1</version>
+    <version>2.0.0</version>
 </dependency>
 ```
-
-As of version 1.0.1, this library provides an Automatic-Module-Name for forward compatibility 
-with the Java 9+ module system: `io.codecastle.scriptorium.json`
 
 ### When to use JSON Scriptorium
 JSON Scriptorium provides an intuitive, fluent API to writing JSON output directly to your underlying [Appendable](https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html), making it incredibly flexible, even for output whose keys or structure is determined at runtime. This approach also gives it a small memory footprint, even for very large output.
@@ -23,7 +20,7 @@ Use JSON Scriptorium when:
 - You need to produce JSON output for data that can't or won't all be in memory at the same time
 
 ## Basic usage
-The [Json](https://scriptorium.codecastle.io/apidocs/scriptorium-json/1.0/io/codecastle/scriptorium/json/Json.html) class
+The [Json](https://scriptorium.codecastle.io/apidocs/scriptorium-json/2.0/io/codecastle/scriptorium/json/Json.html) class
 provides static factory methods for accessing JSON Scriptorium's fluent API:
 
 Example:
@@ -64,7 +61,7 @@ Java's compile-time type checks will prevent you from producing invalid output. 
 features to help you "stay fluent":
 - Methods accept a wide variety of input types, including both boxed and unboxed primitives
 - Methods accept a wide variety of input values, with predictable, non-exceptional behavior on null arguments (see
-[API docs](https://scriptorium.codecastle.io/apidocs/scriptorium-json/1.0) for details)
+[API docs](https://scriptorium.codecastle.io/apidocs/scriptorium-json/2.0) for details)
 - Inversion of flow control methods allow you to check conditions and iterate without if blocks or loops
 
 Inversion of flow control example:
@@ -80,4 +77,50 @@ Json.array(System.out)
 ## Resources
 - [API Docs](https://scriptorium.codecastle.io/apidocs/scriptorium-json/1.0)
 - User Guide (coming soon)
+
+
+## Change log
+
+### 2.0.0
+
+This version contains many changes that were driven by a goal to reduce the amount of
+garbage produced by the library and to reduce its overall memory footprint. This has involved
+some subtle changes to the API and its usage.
+
+Most intermediate fluent interfaces no longer implement `Closeable`, and the semantics of
+`then()` have change.
+
+Perhaps unsurprisingly, version 2.0.0 is **not binary compatible** with previous versions of this
+library. In many cases, user code written against previous versions of this library will
+still compile and exhibit identical behavior.
+
+In general, if your existing code does not assign intermediate fluent 
+return values to variables (which is not a recommended practice), then your code should
+continue to behave as it did with previous versions of this library.
+
+- Now packaged as a multi-release `jar` with a proper `module-info.class` for Java versions
+above 8.
+
+- The following interfaces no longer extend `Closeable` and no longer have a `close()` method:
+  - `FluentNode` (changed in core)
+  - `JsonArrayNode`
+  - `JsonObjectNode`
+  - `JsonValue`
+
+- Non-public classes and non-public members of public classes have been removed or renamed
+
+- Public classes have become interfaces:
+  - `JsonArrayDocument`
+  - `JsonArrayNode`
+  - `JsonKey`
+  - `JsonObjectDocument`
+  - `JsonObjectNode`
+  - `JsonValue`
+
+- Return types of `JsonInscription` methods have changed for compatibility with inscription
+changes in core.
+
+### 1.0.1
+Provide an Automatic-Module-Name for forward compatibility 
+with the Java 9+ module system: `io.codecastle.scriptorium.json`
 

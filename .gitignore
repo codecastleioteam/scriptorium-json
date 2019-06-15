@@ -8,3 +8,8 @@ target
 licenseheader.txt
 nb-configuration.xml
 nbactions.xml
+
+#eclipse
+.classpath
+.project
+.settings

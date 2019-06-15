@@ -6,8 +6,8 @@ package io.codecastle.scriptorium.json;
 
 import java.io.IOException;
 import io.codecastle.scriptorium.FluentAppendable;
-import io.codecastle.scriptorium.FluentNode;
 import io.codecastle.scriptorium.Inscribable;
+import io.codecastle.scriptorium.Inscription;
 import io.codecastle.scriptorium.function.IOBiConsumer;
 import io.codecastle.scriptorium.function.IOConsumer;
 import io.codecastle.scriptorium.function.IOFunction;
@@ -53,7 +53,7 @@ public class MockInscribableAppendable implements FluentAppendable<MockInscribab
 	}
 
 	@Override
-	public <T extends FluentNode<MockInscribableAppendable>> T inscribe(IOFunction<? super MockInscribableAppendable, T> function) throws IOException {
+	public <T extends Inscription<MockInscribableAppendable>> T inscribe(IOFunction<? super MockInscribableAppendable, T> function) throws IOException {
 		return function.apply(this);
 	}
 	

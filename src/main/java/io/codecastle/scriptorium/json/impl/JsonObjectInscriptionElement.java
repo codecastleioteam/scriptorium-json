@@ -4,7 +4,7 @@
  */
 package io.codecastle.scriptorium.json.impl;
 
-import io.codecastle.scriptorium.json.JsonObject;
+import io.codecastle.scriptorium.json.JsonObjectInscription;
 import io.codecastle.scriptorium.json.JsonObjectNode;
 import java.io.IOException;
 
@@ -12,9 +12,9 @@ import java.io.IOException;
  *
  * @author Doug Valenta
  */
-final class JsonObjectInscription extends AbstractObjectElement<JsonObjectNode<Object>> implements JsonObjectNode<Object> {
+final class JsonObjectInscriptionElement extends AbstractObjectElement<JsonObjectNode<Object>> implements JsonObjectInscription<Object> {
 
-	JsonObjectInscription(JsonFactory.Host host) {
+	JsonObjectInscriptionElement(JsonFactory.Host host) {
 		super(host);
 	}
 

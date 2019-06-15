@@ -31,16 +31,4 @@ public interface JsonValue<P> extends JsonAppendable<JsonValue<P>>, FluentNode<P
 	@Override
 	P then() throws IOException;
 	
-	/**
-	 * Closes this JSON string literal.
-	 * 
-	 * <p>
-	 * Subsequent calls to this method after the first on the same object have no
-	 * effect.
-	 * 
-	 * @throws IOException if an I/O error occurs
-	 */
-	@Override
-	void close() throws IOException;
-	
 }

@@ -18,7 +18,7 @@ public class JsonInscriptionTest {
 	public void testObject() throws IOException {
 		final StringBuilder appendable = new StringBuilder();
 		final MockInscribableAppendable inscribable = new MockInscribableAppendable(appendable);
-		final JsonObjectNode<MockInscribableAppendable> inscription = inscribable.inscribe(JsonInscription::object);
+		final JsonObjectInscription<MockInscribableAppendable> inscription = inscribable.inscribe(JsonInscription::object);
 		Assert.assertEquals("{", appendable.toString());
 		final MockInscribableAppendable result = inscription.then();
 		Assert.assertEquals(inscribable, result);
@@ -29,7 +29,7 @@ public class JsonInscriptionTest {
 	public void testArray() throws IOException {
 		final StringBuilder appendable = new StringBuilder();
 		final MockInscribableAppendable inscribable = new MockInscribableAppendable(appendable);
-		final JsonArrayNode<MockInscribableAppendable> inscription = inscribable.inscribe(JsonInscription::array);
+		final JsonArrayInscription<MockInscribableAppendable> inscription = inscribable.inscribe(JsonInscription::array);
 		Assert.assertEquals("[", appendable.toString());
 		final MockInscribableAppendable result = inscription.then();
 		Assert.assertEquals(inscribable, result);

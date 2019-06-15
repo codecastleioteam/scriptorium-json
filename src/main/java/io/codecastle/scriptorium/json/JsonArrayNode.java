@@ -16,7 +16,7 @@ import io.codecastle.scriptorium.FluentNode;
  * @see JsonArray#array()
  * @see JsonKey#array()
  */
-public interface JsonArrayNode<P> extends CloseableJsonArray<JsonArrayNode<P>>, FluentNode<P> {
+public interface JsonArrayNode<P> extends JsonArray<JsonArrayNode<P>>, FluentNode<P> {
 	
 	/**
 	 * Closes this JSON array and any nested arrays, objects, or values that remain open and returns

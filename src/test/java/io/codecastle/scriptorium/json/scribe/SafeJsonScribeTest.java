@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import io.codecastle.scriptorium.FluentNode;
+import io.codecastle.scriptorium.Inscription;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -927,9 +928,9 @@ public class SafeJsonScribeTest extends AbstractJsonScribeTest {
 		final JsonScribe scribe = getScribe(appender);
 		scribe.pushArray();
 		Mockito.clearInvocations(appender);
-		final FluentNode<Void> inscriptionA = Mockito.mock(FluentNode.class);
+		final Inscription<Void> inscriptionA = Mockito.mock(Inscription.class);
 		final JsonScribe result = scribe.pushInscription(inscriptionA);
-		final FluentNode<Void> inscriptionB = Mockito.mock(FluentNode.class);
+		final Inscription<Void> inscriptionB = Mockito.mock(Inscription.class);
 		scribe.pushInscription(inscriptionB);
 	}
 	
