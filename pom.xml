@@ -42,7 +42,7 @@
 		<scriptorium.core.version>1.0.1</scriptorium.core.version>
 		
 		<!-- Test dependency versions -->
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<mockito.version>2.15.0</mockito.version>
 		
 		<!-- Build plugin versions -->
